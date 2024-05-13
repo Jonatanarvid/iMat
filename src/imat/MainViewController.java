@@ -1,4 +1,3 @@
-
 package imat;
 
 import java.net.URL;
@@ -14,14 +13,12 @@ public class MainViewController implements Initializable {
     @FXML
     Label pathLabel;
 
-    IMatDataHandler iMatDataHandler = IMatDataHandler.getInstance();
+    BackendController controller = new BackendController();
 
     public void initialize(URL url, ResourceBundle rb) {
 
-        String iMatDirectory = iMatDataHandler.imatDirectory();
+        String iMatDirectory = controller.getIMatDirectory();
 
         pathLabel.setText(iMatDirectory);
-
     }
-
 }
