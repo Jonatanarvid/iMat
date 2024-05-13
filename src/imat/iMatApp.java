@@ -24,7 +24,7 @@ public class iMatApp extends Application {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("imat_app.fxml")), bundle);
         
         Scene scene = new Scene(root, 1000, 700);
-        
+        stage.setMaximized(true);
         stage.setTitle(bundle.getString("application.name"));
         stage.setScene(scene);
         stage.show();

@@ -10,8 +10,6 @@ import se.chalmers.cse.dat216.project.IMatDataHandler;
 
 public class MainViewController implements Initializable {
 
-    @FXML
-    Label pathLabel;
 
     BackendController controller = new BackendController();
 
@@ -19,6 +17,5 @@ public class MainViewController implements Initializable {
 
         String iMatDirectory = controller.getIMatDirectory();
 
-        pathLabel.setText(iMatDirectory);
     }
 }
