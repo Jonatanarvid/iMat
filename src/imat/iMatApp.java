@@ -23,7 +23,7 @@ public class iMatApp extends Application {
         
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("imat_app.fxml")), bundle);
         
-        Scene scene = new Scene(root, 1000, 700);
+        Scene scene = new Scene(root, 1800, 1018);
         
         stage.setTitle(bundle.getString("application.name"));
         stage.setScene(scene);
@@ -37,5 +37,5 @@ public class iMatApp extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
+
 }
