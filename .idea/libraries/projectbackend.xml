@@ -2,8 +2,13 @@
   <library name="projectbackend">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/lib/projectbackend.jar!/" />
+      <root url="file://$USER_HOME$/Documents/Java/javafx-sdk-21.0.2/lib" />
     </CLASSES>
     <JAVADOC />
+    <NATIVE>
+      <root url="file://$USER_HOME$/Documents/Java/javafx-sdk-21.0.2/lib" />
+    </NATIVE>
     <SOURCES />
+    <jarDirectory url="file://$USER_HOME$/Documents/Java/javafx-sdk-21.0.2/lib" recursive="false" />
   </library>
 </component>

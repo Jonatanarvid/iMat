@@ -2,16 +2,18 @@ package imat;
 
 import se.chalmers.cse.dat216.project.ProductCategory;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 public class Search {
-    private Optional<String> textSearch;
-    private Optional<Categories> category;
-    private SortOrder sortOrder;
+    private final Optional<String> textSearch;
+    private final List<ProductCategory> categories;
+    private final SortOrder sortOrder;
 
-public Search(Optional<String> textSearch, Optional<Categories> category, SortOrder sort) {
+    public Search(Optional<String> textSearch, Optional<Categories> category, SortOrder sort) {
         this.textSearch = textSearch;
-        this.category = category;
+        this.categories = category.map(Categories::convertToListOfProductCategory).orElseGet(ArrayList::new);
         this.sortOrder = sort;
     }
 
@@ -19,8 +21,8 @@ public Search(Optional<String> textSearch, Optional<Categories> category, SortOr
         return textSearch;
     }
 
-    public Optional<Categories> getCategory() {
-        return category;
+    public List<ProductCategory> getCategory() {
+        return categories;
     }
 
     public SortOrder getSortOrder() {
