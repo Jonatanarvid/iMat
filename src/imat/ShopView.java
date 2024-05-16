@@ -1,6 +1,7 @@
 package imat;
 
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.layout.GridPane;
 import se.chalmers.cse.dat216.project.Product;
 
@@ -19,7 +20,17 @@ public class ShopView {
     }
 
     private void populateProductGrid(List<Product> products) {
-        for (Product product: products) {
+        int counter = 0;
+        int productAmount = products.size();
+        int rowCount = (int) (products.size() /3 + 0.5);
+
+        clearProductGrid();
+        for (int i = 0; i< (productAmount); i++) {
+            Product product = products.get(i);
+            int currentRow = i / 3;
+            int currentColumn = i % 3;
+
+            productGrid.add(productCard, currentRow, currentColumn);
 
         }
     }
