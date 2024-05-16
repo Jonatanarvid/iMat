@@ -2,6 +2,7 @@ package imat;
 
 import se.chalmers.cse.dat216.project.ProductCategory;
 
+import java.util.List;
 import java.util.Optional;
 
 public class Search {
@@ -19,7 +20,7 @@ public Search(Optional<String> textSearch, Optional<Categories> category, SortOr
         return textSearch;
     }
 
-    public Optional<Categories> getCategory() {
+    public Optional<List<ProductCategory>> getCategory() {
         return category;
     }
 
