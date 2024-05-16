@@ -4,8 +4,24 @@
       -fx-font-weight: bold;
   }
 
-.text-category{
+.text-rubrik{
      -fx-font-size: 45px;
-     -fx-font-weight : semi-bold;
      -fx-font-family: "Arial";
+}
+
+
+.split-pane > .split-pane-divider {
+    -fx-padding: 2;
+    -fx-background-color: red;
+}
+
+.anchor-pane {
+    -fx-border-style: solid; /* Make the border color transparent */
+    -fx-border-color: black;
+    -fx-border-width: 2 ; /* Set the border width to 0 */
+}
+
+
+.ui-accordion .ui-accordion-content {
+    padding-bottom: 0px;
 }

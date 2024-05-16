@@ -14,7 +14,7 @@ public class CategoryHandler {
             // bara skapa listor motsvarande underkategorierna, och sedan kan huvudkategorier fås genom att kombinera
             // alla listor som utgör deras underkategorier.
         }
-
+        //p
         List<Product> products = new ArrayList<Product>();
         for(int i : productIds) {
             products.add(dataHandler.getProduct(i));

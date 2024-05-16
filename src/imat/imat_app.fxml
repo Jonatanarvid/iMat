@@ -1,102 +1,109 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
 <?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TitledPane?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="1400.0" maxWidth="1800.0" minHeight="1000.0" minWidth="1800.0" prefHeight="1000.0" prefWidth="1800.0" stylesheets="@imat_app.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.MainViewController">
-   <children>
-      <AnchorPane prefHeight="150.0" prefWidth="1800.0">
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1740.0" stylesheets="@imat_app.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="154.0" prefWidth="1740.0" BorderPane.alignment="CENTER" />
+   </top>
+   <left>
+      <AnchorPane prefHeight="880.0" prefWidth="335.0" BorderPane.alignment="CENTER">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bbf4b1" height="150.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1800.0" />
-            <Rectangle fill="#2cc244" height="15.0" layoutY="135.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1800.0" />
-            <Label layoutX="7.0" layoutY="-8.0" prefHeight="165.0" prefWidth="258.0" text="iMat">
-               <font>
-                  <Font size="130.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="141.0" fitWidth="143.0" layoutX="1665.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../Documents/GUI/GUI%20iMat/konto_knapp1.png" />
-               </image>
-            </ImageView>
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutY="149.0" maxHeight="1400.0" maxWidth="1800.0" minHeight="851.0" minWidth="1800.0" prefHeight="851.0" prefWidth="1800.0" stylesheets="@imat_app.css">
-         <children>
-            <SplitPane dividerPositions="0.20050055617352613" layoutX="-2.0" layoutY="1.0" prefHeight="857.0" prefWidth="1800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <SplitPane dividerPositions="0.09740259740259741" layoutX="66.0" layoutY="277.0" orientation="VERTICAL" prefHeight="880.0" prefWidth="335.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
               <items>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="855.0" prefWidth="995.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                      <children>
-                        <Accordion layoutX="90.0" layoutY="80.0" prefHeight="855.0" prefWidth="357.0" stylesheets="@imat_app.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                          <panes>
-                            <TitledPane animated="false" text="untitled 1">
-                              <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                              </content>
-                                 <styleClass>
-                                    <String fx:value="title" />
-                                    <String fx:value="arrow-button" />
-                                 </styleClass>
-                            </TitledPane>
-                            <TitledPane animated="false" text="untitled 2">
-                              <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                              </content>
-                            </TitledPane>
-                            <TitledPane animated="false" text="untitled 3">
-                              <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                              </content>
-                            </TitledPane>
-                              <TitledPane animated="false" text="untitled 1">
-                                 <content>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                                 </content>
-                              </TitledPane>
-                              <TitledPane animated="false" text="untitled 1">
-                                 <content>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                                 </content>
-                              </TitledPane>
-                              <TitledPane animated="false" text="untitled 1">
-                                 <content>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                                 </content>
-                              </TitledPane>
-                          </panes>
-                        </Accordion>
+                        <Label layoutX="13.0" layoutY="19.0" styleClass="text-rubrik" text="Kategorier" />
                      </children>
                   </AnchorPane>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="855.0" prefWidth="1446.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                      <children>
-                        <SplitPane dividerPositions="0.6658519553072626" prefHeight="855.0" prefWidth="1434.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                          <items>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="853.0" prefWidth="855.0" />
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="853.0" prefWidth="620.0">
-                                 <children>
-                                    <ScrollPane layoutX="110.0" layoutY="123.0" prefHeight="853.0" prefWidth="475.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                      <content>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="849.0" prefWidth="462.0" />
-                                      </content>
-                                    </ScrollPane>
-                                 </children>
-                              </AnchorPane>
-                          </items>
-                        </SplitPane>
+                        <Accordion layoutX="145.0" layoutY="69.0" prefHeight="775.0" prefWidth="333.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <panes>
+                            <TitledPane animated="false" text="untitled 1">
+                                 <content>
+                                    <Accordion>
+                                      <panes>
+                                        <TitledPane animated="false" text="untitled 1">
+                                          <content>
+                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                          </content>
+                                        </TitledPane>
+                                        <TitledPane animated="false" text="untitled 2">
+                                          <content>
+                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                          </content>
+                                        </TitledPane>
+                                        <TitledPane animated="false" text="untitled 3">
+                                          <content>
+                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                          </content>
+                                        </TitledPane>
+                                      </panes>
+                                    </Accordion>
+                                 </content>
+                              </TitledPane>
+                            <TitledPane animated="false" text="untitled 2" />
+                              <TitledPane animated="false" layoutX="10.0" layoutY="36.0" text="untitled 2" />
+                              <TitledPane animated="false" layoutX="10.0" layoutY="816.0" text="untitled 2" />
+                              <TitledPane animated="false" layoutX="10.0" layoutY="88.0" text="untitled 2" />
+                          </panes>
+                        </Accordion>
                      </children>
                   </AnchorPane>
               </items>
             </SplitPane>
          </children>
       </AnchorPane>
-   </children>
-</AnchorPane>
+   </left>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <SplitPane dividerPositions="0.13636363636363635" layoutY="-1.0" orientation="VERTICAL" prefHeight="880.0" prefWidth="1018.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-1.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="1016.0">
+                     <children>
+                        <Label layoutX="12.0" layoutY="21.0" styleClass="text-rubrik" text="Visar resultat för:" />
+                        <MenuButton layoutX="762.0" layoutY="73.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="235.0" text="Sortera">
+                          <items>
+                            <MenuItem mnemonicParsing="false" text="Action 1" />
+                            <MenuItem mnemonicParsing="false" text="Action 2" />
+                          </items>
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </MenuButton>
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
+              </items>
+            </SplitPane>
+         </children>
+      </AnchorPane>
+   </center>
+   <right>
+      <AnchorPane prefHeight="880.0" prefWidth="387.0" BorderPane.alignment="CENTER">
+         <children>
+            <SplitPane dividerPositions="0.1038961038961039" layoutX="55.0" layoutY="191.0" orientation="VERTICAL" prefHeight="880.0" prefWidth="387.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="22.0" styleClass="text-rubrik" text="Varukorg" />
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
+              </items>
+            </SplitPane>
+         </children>
+      </AnchorPane>
+   </right>
+</BorderPane>
