@@ -18,9 +18,9 @@ public class BackendController {
         categories = ProductCategory.values();
     }
 
-    public List<Product> getSortedProducts(ProductCategory category) {}
+    public List<Product> getSortedProducts(ProductCategory category) {return null;}
 
-    public List<Product> getSortedProducts() {}
+    public List<Product> getSortedProducts() {return null;}
 
     public String getIMatDirectory() {
         return dataHandler.imatDirectory();

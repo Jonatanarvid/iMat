@@ -3,3 +3,9 @@
       -fx-font-family: "Arial";
       -fx-font-weight: bold;
   }
+
+.text-category{
+     -fx-font-size: 45px;
+     -fx-font-weight : semi-bold;
+     -fx-font-family: "Arial";
+}
