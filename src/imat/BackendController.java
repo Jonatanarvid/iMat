@@ -17,8 +17,8 @@ public class BackendController {
     private List<Product> getFilteredProducts(Search search) {
         List<Product> products = new ArrayList<Product>();
 
-        if(search.getTextSearch().isPresent()) {
-            products = dataHandler.findProducts(search.getTextSearch().get());
+        if(search.getTextSearch() != null) {
+            products = dataHandler.findProducts(search.getTextSearch());
         }
         else {
             List<ProductCategory> categories = search.getCategory();
@@ -27,10 +27,7 @@ public class BackendController {
             }
             else {
                 for (ProductCategory category : categories) {
-                    List <Product> temporaryProducts = dataHandler.getProducts(category);
-                    for (Product product : temporaryProducts) {
-                        products.add(product);
-                    }
+                    products.addAll(dataHandler.getProducts(category));
                 }
             }
         }

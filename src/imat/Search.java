@@ -7,17 +7,21 @@ import java.util.List;
 import java.util.Optional;
 
 public class Search {
-    private final Optional<String> textSearch;
-    private final List<ProductCategory> categories;
+    private String textSearch = null;
+    private List<ProductCategory> categories = null;
     private final SortOrder sortOrder;
 
-    public Search(Optional<String> textSearch, Optional<Categories> category, SortOrder sort) {
+    public Search(String textSearch, SortOrder sort) {
         this.textSearch = textSearch;
-        this.categories = category.map(Categories::convertToListOfProductCategory).orElseGet(ArrayList::new);
         this.sortOrder = sort;
     }
 
-    public Optional<String> getTextSearch() {
+    public Search(Categories categories, SortOrder sort) {
+        this.categories = categories.convertToListOfProductCategory();
+        this.sortOrder = sort;
+    }
+
+    public String getTextSearch() {
         return textSearch;
     }
 
