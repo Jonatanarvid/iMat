@@ -2,6 +2,7 @@ package imat;
 
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
+import se.chalmers.cse.dat216.project.ProductCategory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,21 +15,29 @@ public class BackendController {
     }
 
     private List<Product> getFilteredProducts(Search search) {
-        List<Product> products;
+        List<Product> products = new ArrayList<Product>();
 
         if(search.getTextSearch().isPresent()) {
             products = dataHandler.findProducts(search.getTextSearch().get());
         }
-        else if (search.getCategory().isPresent()) {
-            products = CategoryHandler.getProducts(search.getCategory().get(), dataHandler);
-        }
         else {
-            products = dataHandler.getProducts();
+            List<ProductCategory> categories = search.getCategory();
+            if(search.getCategory().isEmpty()) {
+                products = dataHandler.getProducts();
+            }
+            else {
+                for (ProductCategory category : categories) {
+                    List <Product> temporaryProducts = dataHandler.getProducts(category);
+                    for (Product product : temporaryProducts) {
+                        products.add(product);
+                    }
+                }
+            }
         }
         return products;
     }
 
-    public List<Product> getSortedProducts(Search search) {
+    private List<Product> getSortedProducts(Search search) {
         List<Product> newSearch = getFilteredProducts(search);
 
         switch (search.getSortOrder()) {
@@ -46,6 +55,10 @@ public class BackendController {
             }
         }
         return newSearch;
+    }
+
+    public List<Product> getSearchResults(Search search) {
+        return getSortedProducts(search);
     }
 
     public String getIMatDirectory() {

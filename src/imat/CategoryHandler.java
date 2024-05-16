@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CategoryHandler {
-    public static List<Product> getProducts(Categories category, IMatDataHandler dataHandler) {
+    /*public static List<Product> getProducts(Categories category, IMatDataHandler dataHandler) {
         List<Integer> productIds;
         switch (category) {
             //TODO: Hantera kategorier. Varje kategori returnerar en lista med produkt-ID. vi behöver alltså egentligen
@@ -21,5 +21,5 @@ public class CategoryHandler {
         }
         return products;
     }
-
+*/
 }
