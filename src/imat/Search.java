@@ -5,25 +5,25 @@ import se.chalmers.cse.dat216.project.ProductCategory;
 import java.util.Optional;
 
 public class Search {
-    Optional<String> textSearch;
-    Optional<ProductCategory> category;
-    SortOrder sort;
+    private Optional<String> textSearch;
+    private Optional<Categories> category;
+    private SortOrder sortOrder;
 
-    public Search(Optional<String> textSearch, Optional<ProductCategory> category, SortOrder sort) {
+public Search(Optional<String> textSearch, Optional<Categories> category, SortOrder sort) {
         this.textSearch = textSearch;
         this.category = category;
-        this.sort = sort;
+        this.sortOrder = sort;
     }
 
     public Optional<String> getTextSearch() {
         return textSearch;
     }
 
-    public Optional<ProductCategory> getCategory() {
+    public Optional<Categories> getCategory() {
         return category;
     }
 
-    public SortOrder getSort() {
-        return sort;
+    public SortOrder getSortOrder() {
+        return sortOrder;
     }
 }
