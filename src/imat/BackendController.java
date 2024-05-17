@@ -25,7 +25,7 @@ public class BackendController implements ProductCardObservable, FavouriteObserv
             productCards.put(product, productCard);
         }
     }
-
+//weee
     private List<Product> getFilteredProducts(Search search) {
         List<Product> products = new ArrayList<Product>();
 
