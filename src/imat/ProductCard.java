@@ -26,8 +26,8 @@ public class ProductCard extends AnchorPane implements FavouriteObservable {
     private List<FavouriteObserver> favouriteObservers;
 
 
-    Image notFavouriteImage = new Image((getClass().getResourceAsStream("src/imat/imat/egnabilder/unfilled_star.png")));
-    Image isFavouriteImage = new Image((getClass().getResourceAsStream("src/imat/imat/egnabilder/filled_stpr.png")));
+    Image notFavouriteImage = new Image((getClass().getResourceAsStream("src/imat/recourcesimat/egnabilder/unfilled_star.png")));
+    Image isFavouriteImage = new Image((getClass().getResourceAsStream("src/imat/imat/egnabilder/filled_star.png")));
 
     public ProductCard(Product product, Image image) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("product_card.fxml"));
