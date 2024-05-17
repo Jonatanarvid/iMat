@@ -1,7 +1,6 @@
 package imat;
 
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.layout.GridPane;
 import se.chalmers.cse.dat216.project.Product;
 
