@@ -56,6 +56,7 @@ public class ProductCard extends AnchorPane implements FavouriteObservable {
         isFavourite = !isFavourite;
         if(isFavourite){
             favouriteImageVeiw.setImage(isFavouriteImage);
+
         }
         else{
             favouriteImageVeiw.setImage(notFavouriteImage);
