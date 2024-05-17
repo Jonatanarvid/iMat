@@ -15,6 +15,7 @@ import javafx.stage.Stage;
  * and open the template in the editor.
  */
 public class iMatApp extends Application {
+    private final BackendController backend = new BackendController();
     
     @Override
     public void start(Stage stage) throws Exception {
@@ -27,6 +28,7 @@ public class iMatApp extends Application {
         stage.setFullScreen(true);
         stage.setTitle(bundle.getString("application.name"));
         stage.setScene(scene);
+        //backend.start();
         stage.show();
     }
 
