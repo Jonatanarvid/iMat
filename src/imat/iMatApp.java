@@ -27,7 +27,7 @@ public class iMatApp extends Application {
         Scene scene = new Scene(root, 1800, 1000);
         stage.setTitle(bundle.getString("application.name"));
         stage.setScene(scene);
-        //backend.start();
+        backend.start();
         stage.show();
     }
 

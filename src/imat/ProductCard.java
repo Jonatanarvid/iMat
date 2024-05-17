@@ -9,8 +9,9 @@ import javafx.scene.control.Label;
 import se.chalmers.cse.dat216.project.Product;
 
 import java.io.IOException;
+import java.util.List;
 
-public class ProductCard extends AnchorPane {
+public class ProductCard extends AnchorPane implements FavouriteObservable {
     @FXML
     private ImageView productImageView;
     @FXML
@@ -22,10 +23,11 @@ public class ProductCard extends AnchorPane {
 
     private Product product;
     private boolean isFavourite;
+    private List<FavouriteObserver> favouriteObservers;
 
 
-    Image notFavouriteImage = new Image((getClass().getResourceAsStream("src/imat/imat/egnabilder/unfilled_star.png")));
-    Image isFavouriteImage = new Image((getClass().getResourceAsStream("src/imat/imat/egnabilder/filled_stpr.png")));
+    Image notFavouriteImage = new Image((getClass().getResourceAsStream("src/imat/recourcesimat/egnabilder/unfilled_star.png")));
+    Image isFavouriteImage = new Image((getClass().getResourceAsStream("src/imat/imat/egnabilder/filled_star.png")));
 
     public ProductCard(Product product, Image image) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("product_card.fxml"));
@@ -51,6 +53,7 @@ public class ProductCard extends AnchorPane {
 
     }
     public void FavouriteButtonSelected(){
+        isFavourite = !isFavourite;
         if(isFavourite){
             favouriteImageVeiw.setImage(isFavouriteImage);
 
@@ -58,7 +61,25 @@ public class ProductCard extends AnchorPane {
         else{
             favouriteImageVeiw.setImage(notFavouriteImage);
         }
+        notifyObservers();
+    }
 
+    @Override
+    public void addObserver(FavouriteObserver observer) {
+        favouriteObservers.add(observer);
+    }
 
+    @Override
+    public void removeObserver(FavouriteObserver observer) {
+        if(favouriteObservers.contains(observer)) {
+            favouriteObservers.remove(observer);
+        }
+    }
+
+    @Override
+    public void notifyObservers() {
+        for(FavouriteObserver observer : favouriteObservers) {
+            observer.update(this.product, this.isFavourite);
+        }
     }
 }
