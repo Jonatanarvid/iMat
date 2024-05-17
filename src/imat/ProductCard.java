@@ -17,7 +17,15 @@ public class ProductCard extends AnchorPane {
     private Label priceLabel;
     @FXML
     private Label nameLabel;
+    @FXML
+    private ImageView favouriteImageVeiw;
+
     private Product product;
+    private boolean isFavourite;
+
+
+    Image notFavouriteImage = new Image((getClass().getResourceAsStream("src/imat/imat/egnabilder/unfilled_star.png")));
+    Image isFavouriteImage = new Image((getClass().getResourceAsStream("src/imat/imat/egnabilder/filled_stpr.png")));
 
     public ProductCard(Product product, Image image) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("product_card.fxml"));
@@ -33,5 +41,23 @@ public class ProductCard extends AnchorPane {
         this.nameLabel.setText(product.getName());
         this.priceLabel.setText(String.valueOf(product.getPrice()));
         this.productImageView.setImage(image);
+
+
+    }
+
+    private void initialize(){
+        favouriteImageVeiw.setImage(notFavouriteImage);
+        isFavourite = false;
+
+    }
+    public void FavouriteButtonSelected(){
+        if(isFavourite){
+            favouriteImageVeiw.setImage(isFavouriteImage);
+        }
+        else{
+            favouriteImageVeiw.setImage(notFavouriteImage);
+        }
+
+
     }
 }
