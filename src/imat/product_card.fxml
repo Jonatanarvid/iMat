@@ -14,30 +14,21 @@
          <image>
             <Image url="@resources/imat/images/product_5.jpg" />
          </image></ImageView>
-        <ImageView fitHeight="56.0" fitWidth="56.0" layoutX="279.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../../../../Documents/GUI/1_prot_Gui/10944634.png" />
-            </image>
-        </ImageView>
         <Label alignment="CENTER" layoutX="12.0" layoutY="275.0" prefHeight="66.0" prefWidth="338.0" text="Kycklingklubbor">
             <font>
                 <Font name="System Bold" size="45.0" />
             </font>
         </Label>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="74.0" layoutX="17.0" layoutY="16.0" stroke="BLACK" strokeType="INSIDE" width="136.0" />
-        <Label layoutX="21.0" layoutY="20.0" prefHeight="66.0" prefWidth="130.0" text="### kr">
+      <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#ededed" height="74.0" layoutX="17.0" layoutY="16.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="105.0" />
+        <Label layoutX="21.0" layoutY="20.0" prefHeight="66.0" prefWidth="97.0" text="4.90">
             <font>
                 <Font size="45.0" />
             </font>
         </Label>
       <Rectangle arcHeight="25.0" arcWidth="25.0" fill="WHITE" height="74.0" layoutX="268.0" layoutY="18.0" stroke="BLACK" strokeType="INSIDE" width="74.0" />
-      <Button fx:id="favouriteButton" layoutX="270.0" layoutY="23.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="54.0" styleClass="transparent-button">
+      <Button fx:id="favouriteButton" layoutX="270.0" layoutY="23.0" mnemonicParsing="false" onMouseClicked="#FavouriteButtonSelected" prefHeight="62.0" prefWidth="54.0" styleClass="transparent-button">
          <graphic>
-            <ImageView fx:id="favouriteImageVeiw" fitHeight="59.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../Documents/GUI/1_prot_Gui/10944634.png" />
-               </image>
-            </ImageView>
+            <ImageView fx:id="favouriteImageVeiw" fitHeight="59.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true" />
          </graphic>
       </Button>
     </children>
