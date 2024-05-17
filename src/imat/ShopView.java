@@ -2,11 +2,10 @@ package imat;
 
 import javafx.fxml.FXML;
 import javafx.scene.layout.GridPane;
-import se.chalmers.cse.dat216.project.Product;
 
 import java.util.List;
 
-public class ShopView {
+public class ShopView implements ProductCardObserver {
     @FXML private GridPane productGrid;
 
     private void clearProductGrid() {
@@ -28,5 +27,10 @@ public class ShopView {
 
             productGrid.add(productCard, currentRow, currentColumn);
         }
+    }
+
+    @Override
+    public void update(List<ProductCard> productCards) {
+        populateProductGrid(productCards);
     }
 }
