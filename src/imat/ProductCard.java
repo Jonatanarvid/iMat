@@ -53,6 +53,7 @@ public class ProductCard extends AnchorPane {
     public void FavouriteButtonSelected(){
         if(isFavourite){
             favouriteImageVeiw.setImage(isFavouriteImage);
+
         }
         else{
             favouriteImageVeiw.setImage(notFavouriteImage);

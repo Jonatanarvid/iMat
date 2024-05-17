@@ -5,7 +5,7 @@
   }
 
 
-.text-rubrik{
+.text-header{
      -fx-font-size: 45px;
      -fx-font-family: "Arial";
 }
@@ -21,8 +21,4 @@
     -fx-border-color: transparent;
     -fx-border-width: 0 ; /* Set the border width to 0 */
 }
-
-
-.ui-accordion .ui-accordion-content {
-    padding-bottom: 0px;
-}
+s

@@ -14,9 +14,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1740.0" stylesheets="@imat_app.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1800.0" stylesheets="@imat_app.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <top>
-      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="154.0" prefWidth="1740.0" BorderPane.alignment="CENTER" />
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="135.0" prefWidth="1740.0" BorderPane.alignment="CENTER" />
    </top>
    <left>
       <AnchorPane prefHeight="880.0" prefWidth="335.0" BorderPane.alignment="CENTER">
@@ -76,7 +76,7 @@
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="1016.0">
                      <children>
                         <Label layoutX="12.0" layoutY="21.0" styleClass="text-rubrik" text="Visar resultat för:" />
-                        <MenuButton layoutX="762.0" layoutY="73.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="235.0" text="Sortera">
+                        <MenuButton layoutX="762.0" layoutY="73.0" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="235.0" text="Sortera">
                           <items>
                             <MenuItem mnemonicParsing="false" text="Action 1" />
                             <MenuItem mnemonicParsing="false" text="Action 2" />
