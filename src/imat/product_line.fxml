@@ -1,21 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.effect.ColorInput?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="117.0" prefWidth="557.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.ProductLine">
+<AnchorPane prefHeight="50.0" prefWidth="432.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.ProductLine">
    <children>
-      <ImageView fitHeight="107.0" fitWidth="111.0" layoutX="5.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-         <effect>
-            <ColorInput paint="#00ff31" />
-         </effect>
+      <Rectangle fill="WHITE" height="55.0" stroke="BLACK" strokeType="INSIDE" width="432.0" />
+      <Label contentDisplay="CENTER" layoutX="59.0" layoutY="11.0" prefHeight="35.0" prefWidth="141.0" styleClass="text-all" text="Kycklingklubbor" textAlignment="CENTER">
+         <font>
+            <Font name="System Italic" size="20.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="40.0" fitWidth="55.0" layoutX="7.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@resources/imat/images/product_3.jpg" />
+            <Image url="@resources/imat/images/product_2.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="137.0" layoutY="32.0" text="Label" />
+      <Label contentDisplay="CENTER" layoutX="345.0" layoutY="10.0" prefHeight="35.0" prefWidth="49.0" styleClass="text-all" text="4.90" textAlignment="CENTER">
+         <font>
+            <Font name="System Italic" size="20.0" />
+         </font>
+      </Label>
+      <StackPane layoutX="197.0" layoutY="6.0" prefHeight="48.0" prefWidth="133.0">
+         <children>
+            <ImageView fitHeight="35.0" fitWidth="160.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@resources/imat/egnabilder/Item-amount-spinner/Item-amount-spinner/Variant32.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="35.0" fitWidth="121.0" layoutX="23.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@resources/imat/egnabilder/Item-amount-spinner/Variant32.jpg" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" prefHeight="85.0" prefWidth="57.0" text="1" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </StackPane>
    </children>
 </AnchorPane>
