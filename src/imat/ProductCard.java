@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import se.chalmers.cse.dat216.project.Product;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductCard extends AnchorPane implements FavouriteObservable {
@@ -19,12 +20,11 @@ public class ProductCard extends AnchorPane implements FavouriteObservable {
     @FXML
     private Label nameLabel;
     @FXML
-    private ImageView favouriteImageVeiw;
+    private ImageView favouriteImageView;
 
     private Product product;
     private boolean isFavourite;
-    private List<FavouriteObserver> favouriteObservers;
-
+    private List<FavouriteObserver> favouriteObservers = new ArrayList<FavouriteObserver>();
 
     Image notFavouriteImage = new Image((getClass().getResourceAsStream("resources/imat/egnabilder/unfilled_star.png")));
     Image isFavouriteImage = new Image((getClass().getResourceAsStream("resources/imat/egnabilder/filled_star.png")));
@@ -47,18 +47,18 @@ public class ProductCard extends AnchorPane implements FavouriteObservable {
     }
 
     private void initialize(){
-        favouriteImageVeiw.setImage(notFavouriteImage);
+        favouriteImageView.setImage(notFavouriteImage);
         isFavourite = false;
 
     }
     public void FavouriteButtonSelected(){
         isFavourite = !isFavourite;
         if(isFavourite){
-            favouriteImageVeiw.setImage(isFavouriteImage);
+            favouriteImageView.setImage(isFavouriteImage);
 
         }
         else{
-            favouriteImageVeiw.setImage(notFavouriteImage);
+            favouriteImageView.setImage(notFavouriteImage);
         }
         notifyObservers();
     }
