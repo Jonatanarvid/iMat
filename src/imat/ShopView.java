@@ -41,7 +41,7 @@ public class ShopView extends ScrollPane implements ProductCardObserver {
             int currentRow = i / 3;
             int currentColumn = i % 3;
 
-            productGrid.add(productCard, currentRow, currentColumn);
+            productGrid.add(productCard, currentColumn, currentRow);
         }
     }
 
