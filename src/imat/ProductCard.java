@@ -31,6 +31,7 @@ public class ProductCard extends AnchorPane implements FavouriteObservable {
 
     public ProductCard(Product product, Image image) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("product_card.fxml"));
+        fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
         try {

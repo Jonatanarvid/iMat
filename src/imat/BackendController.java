@@ -18,14 +18,20 @@ public class BackendController implements ProductCardObservable, FavouriteObserv
         dataHandler = IMatDataHandler.getInstance();
     }
 
-    public void start() {
+    public void start(ProductCardObserver newObserver) {
         for(Product product : dataHandler.getProducts()) {
             ProductCard productCard = new ProductCard(product, dataHandler.getFXImage(product));
             productCard.addObserver(this);
             productCards.put(product, productCard);
         }
+        addObserver(newObserver);
+        newSearch(new Search("potatis", SortOrder.ALPHA));
+        List<ProductCard> cards = getCardsFromProducts();
+        for(ProductCardObserver observer : observers) {
+            observer.update(cards);
+            System.out.println("updaterad");
+        }
     }
-//weee
     private List<Product> getFilteredProducts(Search search) {
         List<Product> products = new ArrayList<Product>();
 
