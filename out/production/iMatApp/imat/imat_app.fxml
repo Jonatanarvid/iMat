@@ -20,14 +20,14 @@
 <?import javafx.scene.text.Font?>
 
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.MainViewController">
    <children>
-      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1800.0" stylesheets="@imat_app.css">
+      <BorderPane fx:id="mainBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1800.0" stylesheets="@imat_app.css">
          <top>
-            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="139.0" prefWidth="1802.0" BorderPane.alignment="CENTER">
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="124.0" prefWidth="1802.0" BorderPane.alignment="CENTER">
                <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cff2d4" height="140.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1802.0" />
-                  <StackPane layoutX="338.0" layoutY="30.0" prefHeight="82.0" prefWidth="818.0">
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cff2d4" height="126.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1802.0" />
+                  <StackPane layoutX="337.0" layoutY="23.0" prefHeight="82.0" prefWidth="818.0">
                      <children>
                         <ImageView fitHeight="147.0" fitWidth="801.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -41,7 +41,7 @@
                         </Label>
                      </children>
                   </StackPane>
-                  <Label layoutX="26.0" layoutY="23.0" prefHeight="101.0" prefWidth="189.0" text="iMat" textFill="#30b043">
+                  <Label layoutX="26.0" layoutY="11.0" prefHeight="101.0" prefWidth="189.0" text="iMat" textFill="#30b043">
                      <font>
                         <Font name="System Bold Italic" size="83.0" />
                      </font>
