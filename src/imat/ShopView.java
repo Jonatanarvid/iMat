@@ -76,14 +76,9 @@ public class ShopView extends VBox implements ProductCardObserver {
                 break;
         }
         controller.setSortOrder(sortOrder);
+        
+        controller.newSearch(new Search("", controller.getSortOrder()));
 
-
-
-        if (controller != null) {
-            controller.newSearch(new Search("", sortOrder));
-        } else {
-            System.err.println("Controller is not initialized.");
-        }
     }
 
     @Override
