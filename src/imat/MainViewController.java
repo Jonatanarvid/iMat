@@ -14,17 +14,15 @@ public class MainViewController implements Initializable {
     private IMatDataHandler dataHandler = IMatDataHandler.getInstance();
     private BackendController controller;
     private ShopView shopView = new ShopView();
-    private CategoryView categoryView = new Category
+    private CategoryView categoryView = new CategoryView();
     private ShoppingCartView shoppingCartView;
-    @FXML private VBox centerVBox;
-    @FXML private VBox rightVBox;
+    @FXML BorderPane mainBorderPane;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        centerVBox.getChildren().add(shopView);
+        mainBorderPane.setCenter(shopView);
         shoppingCartView = new ShoppingCartView(dataHandler);
-        rightVBox.getChildren().clear();
-        rightVBox.getChildren().add(shoppingCartView);
+        mainBorderPane.setRight(shoppingCartView);
         controller = new BackendController(dataHandler);
         controller.start(shopView);
 
