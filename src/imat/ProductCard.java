@@ -57,12 +57,12 @@ public class ProductCard extends AnchorPane implements FavouriteObservable, Shop
         initialize();
 
         // Apply scaling transformation to the loaded AnchorPane
-        Scale scale = new Scale();
-        scale.setX(0.85); // Scale X axis by 0.75 (make it smaller)
-        scale.setY(0.85); // Scale Y axis by 0.75 (make it smaller)
+        //Scale scale = new Scale();
+        //scale.setX(0.85); // Scale X axis by 0.75 (make it smaller)
+        //scale.setY(0.85); // Scale Y axis by 0.75 (make it smaller)
 
         // Apply the Scale transformation to the root element of the loaded FXML
-        this.getTransforms().add(scale);
+        //this.getTransforms().add(scale);
     }
 
     private void initialize(){

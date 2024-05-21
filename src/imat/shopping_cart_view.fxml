@@ -16,9 +16,9 @@
               <Label prefHeight="99.0" prefWidth="418.0" styleClass="text-header" text="Kundvagn" />
          </children>
       </StackPane>
-        <ScrollPane prefHeight="649.0" prefWidth="428.0">
+        <ScrollPane prefHeight="649.0" prefWidth="426.0">
         <content>
-            <VBox fx:id="shoppingViewScrollPaneVBox">
+            <VBox fx:id="shoppingViewScrollPaneVBox" prefWidth="426.0">
             </VBox>
         </content>
         </ScrollPane>
