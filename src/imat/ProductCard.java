@@ -63,6 +63,7 @@ public class ProductCard extends AnchorPane implements FavouriteObservable, Shop
         this.productImageView.setImage(image);
         this.spinner = new Spinner(this.product, false);
         this.spinner.addShoppingItemObserver(backendController);
+        this.spinnerStackPane.getChildren().clear();
         this.spinnerStackPane.getChildren().add(spinner);
         initialize();
 
@@ -120,6 +121,8 @@ public class ProductCard extends AnchorPane implements FavouriteObservable, Shop
 
     @Override
     public void shoppingCartChanged(CartEvent cartEvent) {
-        spinner.update(cartEvent);
+        if(cartEvent.getShoppingItem().getProduct().equals(this.product)) {
+            spinner.update(cartEvent);
+        }
     }
 }

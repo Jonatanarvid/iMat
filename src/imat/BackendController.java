@@ -32,6 +32,7 @@ public class BackendController implements ProductCardObservable, FavouriteObserv
             ProductCard productCard = new ProductCard(product, dataHandler.getFXImage(product), this);
             productCard.addFavouriteObserver(this);
             productCard.addShoppingItemObserver(this);
+            shoppingCart.addShoppingCartListener(productCard);
             productCards.put(product, productCard);
         }
         addProductCardObserver(productCardObserver);

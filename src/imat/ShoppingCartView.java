@@ -33,7 +33,9 @@ public class ShoppingCartView extends VBox implements ShoppingCartListener {
         this.backendController = backendController;
         dataHandler.getShoppingCart().addShoppingCartListener(this);
         for(ShoppingItem item : dataHandler.getShoppingCart().getItems()) {
-            productLines.put(item.getProduct(), new ProductLine(item.getProduct(), dataHandler.getFXImage(item.getProduct())));
+            ProductLine productLine = new ProductLine(item.getProduct(), dataHandler.getFXImage(item.getProduct()));
+            productLine.addShoppingItemObserver(backendController);
+            productLines.put(item.getProduct(), productLine);
         }
         updateShoppingViewScrollPaneVBox();
     }

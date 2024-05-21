@@ -62,6 +62,7 @@ public class Spinner extends AnchorPane implements ShoppingItemObservable{
         for (ShoppingItem item : dataHandler.getShoppingCart().getItems()) {
             if (this.product.equals(item.getProduct()) && item.getAmount() != 0) {
                 this.amount = (int) item.getAmount();
+                updateAmount(amount);
             }
         }
         this.buyCounter.setText(String.valueOf(this.amount));

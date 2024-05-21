@@ -48,39 +48,7 @@
                 <Button fx:id="favouriteButton" mnemonicParsing="false" onMouseClicked="#favouriteButtonSelected" prefHeight="46.5" prefWidth="40.5" styleClass="transparent-button" />
             </children>
         </StackPane>
-        <StackPane layoutX="4.5" layoutY="284.25" prefHeight="87.75" prefWidth="280.5">
-            <children>
-                <AnchorPane fx:id="MoreThan0Product" prefHeight="150.0" prefWidth="150.0">
-                    <children>
-                        <ImageView fitHeight="71.25" fitWidth="259.5" layoutX="18.75" layoutY="8.25" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@resources/imat/egnabilder/Item-amount-spinner/Variant42.jpg" />
-                            </image>
-                        </ImageView>
-                        <Label fx:id="BuyCounter" alignment="CENTER" layoutX="95.25" layoutY="12.0" onMouseClicked="#buyLabelClicked" prefHeight="63.75" prefWidth="89.25" text="1" textFill="WHITE">
-                            <font>
-                                <Font name="System Bold" size="33.75" />
-                            </font>
-                        </Label>
-                        <Button fx:id="ButtonCardMinus" layoutX="33.75" layoutY="19.5" mnemonicParsing="false" onMouseClicked="#favouriteButtonSelected" prefHeight="50.25" prefWidth="59.25" styleClass="transparent-button" />
-                        <Button fx:id="ButtonCardPlus" layoutX="192.75" layoutY="20.25" mnemonicParsing="false" onMouseClicked="#favouriteButtonSelected" prefHeight="50.25" prefWidth="59.25" styleClass="transparent-button" />
-                    </children>
-                </AnchorPane>
-                <AnchorPane fx:id="Buy" layoutX="7.5" layoutY="7.5" prefHeight="150.0" prefWidth="150.0">
-                    <children>
-                        <ImageView fitHeight="71.25" fitWidth="259.5" layoutX="18.75" layoutY="8.25" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@resources/imat/egnabilder/Item-amount-spinner/Variant32.jpg" />
-                            </image>
-                        </ImageView>
-                        <Label fx:id="buyLabel11" alignment="CENTER" layoutX="95.25" layoutY="12.0" onMouseClicked="#buyLabelClicked" prefHeight="63.75" prefWidth="89.25" styleClass="text-name" text="Köp" textFill="WHITE">
-                            <font>
-                                <Font name="System Bold" size="33.75" />
-                            </font>
-                        </Label>
-                    </children>
-                </AnchorPane>
-            </children>
+        <StackPane fx:id="spinnerStackPane" layoutX="4.5" layoutY="284.25" prefHeight="87.75" prefWidth="280.5">
         </StackPane>
         <Label alignment="CENTER" layoutX="18.0" layoutY="247.5" prefHeight="37.5" prefWidth="248.25" styleClass="text-comp-price" text="4.90 kr/kg" textFill="#838383">
             <font>
