@@ -4,11 +4,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.GridPane;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.util.List;
 
-public class ShopView extends ScrollPane implements ProductCardObserver {
+public class ShopView extends VBox implements ProductCardObserver {
     @FXML private GridPane productGrid;
 
     public ShopView() {

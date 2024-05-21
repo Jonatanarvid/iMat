@@ -1,36 +1,35 @@
 package imat;
 
-import se.chalmers.cse.dat216.project.IMatDataHandler;
-import se.chalmers.cse.dat216.project.Product;
-import se.chalmers.cse.dat216.project.ProductCategory;
+import se.chalmers.cse.dat216.project.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class BackendController implements ProductCardObservable, FavouriteObserver {
+public class BackendController implements ProductCardObservable, FavouriteObserver, ShoppingItemObserver {
     private final IMatDataHandler dataHandler;
-    private final List<ProductCardObserver> observers = new ArrayList<ProductCardObserver>();
+    private final ShoppingCart shoppingCart;
+    private final List<ProductCardObserver> productCardObservers = new ArrayList<ProductCardObserver>();
     private List<Product> products;
     private final HashMap<Product, ProductCard> productCards = new HashMap<Product, ProductCard>();
 
-    public BackendController() {
-        dataHandler = IMatDataHandler.getInstance();
+    public BackendController(IMatDataHandler dataHandler) {
+        this.dataHandler = dataHandler;
+        shoppingCart = dataHandler.getShoppingCart();
     }
 
     public void start(ProductCardObserver productCardObserver) {
         for(Product product : dataHandler.getProducts()) {
             ProductCard productCard = new ProductCard(product, dataHandler.getFXImage(product));
+            ShoppingItem shoppingItem = new ShoppingItem(product, 0);
             productCard.addFavouriteObserver(this);
+            productCard.addShoppingItemObserver(this);
             productCards.put(product, productCard);
         }
         addProductCardObserver(productCardObserver);
         newSearch(new Search("", SortOrder.ALPHA));
-        List<ProductCard> cards = getCardsFromProducts();
-        for(ProductCardObserver observer : observers) {
-            observer.update(cards);
-        }
     }
+
     private List<Product> getFilteredProducts(Search search) {
         List<Product> products = new ArrayList<Product>();
 
@@ -73,6 +72,7 @@ public class BackendController implements ProductCardObservable, FavouriteObserv
 
     public void newSearch(Search search) {
         this.products = getSortedProducts(search);
+        notifyProductCardObservers();
     }
 
     public String getIMatDirectory() {
@@ -81,13 +81,13 @@ public class BackendController implements ProductCardObservable, FavouriteObserv
 
     @Override
     public void addProductCardObserver(ProductCardObserver observer) {
-        observers.add(observer);
+        productCardObservers.add(observer);
     }
 
     @Override
     public void removeProductCardObserver(ProductCardObserver observer) {
-        if (observers.contains(observer)) {
-            observers.remove(observer);
+        if (productCardObservers.contains(observer)) {
+            productCardObservers.remove(observer);
         }
     }
 
@@ -100,7 +100,7 @@ public class BackendController implements ProductCardObservable, FavouriteObserv
     }
     @Override
     public void notifyProductCardObservers() {
-        for (ProductCardObserver observer : observers) {
+        for (ProductCardObserver observer : productCardObservers) {
             observer.update(getCardsFromProducts());
         }
     }
@@ -112,5 +112,10 @@ public class BackendController implements ProductCardObservable, FavouriteObserv
         } else {
             dataHandler.addFavorite(product);
         }
+    }
+
+    @Override
+    public void updateShoppingItemObserver(Product product) {
+        shoppingCart.addProduct(product, true);
     }
 }

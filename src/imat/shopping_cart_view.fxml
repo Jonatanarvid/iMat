@@ -1,0 +1,15 @@
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+
+<fx:root type="javafx.scene.layout.VBox" fx:id="rightVBox" prefHeight="876.0" prefWidth="428.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Label prefHeight="99.0" prefWidth="331.0" styleClass="text-header" text="Kundvagn" />
+        <ScrollPane prefHeight="750.0" prefWidth="432.0">
+        <content>
+            <VBox fx:id="shoppingViewScrollPaneVBox">
+            </VBox>
+        </content>
+        </ScrollPane>
+    </children>
+</fx:root>
