@@ -10,8 +10,6 @@
     -fx-background-color: lightgrey;
 }
 
-
-
 .tree-cell:selected {
     -fx-background-color: lightgreen;
     -fx-text-fill: black;
@@ -32,3 +30,30 @@
 .tree-view .tree-disclosure-node .arrow.collapsed {
     -fx-rotate: -90;
 }
+
+/* Indentation for child items */
+.tree-view .tree-cell .tree-disclosure-node .arrow {
+    -fx-padding: 0 0 0 10px; /* Add left padding for child items */
+}
+
+/* Remove left padding for top-level items */
+.tree-view .tree-cell:filled {
+    -fx-padding: 5px 10px 5px 0; /* Adjust padding to remove left padding */
+}
+
+/* Custom styles for parent and child nodes */
+.tree-cell.parent-selected {
+    -fx-background-color: lightgreen; /* Parent node of selected leaf */
+}
+
+.tree-cell.child-unselected {
+    -fx-background-color: lightgrey; /* Unselected child nodes */
+}
+
+/* Remove borders and padding from empty cells */
+.tree-cell:empty {
+    -fx-padding: 0;
+    -fx-border-width: 0;
+    -fx-background-color: transparent;
+}
+
