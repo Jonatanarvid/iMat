@@ -2,3 +2,14 @@
     -fx-background-color: transparent;
     -fx-border-color: transparent;
     }
+
+.text-name{
+    -fx-font-size : 32px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Roboto Light";
+}
+
+.text-comp-price{
+    -fx-font-size : 28px;
+    -fx-font-family: "Roboto Light";
+}

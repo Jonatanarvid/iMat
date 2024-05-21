@@ -11,84 +11,84 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<fx:root prefHeight="508.0" prefWidth="388.0" stylesheets="@product-info.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root prefHeight="381.0" prefWidth="291.0" stylesheets="@product-info.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="WHITE" height="508.0" layoutX="-1.0" stroke="#d9d9d9" strokeType="INSIDE" strokeWidth="4.0" width="389.0" />
-        <ImageView fx:id="productImageView" fitHeight="210.0" fitWidth="283.0" layoutX="51.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@resources/imat/images/product_5.jpg" />
-         </image></ImageView>
-        <Label fx:id="nameLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="2.0" layoutY="269.0" prefHeight="66.0" prefWidth="385.0" styleClass="text-all" text="Kycklingklubbor" textAlignment="CENTER">
+        <Rectangle arcHeight="18.75" arcWidth="18.75" fill="WHITE" height="381.0" layoutX="-0.75" stroke="#d9d9d9" strokeType="INSIDE" strokeWidth="3.0" width="291.75" />
+        <ImageView fx:id="productImageView" fitHeight="157.5" fitWidth="212.25" layoutX="38.25" layoutY="41.25" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@resources/imat/images/product_5.jpg" />
+            </image></ImageView>
+        <Label fx:id="nameLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="1.5" layoutY="201.75" prefHeight="49.5" prefWidth="288.75" styleClass="text-name" text="Kycklingklubbor" textAlignment="CENTER">
             <font>
-                <Font name="System Bold" size="45.0" />
+                <Font name="System Bold" size="33.75" />
             </font>
         </Label>
-      <StackPane layoutX="15.0" layoutY="13.0" prefHeight="80.0" prefWidth="109.0">
-         <children>
-            <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#ededed" height="74.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="105.0" />
-              <Label fx:id="priceLabel" alignment="CENTER" prefHeight="66.0" prefWidth="97.0" text="4.90">
-               <font>
-                  <Font size="40.0" />
-               </font></Label>
-         </children>
-      </StackPane>
-      <StackPane layoutX="290.0" layoutY="11.0" prefHeight="85.0" prefWidth="82.0">
-         <children>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="WHITE" height="74.0" layoutX="14.0" layoutY="16.0" stroke="BLACK" strokeType="INSIDE" width="74.0">
-               <effect>
-                  <Shadow />
-               </effect>
-            </Rectangle>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="WHITE" height="74.0" stroke="BLACK" strokeType="INSIDE" width="74.0" />
-            <ImageView fx:id="favouriteImageView" fitHeight="59.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@resources/imat/egnabilder/unfilled_star.png" />
-               </image>
-            </ImageView>
-            <Button fx:id="favouriteButton" mnemonicParsing="false" onMouseClicked="#favouriteButtonSelected" prefHeight="62.0" prefWidth="54.0" styleClass="transparent-button" />
-         </children>
-      </StackPane>
-      <StackPane layoutX="6.0" layoutY="379.0" prefHeight="117.0" prefWidth="374.0">
-         <children>
-            <AnchorPane fx:id="MoreThan0Product" prefHeight="200.0" prefWidth="200.0">
-               <children>
-                  <ImageView fitHeight="95.0" fitWidth="346.0" layoutX="25.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@resources/imat/egnabilder/Item-amount-spinner/Variant42.jpg" />
-                     </image>
-                  </ImageView>
-                  <Label fx:id="BuyCounter" alignment="CENTER" layoutX="127.0" layoutY="16.0" onMouseClicked="#buyLabelClicked" prefHeight="85.0" prefWidth="119.0" text="1" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="45.0" />
-                     </font>
-                  </Label>
-                  <Button fx:id="ButtonCardMinus" layoutX="45.0" layoutY="26.0" mnemonicParsing="false" onMouseClicked="#favouriteButtonSelected" prefHeight="67.0" prefWidth="79.0" styleClass="transparent-button" />
-                  <Button fx:id="ButtonCardPlus" layoutX="257.0" layoutY="27.0" mnemonicParsing="false" onMouseClicked="#favouriteButtonSelected" prefHeight="67.0" prefWidth="79.0" styleClass="transparent-button" />
-               </children>
-            </AnchorPane>
-            <AnchorPane fx:id="Buy" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0">
-               <children>
-                  <ImageView fitHeight="95.0" fitWidth="346.0" layoutX="25.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@resources/imat/egnabilder/Item-amount-spinner/Variant32.jpg" />
-                     </image>
-                  </ImageView>
-                  <Label fx:id="buyLabel11" alignment="CENTER" layoutX="127.0" layoutY="16.0" onMouseClicked="#buyLabelClicked" prefHeight="85.0" prefWidth="119.0" text="Köp" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="45.0" />
-                     </font>
-                  </Label>
-               </children>
-            </AnchorPane>
-         </children>
-      </StackPane>
-      <Label alignment="CENTER" layoutX="24.0" layoutY="330.0" prefHeight="50.0" prefWidth="331.0" text="4.90 kr/kg" textFill="#838383">
-         <font>
-            <Font size="40.0" />
-         </font>
-      </Label>
+        <StackPane layoutX="11.25" layoutY="9.75" prefHeight="60.0" prefWidth="81.75">
+            <children>
+                <Rectangle arcHeight="11.25" arcWidth="11.25" fill="#ededed" height="55.5" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="78.75" />
+                <Label fx:id="priceLabel" alignment="CENTER" prefHeight="49.5" prefWidth="72.75" styleClass="text-comp-price" text="4.90">
+                    <font>
+                        <Font size="30.0" />
+                    </font></Label>
+            </children>
+        </StackPane>
+        <StackPane layoutX="217.5" layoutY="8.25" prefHeight="63.75" prefWidth="61.5">
+            <children>
+                <Rectangle arcHeight="18.75" arcWidth="18.75" fill="WHITE" height="55.5" layoutX="10.5" layoutY="12.0" stroke="BLACK" strokeType="INSIDE" width="55.5">
+                    <effect>
+                        <Shadow />
+                    </effect>
+                </Rectangle>
+                <Rectangle arcHeight="18.75" arcWidth="18.75" fill="WHITE" height="55.5" stroke="BLACK" strokeType="INSIDE" width="55.5" />
+                <ImageView fx:id="favouriteImageView" fitHeight="44.25" fitWidth="39.75" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@resources/imat/egnabilder/unfilled_star.png" />
+                    </image>
+                </ImageView>
+                <Button fx:id="favouriteButton" mnemonicParsing="false" onMouseClicked="#favouriteButtonSelected" prefHeight="46.5" prefWidth="40.5" styleClass="transparent-button" />
+            </children>
+        </StackPane>
+        <StackPane layoutX="4.5" layoutY="284.25" prefHeight="87.75" prefWidth="280.5">
+            <children>
+                <AnchorPane fx:id="MoreThan0Product" prefHeight="150.0" prefWidth="150.0">
+                    <children>
+                        <ImageView fitHeight="71.25" fitWidth="259.5" layoutX="18.75" layoutY="8.25" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@resources/imat/egnabilder/Item-amount-spinner/Variant42.jpg" />
+                            </image>
+                        </ImageView>
+                        <Label fx:id="BuyCounter" alignment="CENTER" layoutX="95.25" layoutY="12.0" onMouseClicked="#buyLabelClicked" prefHeight="63.75" prefWidth="89.25" text="1" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="33.75" />
+                            </font>
+                        </Label>
+                        <Button fx:id="ButtonCardMinus" layoutX="33.75" layoutY="19.5" mnemonicParsing="false" onMouseClicked="#favouriteButtonSelected" prefHeight="50.25" prefWidth="59.25" styleClass="transparent-button" />
+                        <Button fx:id="ButtonCardPlus" layoutX="192.75" layoutY="20.25" mnemonicParsing="false" onMouseClicked="#favouriteButtonSelected" prefHeight="50.25" prefWidth="59.25" styleClass="transparent-button" />
+                    </children>
+                </AnchorPane>
+                <AnchorPane fx:id="Buy" layoutX="7.5" layoutY="7.5" prefHeight="150.0" prefWidth="150.0">
+                    <children>
+                        <ImageView fitHeight="71.25" fitWidth="259.5" layoutX="18.75" layoutY="8.25" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@resources/imat/egnabilder/Item-amount-spinner/Variant32.jpg" />
+                            </image>
+                        </ImageView>
+                        <Label fx:id="buyLabel11" alignment="CENTER" layoutX="95.25" layoutY="12.0" onMouseClicked="#buyLabelClicked" prefHeight="63.75" prefWidth="89.25" styleClass="text-name" text="Köp" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="33.75" />
+                            </font>
+                        </Label>
+                    </children>
+                </AnchorPane>
+            </children>
+        </StackPane>
+        <Label alignment="CENTER" layoutX="18.0" layoutY="247.5" prefHeight="37.5" prefWidth="248.25" styleClass="text-comp-price" text="4.90 kr/kg" textFill="#838383">
+            <font>
+                <Font size="30.0" />
+            </font>
+        </Label>
     </children>
-   <cursor>
-      <Cursor fx:constant="CROSSHAIR" />
-   </cursor>
+    <cursor>
+        <Cursor fx:constant="CROSSHAIR" />
+    </cursor>
 </fx:root>
