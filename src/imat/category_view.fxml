@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TreeView?>
 <?import javafx.scene.layout.VBox?>
 
-<fx:root prefHeight="865.0" prefWidth="315.0" type="javafx.scene.layout.VBox" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root prefHeight="865.0" prefWidth="315.0" styleClass="text-header" type="javafx.scene.layout.VBox" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label alignment="CENTER" prefHeight="104.0" prefWidth="225.0" styleClass="text-header" text="Kategorier" />
-      <TreeView fx:id="categoryTreeView" prefHeight="773.0" prefWidth="315.0" />
+      <TreeView fx:id="categoryTreeView" prefHeight="773.0" prefWidth="315.0" styleClass="text-iMat" />
    </children>
+   <stylesheets>
+      <URL value="@imat_app.css" />
+      <URL value="@category_view.css" />
+   </stylesheets>
 </fx:root>
