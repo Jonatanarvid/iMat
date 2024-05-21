@@ -35,16 +35,4 @@ public class MainViewController implements Initializable {
 
         String iMatDirectory = controller.getIMatDirectory();
     }
-
-    public void showDetailVeiw(){
-
-    }
-
-
-
-
-
-
-
-
 }

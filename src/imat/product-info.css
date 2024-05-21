@@ -13,3 +13,14 @@
     -fx-font-size : 28px;
     -fx-font-family: "Roboto Light";
 }
+
+.text-area {
+    -fx-background-color: transparent;
+    -fx-control-inner-background: transparent;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-padding: 0;
+    -fx-text-fill: black; /* Set text color to black */
+}
