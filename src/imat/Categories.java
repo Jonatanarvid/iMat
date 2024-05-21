@@ -6,11 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public enum Categories {
-    FISH_ETC,
-    MEAT_ETC,
+    MEAT_AND_FISH,
     DRINKS,
     DAIRY_AND_EGG,
-    FRUIT_AND_VEG,
+    FRUIT,
+    VEG,
     BAKERY,
     SHELF
     ;
@@ -18,11 +18,9 @@ public enum Categories {
     public List<ProductCategory> convertToListOfProductCategory() {
         ArrayList<ProductCategory> productCategories = new ArrayList<ProductCategory>();
         switch (this) {
-            case FISH_ETC -> {
-                productCategories.add(ProductCategory.FISH);
-            }
-            case MEAT_ETC -> {
+            case MEAT_AND_FISH -> {
                 productCategories.add(ProductCategory.MEAT);
+                productCategories.add(ProductCategory.FISH);
             }
             case DRINKS -> {
                 productCategories.add(ProductCategory.COLD_DRINKS);
@@ -31,16 +29,21 @@ public enum Categories {
             case DAIRY_AND_EGG -> {
                 productCategories.add(ProductCategory.DAIRIES);
             }
-            case FRUIT_AND_VEG -> {
+            case FRUIT -> {
                 productCategories.add(ProductCategory.POD);
                 productCategories.add(ProductCategory.BERRY);
-                productCategories.add(ProductCategory.CITRUS_FRUIT);
                 productCategories.add(ProductCategory.EXOTIC_FRUIT);
                 productCategories.add(ProductCategory.VEGETABLE_FRUIT);
-                productCategories.add(ProductCategory.CABBAGE);
                 productCategories.add(ProductCategory.MELONS);
-                productCategories.add(ProductCategory.ROOT_VEGETABLE);
                 productCategories.add(ProductCategory.FRUIT);
+            }
+
+            case VEG -> {
+                productCategories.add(ProductCategory.POD);
+                productCategories.add(ProductCategory.CITRUS_FRUIT);
+                productCategories.add(ProductCategory.VEGETABLE_FRUIT);
+                productCategories.add(ProductCategory.CABBAGE);
+                productCategories.add(ProductCategory.ROOT_VEGETABLE);
                 productCategories.add(ProductCategory.HERB);
             }
             case BAKERY -> {

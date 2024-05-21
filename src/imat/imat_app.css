@@ -1,32 +1,38 @@
-.text-sample{
+.text-medium-bold{
       -fx-font-size: 16px;
-      -fx-font-family: "Arial";
+      -fx-font-family: "Roboto Light";
+      white-space: normal;
       -fx-font-weight: bold;
   }
+
+.text-medium{
+    -fx-font-size : 24px;
+    -fx-font-family: "Roboto Light";
+}
 
 
 .text-header{
      -fx-font-size: 45px;
-     -fx-font-family: "Arial";
+     -fx-font-family: "Roboto Light";
 }
 
 
-.text-Knapp{
+.text-button-large{
      -fx-font-size: 45px;
-     -fx-font-family: "Arial";
+     -fx-font-family: "Roboto Light";
      -fx-font-weight: bold;
 
 }
 
-.text-sokning{
+.text-search{
      -fx-font-size: 45px;
-     -fx-font-family: "Arial";
+     -fx-font-family: "Robot Light";
       -fx-text-fill: #979797;
 }
 
 .text-iMat{
      -fx-font-size: 60px;
-     -fx-font-family: "Arial";
+     -fx-font-family: "Roboto Light";
 }
 
 .split-pane > .split-pane-divider {
@@ -39,4 +45,4 @@
     -fx-border-color: transparent;
     -fx-border-width: 0 ; /* Set the border width to 0 */
 }
-s
+
