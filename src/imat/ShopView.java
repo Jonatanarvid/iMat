@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.GridPane;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.transform.Scale;
 
 import java.io.IOException;
 import java.util.List;
@@ -22,6 +23,7 @@ public class ShopView extends VBox implements ProductCardObserver {
         } catch (IOException var5) {
             throw new RuntimeException(var5);
         }
+
     }
 
     private void clearProductGrid() {

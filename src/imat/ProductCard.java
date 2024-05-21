@@ -7,6 +7,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.Label;
+import javafx.scene.transform.Scale;
 import se.chalmers.cse.dat216.project.Product;
 
 import java.io.IOException;
@@ -26,6 +27,8 @@ public class ProductCard extends AnchorPane implements FavouriteObservable, Shop
     private Button favouriteButton;
     @FXML
     private Label buyLabel;
+    @FXML
+    private AnchorPane mainPainProductCard;
 
     private final Product product;
     private boolean isFavourite;
@@ -52,6 +55,14 @@ public class ProductCard extends AnchorPane implements FavouriteObservable, Shop
         this.product = product;
         this.productImageView.setImage(image);
         initialize();
+
+        // Apply scaling transformation to the loaded AnchorPane
+        Scale scale = new Scale();
+        scale.setX(0.85); // Scale X axis by 0.75 (make it smaller)
+        scale.setY(0.85); // Scale Y axis by 0.75 (make it smaller)
+
+        // Apply the Scale transformation to the root element of the loaded FXML
+        this.getTransforms().add(scale);
     }
 
     private void initialize(){
@@ -59,6 +70,7 @@ public class ProductCard extends AnchorPane implements FavouriteObservable, Shop
         isFavourite = false; // This should not exist, buttonImages should always reflect the state that is kept in backend
         //Fine for temporary visual implementation I guess though
     }
+
 
     @FXML
     private void favouriteButtonSelected(){
@@ -113,4 +125,5 @@ public class ProductCard extends AnchorPane implements FavouriteObservable, Shop
             shoppingItemObserver.updateShoppingItemObserver(this.product);
         }
     }
+
 }

@@ -3,6 +3,7 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -10,7 +11,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<fx:root prefHeight="508.0" prefWidth="388.0" stylesheets="@product-info.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" >
+<fx:root prefHeight="508.0" prefWidth="388.0" stylesheets="@product-info.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
     <children>
       <Rectangle arcHeight="25.0" arcWidth="25.0" fill="WHITE" height="508.0" layoutX="-1.0" stroke="#d9d9d9" strokeType="INSIDE" strokeWidth="4.0" width="389.0" />
         <ImageView fx:id="productImageView" fitHeight="210.0" fitWidth="283.0" layoutX="51.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
@@ -33,6 +34,11 @@
       </StackPane>
       <StackPane layoutX="290.0" layoutY="11.0" prefHeight="85.0" prefWidth="82.0">
          <children>
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="WHITE" height="74.0" layoutX="14.0" layoutY="16.0" stroke="BLACK" strokeType="INSIDE" width="74.0">
+               <effect>
+                  <Shadow />
+               </effect>
+            </Rectangle>
             <Rectangle arcHeight="25.0" arcWidth="25.0" fill="WHITE" height="74.0" stroke="BLACK" strokeType="INSIDE" width="74.0" />
             <ImageView fx:id="favouriteImageView" fitHeight="59.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -44,21 +50,36 @@
       </StackPane>
       <StackPane layoutX="6.0" layoutY="379.0" prefHeight="117.0" prefWidth="374.0">
          <children>
-            <ImageView fitHeight="95.0" fitWidth="346.0" layoutX="35.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@resources/imat/egnabilder/Item-amount-spinner/Variant42.jpg" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="95.0" fitWidth="346.0" layoutX="35.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@resources/imat/egnabilder/Item-amount-spinner/Variant32.jpg" />
-               </image>
-            </ImageView>
-            <Label fx:id="buyLabel" alignment="CENTER" onMouseClicked="#buyLabelClicked" prefHeight="85.0" prefWidth="119.0" text="Köp" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="45.0" />
-               </font>
-            </Label>
+            <AnchorPane fx:id="MoreThan0Product" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="95.0" fitWidth="346.0" layoutX="25.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/imat/egnabilder/Item-amount-spinner/Variant42.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="BuyCounter" alignment="CENTER" layoutX="127.0" layoutY="16.0" onMouseClicked="#buyLabelClicked" prefHeight="85.0" prefWidth="119.0" text="1" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="45.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="ButtonCardMinus" layoutX="45.0" layoutY="26.0" mnemonicParsing="false" onMouseClicked="#favouriteButtonSelected" prefHeight="67.0" prefWidth="79.0" styleClass="transparent-button" />
+                  <Button fx:id="ButtonCardPlus" layoutX="257.0" layoutY="27.0" mnemonicParsing="false" onMouseClicked="#favouriteButtonSelected" prefHeight="67.0" prefWidth="79.0" styleClass="transparent-button" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="Buy" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="95.0" fitWidth="346.0" layoutX="25.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/imat/egnabilder/Item-amount-spinner/Variant32.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="buyLabel11" alignment="CENTER" layoutX="127.0" layoutY="16.0" onMouseClicked="#buyLabelClicked" prefHeight="85.0" prefWidth="119.0" text="Köp" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="45.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
          </children>
       </StackPane>
       <Label alignment="CENTER" layoutX="24.0" layoutY="330.0" prefHeight="50.0" prefWidth="331.0" text="4.90 kr/kg" textFill="#838383">
