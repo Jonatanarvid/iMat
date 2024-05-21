@@ -21,11 +21,11 @@ public class MainViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         mainBorderPane.setCenter(shopView);
-        shoppingCartView = new ShoppingCartView(dataHandler);
+        controller = new BackendController(dataHandler);
+        shoppingCartView = new ShoppingCartView(dataHandler, controller);
         categoryView = new CategoryView(dataHandler);
         mainBorderPane.setRight(shoppingCartView);
         mainBorderPane.setLeft(categoryView);
-        controller = new BackendController(dataHandler);
         categoryView.addSearchObserver(controller);
         controller.start(shopView);
 

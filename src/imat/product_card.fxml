@@ -48,39 +48,7 @@
             <Button fx:id="favouriteButton" mnemonicParsing="false" onMouseClicked="#favouriteButtonSelected" prefHeight="62.0" prefWidth="54.0" styleClass="transparent-button" />
          </children>
       </StackPane>
-      <StackPane layoutX="6.0" layoutY="379.0" prefHeight="117.0" prefWidth="374.0">
-         <children>
-            <AnchorPane fx:id="MoreThan0Product" prefHeight="200.0" prefWidth="200.0">
-               <children>
-                  <ImageView fitHeight="95.0" fitWidth="346.0" layoutX="25.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@resources/imat/egnabilder/Item-amount-spinner/Variant42.jpg" />
-                     </image>
-                  </ImageView>
-                  <Label fx:id="BuyCounter" alignment="CENTER" layoutX="127.0" layoutY="16.0" onMouseClicked="#buyLabelClicked" prefHeight="85.0" prefWidth="119.0" text="1" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="45.0" />
-                     </font>
-                  </Label>
-                  <Button fx:id="ButtonCardMinus" layoutX="45.0" layoutY="26.0" mnemonicParsing="false" onMouseClicked="#favouriteButtonSelected" prefHeight="67.0" prefWidth="79.0" styleClass="transparent-button" />
-                  <Button fx:id="ButtonCardPlus" layoutX="257.0" layoutY="27.0" mnemonicParsing="false" onMouseClicked="#favouriteButtonSelected" prefHeight="67.0" prefWidth="79.0" styleClass="transparent-button" />
-               </children>
-            </AnchorPane>
-            <AnchorPane fx:id="Buy" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0">
-               <children>
-                  <ImageView fitHeight="95.0" fitWidth="346.0" layoutX="25.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@resources/imat/egnabilder/Item-amount-spinner/Variant32.jpg" />
-                     </image>
-                  </ImageView>
-                  <Label fx:id="buyLabel11" alignment="CENTER" layoutX="127.0" layoutY="16.0" onMouseClicked="#buyLabelClicked" prefHeight="85.0" prefWidth="119.0" text="Köp" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="45.0" />
-                     </font>
-                  </Label>
-               </children>
-            </AnchorPane>
-         </children>
+      <StackPane fx:id="spinnerStackPane" layoutX="6.0" layoutY="379.0" prefHeight="117.0" prefWidth="374.0">
       </StackPane>
       <Label alignment="CENTER" layoutX="24.0" layoutY="330.0" prefHeight="50.0" prefWidth="331.0" text="4.90 kr/kg" textFill="#838383">
          <font>

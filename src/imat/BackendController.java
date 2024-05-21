@@ -118,8 +118,12 @@ public class BackendController implements ProductCardObservable, FavouriteObserv
     }
 
     @Override
-    public void updateShoppingItemObserver(Product product) {
-        shoppingCart.addProduct(product, true);
+    public void updateShoppingItemObserver(Product product, boolean isAdd) {
+        if(isAdd) {
+            shoppingCart.addItem(new ShoppingItem(product, 1), true);
+        } else {
+            shoppingCart.addItem(new ShoppingItem(product, -1), true);
+        }
     }
 
     @Override
