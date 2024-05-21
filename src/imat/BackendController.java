@@ -18,18 +18,17 @@ public class BackendController implements ProductCardObservable, FavouriteObserv
         dataHandler = IMatDataHandler.getInstance();
     }
 
-    public void start(ProductCardObserver newObserver) {
+    public void start(ProductCardObserver productCardObserver) {
         for(Product product : dataHandler.getProducts()) {
             ProductCard productCard = new ProductCard(product, dataHandler.getFXImage(product));
-            productCard.addObserver(this);
+            productCard.addFavouriteObserver(this);
             productCards.put(product, productCard);
         }
-        addObserver(newObserver);
-        newSearch(new Search("potatis", SortOrder.ALPHA));
+        addProductCardObserver(productCardObserver);
+        newSearch(new Search("", SortOrder.ALPHA));
         List<ProductCard> cards = getCardsFromProducts();
         for(ProductCardObserver observer : observers) {
             observer.update(cards);
-            System.out.println("updaterad");
         }
     }
     private List<Product> getFilteredProducts(Search search) {
@@ -81,12 +80,12 @@ public class BackendController implements ProductCardObservable, FavouriteObserv
     }
 
     @Override
-    public void addObserver(ProductCardObserver observer) {
+    public void addProductCardObserver(ProductCardObserver observer) {
         observers.add(observer);
     }
 
     @Override
-    public void removeObserver(ProductCardObserver observer) {
+    public void removeProductCardObserver(ProductCardObserver observer) {
         if (observers.contains(observer)) {
             observers.remove(observer);
         }
@@ -100,15 +99,15 @@ public class BackendController implements ProductCardObservable, FavouriteObserv
         return productCards;
     }
     @Override
-    public void notifyObservers() {
+    public void notifyProductCardObservers() {
         for (ProductCardObserver observer : observers) {
             observer.update(getCardsFromProducts());
         }
     }
 
     @Override
-    public void update(Product product, Boolean isFavourite) {
-        if (isFavourite) {
+    public void updateFavouriteObserver(Product product, Boolean isFavourite) {
+        if (!isFavourite) {
             dataHandler.removeFavorite(product);
         } else {
             dataHandler.addFavorite(product);
