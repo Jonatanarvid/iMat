@@ -10,7 +10,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<fx:root prefHeight="508.0" prefWidth="388.0" stylesheets="@product-info.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root prefHeight="508.0" prefWidth="388.0" stylesheets="@product-info.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.ProductCard">
     <children>
       <Rectangle arcHeight="25.0" arcWidth="25.0" fill="WHITE" height="508.0" layoutX="-1.0" stroke="#d9d9d9" strokeType="INSIDE" strokeWidth="4.0" width="389.0" />
         <ImageView fx:id="productImageView" fitHeight="210.0" fitWidth="283.0" layoutX="51.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">

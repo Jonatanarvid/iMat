@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductCard extends AnchorPane implements FavouriteObservable, ShoppingItemObservable{
+public class ProductCard extends AnchorPane implements FavouriteObservable, ShoppingItemObservable {
     @FXML
     private ImageView productImageView;
     @FXML
@@ -94,7 +94,7 @@ public class ProductCard extends AnchorPane implements FavouriteObservable, Shop
     }
 
     @Override
-    public void addShoppingItemObservable(ShoppingItemObserver shoppingItemObserver) {
+    public void addShoppingItemObserver(ShoppingItemObserver shoppingItemObserver) {
         shoppingItemObservers.add(shoppingItemObserver);
     }
 
