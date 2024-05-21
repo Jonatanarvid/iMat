@@ -10,6 +10,20 @@
      -fx-font-family: "Arial";
 }
 
+
+.text-Knapp{
+     -fx-font-size: 45px;
+     -fx-font-family: "Arial";
+     -fx-font-weight: bold;
+
+}
+
+.text-sokning{
+     -fx-font-size: 45px;
+     -fx-font-family: "Arial";
+      -fx-text-fill: #979797;
+}
+
 .text-iMat{
      -fx-font-size: 60px;
      -fx-font-family: "Arial";
