@@ -42,23 +42,25 @@ public class Spinner extends AnchorPane implements ShoppingItemObservable{
         }
         this.buy.toFront();
         this.product = product;
+        Scale scale = new Scale();
         if(isProductLine) {
             // Apply scaling transformation to the loaded AnchorPane
-            Scale scale = new Scale();
             scale.setX(0.4); // Scale X axis by 0.75 (make it smaller)
             scale.setY(0.4); // Scale Y axis by 0.75 (make it smaller)
 
             // Apply the Scale transformation to the root element of the loaded FXML
-            this.getTransforms().add(scale);
             moreThan0Product.toFront();
+        } else {
+            scale.setX(0.8);
+            scale.setY(0.8);
         }
+        this.getTransforms().add(scale);
         initAmount();
     }
 
     public void initAmount() {
         for (ShoppingItem item : dataHandler.getShoppingCart().getItems()) {
             if (this.product.equals(item.getProduct()) && item.getAmount() != 0) {
-                this.moreThan0Product.toFront();
                 this.amount = (int) item.getAmount();
             }
         }
@@ -67,29 +69,39 @@ public class Spinner extends AnchorPane implements ShoppingItemObservable{
 
     private void updateAmount(int amount) {
         this.amount = amount;
-        this.buyCounter.setText(String.valueOf(this.amount));
+        this.buyCounter.setText(String.valueOf(amount));
+        this.moreThan0Product.toFront();
     }
 
+    @FXML
     public void buyLabelClicked(Event event) {
+        System.out.println("buyLabelClicked");
         notifyShoppingItemObservers(true);
         event.consume();
     }
 
     public void addProduct(Event event) {
+        System.out.println("addProduct");
         notifyShoppingItemObservers(true);
         event.consume();
     }
 
     public void subtractProduct(Event event) {
+        System.out.println("subtractProduct");
         notifyShoppingItemObservers(false);
         event.consume();
     }
 
     public void update(CartEvent event) {
+        System.out.println("Spinner Updated!");
         if(event.getShoppingItem().getProduct().equals(this.product)) {
+            System.out.println("Match");
             for(ShoppingItem item: dataHandler.getShoppingCart().getItems()) {
                 if(item.getProduct().equals(this.product)) {
+                    System.out.println("Found product in cart");
+                    System.out.println(item.getAmount() == amount);
                     updateAmount((int) item.getAmount());
+                    break;
                 }
             }
         }
