@@ -30,12 +30,11 @@ public enum Categories {
                 productCategories.add(ProductCategory.DAIRIES);
             }
             case FRUIT -> {
-                productCategories.add(ProductCategory.POD);
                 productCategories.add(ProductCategory.BERRY);
                 productCategories.add(ProductCategory.EXOTIC_FRUIT);
                 productCategories.add(ProductCategory.VEGETABLE_FRUIT);
                 productCategories.add(ProductCategory.MELONS);
-                productCategories.add(ProductCategory.FRUIT);
+                //productCategories.add(ProductCategory.FRUIT);
             }
 
             case VEG -> {
