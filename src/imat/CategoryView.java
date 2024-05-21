@@ -33,7 +33,7 @@ public class CategoryView extends VBox implements SearchObservable {
 
         TreeItem<String> rootItem = new TreeItem<>("Kategorier");
         rootItem.setExpanded(true);
-
+        rootItem.getChildren().add(new TreeItem<String>("Favoriter"));
         // Iterate over Categories enum to create categories and subcategories
         for (Categories category : Categories.values()) {
             TreeItem<String> categoryItem = createTreeItem(category.name());
@@ -60,7 +60,11 @@ public class CategoryView extends VBox implements SearchObservable {
             if (newValue != null) {
                 TreeItem<String> selectedItem = newValue;
                 System.out.println("Selected item: " + selectedItem.getValue());
-                notifySearchObservers(categoryHashMap.get(selectedItem.getValue()));
+                if(!selectedItem.getValue().equals(new String("Favoriter"))) {
+                    notifySearchObservers(categoryHashMap.get(selectedItem.getValue()));
+                } else {
+                    notifySearchObservers(new ArrayList<ProductCategory>());
+                }
             }
         });
 
@@ -123,9 +127,8 @@ public class CategoryView extends VBox implements SearchObservable {
 
     @Override
     public void notifySearchObservers(List<ProductCategory> categories) {
-        Search search = new Search(categories, SortOrder.ALPHA);
         for (SearchObserver observer : searchObservers) {
-            observer.updateSearchObserver(search);
+            observer.updateSearchObserver(categories);
         }
     }
 }
