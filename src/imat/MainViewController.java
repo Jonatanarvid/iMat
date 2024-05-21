@@ -29,6 +29,5 @@ public class MainViewController implements Initializable {
         controller.start(shopView);
 
         String iMatDirectory = controller.getIMatDirectory();
-
     }
 }

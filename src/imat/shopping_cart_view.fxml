@@ -26,7 +26,7 @@
          <children>
             <ImageView fitHeight="183.0" fitWidth="371.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@resources/imat/egnabilder/KöpKnapp.png" />
+                  <Image url="@resources/imat/egnabilder/KöpKnapp.png" />
                </image>
             </ImageView>
             <Label prefHeight="95.0" prefWidth="345.0" styleClass="text-header" text="Till Kassa">
