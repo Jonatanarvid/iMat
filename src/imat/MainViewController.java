@@ -14,7 +14,7 @@ public class MainViewController implements Initializable {
     private IMatDataHandler dataHandler = IMatDataHandler.getInstance();
     private BackendController controller;
     private ShopView shopView = new ShopView();
-    private CategoryView categoryView = new CategoryView();
+    private CategoryView categoryView;
     private ShoppingCartView shoppingCartView;
     @FXML BorderPane mainBorderPane;
 
@@ -22,7 +22,9 @@ public class MainViewController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         mainBorderPane.setCenter(shopView);
         shoppingCartView = new ShoppingCartView(dataHandler);
+        categoryView = new CategoryView(dataHandler);
         mainBorderPane.setRight(shoppingCartView);
+        mainBorderPane.setLeft(categoryView);
         controller = new BackendController(dataHandler);
         controller.start(shopView);
 
