@@ -14,7 +14,6 @@ public class MainViewController implements Initializable {
     private IMatDataHandler dataHandler = IMatDataHandler.getInstance();
     private BackendController controller;
     private ShopView shopView = new ShopView();
-    private CategoryView categoryView = new Category
     private ShoppingCartView shoppingCartView;
     @FXML private VBox centerVBox;
     @FXML private VBox rightVBox;
