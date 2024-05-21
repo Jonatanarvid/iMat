@@ -33,7 +33,7 @@ public class ShoppingCartView extends VBox implements ShoppingCartListener {
         this.backendController = backendController;
         dataHandler.getShoppingCart().addShoppingCartListener(this);
         for(ShoppingItem item : dataHandler.getShoppingCart().getItems()) {
-            ProductLine productLine = new ProductLine(item.getProduct(), dataHandler.getFXImage(item.getProduct()));
+            ProductLine productLine = new ProductLine(item.getProduct(), dataHandler.getFXImage(item.getProduct()), (int) item.getAmount());
             productLine.addShoppingItemObserver(backendController);
             productLines.put(item.getProduct(), productLine);
         }
@@ -59,7 +59,7 @@ public class ShoppingCartView extends VBox implements ShoppingCartListener {
                 productLines.get(product).updateProducts(cartEvent);
             }
             else {
-                ProductLine productLine = new ProductLine(product, dataHandler.getFXImage(product));
+                ProductLine productLine = new ProductLine(product, dataHandler.getFXImage(product), 1);
                 productLine.addShoppingItemObserver(backendController);
                 productLines.put(product, productLine);
             }

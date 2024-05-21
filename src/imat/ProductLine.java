@@ -19,7 +19,7 @@ public class ProductLine extends AnchorPane {
     private Product product;
     private final Spinner amountSpinner;
 
-    public ProductLine(Product product, Image image) {
+    public ProductLine(Product product, Image image, int amount) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("product_line.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);

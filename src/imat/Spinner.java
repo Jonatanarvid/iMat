@@ -13,6 +13,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.lang.Math.max;
+
 public class Spinner extends AnchorPane implements ShoppingItemObservable{
     @FXML
     private Button buttonCardMinus;
@@ -70,7 +72,7 @@ public class Spinner extends AnchorPane implements ShoppingItemObservable{
 
     private void updateAmount(int amount) {
         this.amount = amount;
-        this.buyCounter.setText(String.valueOf(amount));
+        this.buyCounter.setText(String.valueOf(this.amount));
         this.moreThan0Product.toFront();
     }
 
@@ -89,7 +91,9 @@ public class Spinner extends AnchorPane implements ShoppingItemObservable{
 
     public void subtractProduct(Event event) {
         System.out.println("subtractProduct");
-        notifyShoppingItemObservers(false);
+        if(amount > 0) {
+            notifyShoppingItemObservers(false);
+        }
         event.consume();
     }
 
@@ -114,7 +118,9 @@ public class Spinner extends AnchorPane implements ShoppingItemObservable{
 
     @Override
     public void addShoppingItemObserver(ShoppingItemObserver shoppingItemObserver) {
-        shoppingItemObservers.add(shoppingItemObserver);
+        if(!shoppingItemObservers.contains(shoppingItemObserver)) {
+            shoppingItemObservers.add(shoppingItemObserver);
+        }
     }
 
     @Override

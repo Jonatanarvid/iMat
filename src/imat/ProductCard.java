@@ -45,7 +45,7 @@ public class ProductCard extends AnchorPane implements FavouriteObservable, Shop
     Image notFavouriteImage = new Image((getClass().getResourceAsStream("resources/imat/egnabilder/unfilled_star.png")));
     Image isFavouriteImage = new Image((getClass().getResourceAsStream("resources/imat/egnabilder/filled_star.png")));
 
-    public ProductCard(Product product, Image image, BackendController backendController) {
+    public ProductCard(Product product, Image image) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("product_card.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -62,7 +62,6 @@ public class ProductCard extends AnchorPane implements FavouriteObservable, Shop
         this.product = product;
         this.productImageView.setImage(image);
         this.spinner = new Spinner(this.product, false);
-        this.spinner.addShoppingItemObserver(backendController);
         this.spinnerStackPane.getChildren().clear();
         this.spinnerStackPane.getChildren().add(spinner);
         initialize();
