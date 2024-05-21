@@ -16,8 +16,6 @@ public class ProductLine extends AnchorPane {
     @FXML private Label priceLabel;
     @FXML private Label nameLabel;
     @FXML private StackPane amountSpinnerStackPane;
-
-    private double price;
     private Product product;
     private final Spinner amountSpinner;
 
@@ -34,11 +32,7 @@ public class ProductLine extends AnchorPane {
         this.product = product;
         this.nameLabel.setText(product.getName());
         this.productImageView.setImage(image);
-
-
-        this.price = product.getPrice();
-        this.priceLabel.setText(String.valueOf(this.price));
-
+        this.priceLabel.setText(String.valueOf(product.getPrice()));
 
         amountSpinner = new Spinner(this.product, true);
         amountSpinnerStackPane.getChildren().add(amountSpinner);
@@ -48,13 +42,8 @@ public class ProductLine extends AnchorPane {
         amountSpinner.addShoppingItemObserver(observer);
     }
 
-    /*
-    public ProductLine updateLabels(double amount, double total) {
-        this.amount += amount;
-        price += total;
-        this.amountLabel.setText(String.valueOf(this.amount));
-        this.priceLabel.setText(String.valueOf(price));
-        return this;
+    public void updateProducts(CartEvent event) {
+        amountSpinner.update(event);
+        this.priceLabel.setText(String.valueOf(this.product.getPrice() * amountSpinner.getAmount()));
     }
-     */
 }

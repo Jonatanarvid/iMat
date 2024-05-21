@@ -16,10 +16,10 @@ public class ShoppingCartView extends VBox implements ShoppingCartListener {
     private VBox shoppingViewScrollPaneVBox;
     private List<ShoppingItem> items;
     private HashMap<Product, ProductLine> productLines = new HashMap<Product, ProductLine>();
-    private IMatDataHandler dataHandler;
+    private IMatDataHandler dataHandler = IMatDataHandler.getInstance();
     private BackendController backendController;
 
-    public ShoppingCartView(IMatDataHandler dataHandler, BackendController backendController) {
+    public ShoppingCartView(BackendController backendController) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("shopping_cart_view.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -31,7 +31,6 @@ public class ShoppingCartView extends VBox implements ShoppingCartListener {
         }
 
         this.backendController = backendController;
-        this.dataHandler = dataHandler;
         dataHandler.getShoppingCart().addShoppingCartListener(this);
         for(ShoppingItem item : dataHandler.getShoppingCart().getItems()) {
             productLines.put(item.getProduct(), new ProductLine(item.getProduct(), dataHandler.getFXImage(item.getProduct())));
@@ -54,9 +53,14 @@ public class ShoppingCartView extends VBox implements ShoppingCartListener {
         if(!cartEvent.isAddEvent()) {
             productLines.remove(product);
         } else {
-            ProductLine productLine = new ProductLine(product, dataHandler.getFXImage(product));
-            productLine.addShoppingItemObserver(backendController);
-            productLines.put(product, productLine);
+            if(productLines.containsKey(product)) {
+                productLines.get(product).updateProducts(cartEvent);
+            }
+            else {
+                ProductLine productLine = new ProductLine(product, dataHandler.getFXImage(product));
+                productLine.addShoppingItemObserver(backendController);
+                productLines.put(product, productLine);
+            }
         }
         updateShoppingViewScrollPaneVBox();
     }

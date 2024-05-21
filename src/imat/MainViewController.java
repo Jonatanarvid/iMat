@@ -22,7 +22,7 @@ public class MainViewController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         mainBorderPane.setCenter(shopView);
         controller = new BackendController(dataHandler);
-        shoppingCartView = new ShoppingCartView(dataHandler, controller);
+        shoppingCartView = new ShoppingCartView(controller);
         categoryView = new CategoryView(dataHandler);
         mainBorderPane.setRight(shoppingCartView);
         mainBorderPane.setLeft(categoryView);

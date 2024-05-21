@@ -32,7 +32,7 @@ public class BackendController implements ProductCardObservable, FavouriteObserv
             productCards.put(product, productCard);
         }
         addProductCardObserver(productCardObserver);
-        newSearch(new Search("", SortOrder.ALPHA));
+        newSearch(new Search("", SortOrder.PRICELOWHIGH));
     }
 
     private List<Product> getFilteredProducts(Search search) {

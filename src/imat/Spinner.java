@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Spinner extends AnchorPane implements ShoppingCartListener, ShoppingItemObservable{
+public class Spinner extends AnchorPane implements ShoppingItemObservable{
     @FXML
     private Button buttonCardMinus;
     @FXML
@@ -40,7 +40,6 @@ public class Spinner extends AnchorPane implements ShoppingCartListener, Shoppin
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
-        dataHandler.getShoppingCart().addShoppingCartListener(this);
         this.buy.toFront();
         this.product = product;
         if(isProductLine) {
@@ -53,13 +52,27 @@ public class Spinner extends AnchorPane implements ShoppingCartListener, Shoppin
             this.getTransforms().add(scale);
             moreThan0Product.toFront();
         }
-        updateAmount();
+        initAmount();
+    }
+
+    public void initAmount() {
+        for (ShoppingItem item : dataHandler.getShoppingCart().getItems()) {
+            if (this.product.equals(item.getProduct()) && item.getAmount() != 0) {
+                this.moreThan0Product.toFront();
+                this.amount = (int) item.getAmount();
+            }
+        }
+        this.buyCounter.setText(String.valueOf(this.amount));
+    }
+
+    private void updateAmount(int amount) {
+        this.amount = amount;
+        this.buyCounter.setText(String.valueOf(this.amount));
     }
 
     public void buyLabelClicked(Event event) {
-        System.out.println("Hello!");
-        addProduct(event);
-        updateAmount();
+        notifyShoppingItemObservers(true);
+        event.consume();
     }
 
     public void addProduct(Event event) {
@@ -72,19 +85,18 @@ public class Spinner extends AnchorPane implements ShoppingCartListener, Shoppin
         event.consume();
     }
 
-    public void updateAmount() {
-        for (ShoppingItem item : dataHandler.getShoppingCart().getItems()) {
-            if (this.product.equals(item.getProduct()) && item.getAmount() != 0) {
-                this.moreThan0Product.toFront();
-                this.amount = (int) item.getAmount();
+    public void update(CartEvent event) {
+        if(event.getShoppingItem().getProduct().equals(this.product)) {
+            for(ShoppingItem item: dataHandler.getShoppingCart().getItems()) {
+                if(item.getProduct().equals(this.product)) {
+                    updateAmount((int) item.getAmount());
+                }
             }
         }
-        this.buyCounter.setText(String.valueOf(this.amount));
     }
 
-    @Override
-    public void shoppingCartChanged(CartEvent cartEvent) {
-        updateAmount();
+    public int getAmount() {
+        return this.amount;
     }
 
     @Override

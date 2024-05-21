@@ -18,7 +18,7 @@
       </StackPane>
         <ScrollPane prefHeight="649.0" prefWidth="428.0">
         <content>
-            <VBox fx:id="shoppingViewScrollPaneVBox">
+            <VBox fx:id="shoppingViewScrollPaneVBox" alignment="CENTER">
             </VBox>
         </content>
         </ScrollPane>

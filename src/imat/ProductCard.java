@@ -9,14 +9,16 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.scene.transform.Scale;
+import se.chalmers.cse.dat216.project.CartEvent;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
+import se.chalmers.cse.dat216.project.ShoppingCartListener;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductCard extends AnchorPane implements FavouriteObservable {
+public class ProductCard extends AnchorPane implements FavouriteObservable, ShoppingCartListener {
     @FXML
     private ImageView productImageView;
     @FXML
@@ -113,5 +115,10 @@ public class ProductCard extends AnchorPane implements FavouriteObservable {
     }
     public void addShoppingItemObserver(ShoppingItemObserver observer) {
         spinner.addShoppingItemObserver(observer);
+    }
+
+    @Override
+    public void shoppingCartChanged(CartEvent cartEvent) {
+        spinner.update(cartEvent);
     }
 }
