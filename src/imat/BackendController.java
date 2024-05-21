@@ -8,15 +8,10 @@ import java.util.List;
 
 public class BackendController implements ProductCardObservable, FavouriteObserver, ShoppingItemObserver, SearchObserver {
     private final IMatDataHandler dataHandler;
-    private SortOrder sortOrder = SortOrder.ALPHA;
     private final ShoppingCart shoppingCart;
     private final List<ProductCardObserver> productCardObservers = new ArrayList<ProductCardObserver>();
     private List<Product> products;
     private final HashMap<Product, ProductCard> productCards = new HashMap<Product, ProductCard>();
-
-    public void setSortOrder(SortOrder sortOrder) {
-        this.sortOrder = sortOrder;
-    }
 
     public BackendController(IMatDataHandler dataHandler) {
         this.dataHandler = dataHandler;
@@ -55,26 +50,26 @@ public class BackendController implements ProductCardObservable, FavouriteObserv
         return products;
     }
 
-    private List<Product> getSortedProducts(List<Product> products) {
+    private List<Product> getSortedProducts(List<Product> products, SortOrder sortOrder) {
         switch (sortOrder) {
             case ALPHA -> {
-                products.sort((a, b) -> {return a.getName().compareTo(b.getName());});
+                products.sort((a, b) -> a.getName().compareTo(b.getName()));
             }
             case REVERSEALPHA -> {
-                products.sort((a, b) -> {return -1*a.getName().compareTo(b.getName());});
+                products.sort((a, b) -> b.getName().compareTo(a.getName()));
             }
             case PRICELOWHIGH -> {
-                products.sort((a, b) -> {return (int) (a.getPrice() - b.getPrice());});
+                products.sort((a, b) -> Double.compare(a.getPrice(), b.getPrice()));
             }
             case PRICEHIGHLOW -> {
-                products.sort((a, b) -> {return (int) (-1*(a.getPrice() - b.getPrice()));});
+                products.sort((a, b) -> Double.compare(b.getPrice(), a.getPrice()));
             }
         }
         return products;
     }
 
     public void newSearch(Search search) {
-        this.products = getSortedProducts(getFilteredProducts(search));
+        this.products = getSortedProducts(getFilteredProducts(search), search.getSortOrder());
         notifyProductCardObservers();
     }
 
@@ -129,10 +124,10 @@ public class BackendController implements ProductCardObservable, FavouriteObserv
     @Override
     public void updateSearchObserver(List<ProductCategory> products) {
         if(products.isEmpty()) {
-            this.products = getSortedProducts(dataHandler.favorites());
+            this.products = getSortedProducts(dataHandler.favorites(), SortOrder.ALPHA); // Or any default sort order
             notifyProductCardObservers();
         } else {
-            newSearch(new Search(products, sortOrder));
+            newSearch(new Search(products, SortOrder.ALPHA)); // Or pass the desired sort order
         }
     }
 }
