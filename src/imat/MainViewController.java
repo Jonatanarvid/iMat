@@ -7,16 +7,17 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 
 public class MainViewController implements Initializable {
 
     BackendController controller = new BackendController();
     private ShopView shopView = new ShopView();
-    @FXML private BorderPane mainBorderPane;
+    @FXML private VBox centerVBox;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        mainBorderPane.setCenter(shopView);
+        centerVBox.getChildren().add(shopView);
         controller.start(shopView);
 
         String iMatDirectory = controller.getIMatDirectory();

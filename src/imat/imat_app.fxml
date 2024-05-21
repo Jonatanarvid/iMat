@@ -73,7 +73,7 @@
             </VBox>
          </right>
          <center>
-            <VBox prefHeight="876.0" prefWidth="1227.0" BorderPane.alignment="CENTER">
+            <VBox fx:id="centerVBox" prefHeight="876.0" prefWidth="1227.0" BorderPane.alignment="CENTER">
                <children>
                   <AnchorPane prefHeight="371.0" prefWidth="1063.0">
                      <children>

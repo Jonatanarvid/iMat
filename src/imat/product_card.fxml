@@ -54,7 +54,7 @@
                   <Image url="@resources/imat/egnabilder/Item-amount-spinner/Variant32.jpg" />
                </image>
             </ImageView>
-            <Label alignment="CENTER" prefHeight="85.0" prefWidth="119.0" text="Köp" textFill="WHITE">
+            <Label fx:id="buyLabel" alignment="CENTER" onMouseClicked="#buyLabelClicked" prefHeight="85.0" prefWidth="119.0" text="Köp" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="45.0" />
                </font>
