@@ -1,15 +1,43 @@
-<?import javafx.scene.layout.VBox?>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<fx:root type="javafx.scene.layout.VBox" fx:id="rightVBox" prefHeight="876.0" prefWidth="428.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root fx:id="rightVBox" prefHeight="876.0" prefWidth="428.0" stylesheets="@imat_app.css" type="javafx.scene.layout.VBox" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <Label prefHeight="99.0" prefWidth="331.0" styleClass="text-header" text="Kundvagn" />
-        <ScrollPane prefHeight="750.0" prefWidth="432.0">
+      <StackPane prefHeight="150.0" prefWidth="200.0">
+         <children>
+              <Label prefHeight="99.0" prefWidth="418.0" styleClass="text-header" text="Kundvagn" />
+         </children>
+      </StackPane>
+        <ScrollPane prefHeight="649.0" prefWidth="428.0">
         <content>
             <VBox fx:id="shoppingViewScrollPaneVBox">
             </VBox>
         </content>
         </ScrollPane>
+      <StackPane prefHeight="198.0" prefWidth="428.0">
+         <children>
+            <ImageView fitHeight="183.0" fitWidth="371.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@resources/imat/egnabilder/KöpKnapp.png" />
+               </image>
+            </ImageView>
+            <Label prefHeight="95.0" prefWidth="345.0" styleClass="text-header" text="Till Kassa">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+         </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </StackPane>
     </children>
 </fx:root>
