@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class BackendController implements ProductCardObservable, FavouriteObserver, ShoppingItemObserver {
+public class BackendController implements ProductCardObservable, FavouriteObserver, ShoppingItemObserver, SearchObserver {
     private final IMatDataHandler dataHandler;
     private final ShoppingCart shoppingCart;
     private final List<ProductCardObserver> productCardObservers = new ArrayList<ProductCardObserver>();
@@ -117,5 +117,10 @@ public class BackendController implements ProductCardObservable, FavouriteObserv
     @Override
     public void updateShoppingItemObserver(Product product) {
         shoppingCart.addProduct(product, true);
+    }
+
+    @Override
+    public void updateSearchObserver(Search search) {
+        newSearch(search);
     }
 }

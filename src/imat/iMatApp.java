@@ -1,11 +1,8 @@
 package imat;
 
 
-import java.util.ArrayList;
-import java.util.Objects;
 import java.util.ResourceBundle;
 import javafx.application.Application;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -18,6 +15,9 @@ import se.chalmers.cse.dat216.project.IMatDataHandler;
  * and open the template in the editor.
  */
 public class iMatApp extends Application {
+    private Stage shoppingStage;
+    private Stage cartStage;
+
     @Override
     public void start(Stage stage) throws Exception {
 

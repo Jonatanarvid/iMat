@@ -16,8 +16,8 @@ public class Search {
         this.sortOrder = sort;
     }
 
-    public Search(Categories categories, SortOrder sort) {
-        this.categories = categories.convertToListOfProductCategory();
+    public Search(List<ProductCategory> categories, SortOrder sort) {
+        this.categories = categories;
         this.sortOrder = sort;
     }
 

@@ -26,6 +26,7 @@ public class MainViewController implements Initializable {
         mainBorderPane.setRight(shoppingCartView);
         mainBorderPane.setLeft(categoryView);
         controller = new BackendController(dataHandler);
+        categoryView.addSearchObserver(controller);
         controller.start(shopView);
 
         String iMatDirectory = controller.getIMatDirectory();
