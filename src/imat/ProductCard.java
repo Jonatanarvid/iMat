@@ -56,10 +56,12 @@ public class ProductCard extends AnchorPane implements FavouriteObservable, Shop
 
     private void initialize(){
         favouriteImageView.setImage(notFavouriteImage);
-        isFavourite = false;
+        isFavourite = false; // This should not exist, buttonImages should always reflect the state that is kept in backend
+        //Fine for temporary visual implementation I guess though
     }
 
-    public void favouriteButtonSelected(){
+    @FXML
+    private void favouriteButtonSelected(){
         isFavourite = !isFavourite;
         if(isFavourite){
             favouriteImageView.setImage(isFavouriteImage);
