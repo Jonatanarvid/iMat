@@ -33,17 +33,19 @@ public class CategoryView extends VBox implements SearchObservable {
 
         TreeItem<String> rootItem = new TreeItem<>("Kategorier");
         rootItem.setExpanded(true);
-        rootItem.getChildren().add(new TreeItem<String>("Favoriter"));
+        TreeItem<String> favoritesItem = new TreeItem<>("Favoriter");
+        rootItem.getChildren().add(favoritesItem);
+
         // Iterate over Categories enum to create categories and subcategories
         for (Categories category : Categories.values()) {
-            TreeItem<String> categoryItem = createTreeItem(category.name());
+            TreeItem<String> categoryItem = new TreeItem<>(category.name());
             categoryHashMap.put(category.name(), category.convertToListOfProductCategory());
             List<ProductCategory> subcategories = category.convertToListOfProductCategory();
             for (ProductCategory subcategory : subcategories) {
                 List<ProductCategory> productCategories = new ArrayList<>();
                 productCategories.add(subcategory);
                 categoryHashMap.put(subcategory.name(), productCategories);
-                TreeItem<String> subcategoryItem = createTreeItem(subcategory.name());
+                TreeItem<String> subcategoryItem = new TreeItem<>(subcategory.name());
                 categoryItem.getChildren().add(subcategoryItem);
             }
             rootItem.getChildren().add(categoryItem);
@@ -60,56 +62,61 @@ public class CategoryView extends VBox implements SearchObservable {
             if (newValue != null) {
                 TreeItem<String> selectedItem = newValue;
                 System.out.println("Selected item: " + selectedItem.getValue());
-                if(!selectedItem.getValue().equals(new String("Favoriter"))) {
+                if (!selectedItem.getValue().equals("Favoriter")) {
                     notifySearchObservers(categoryHashMap.get(selectedItem.getValue()));
                 } else {
-                    notifySearchObservers(new ArrayList<ProductCategory>());
+                    notifySearchObservers(new ArrayList<>());
+                    collapseAll(rootItem);
                 }
             }
         });
 
-        // Expand selected item on single click
-        categoryTreeView.setOnMouseClicked(event -> handleMouseClick(event));
+        // Expand selected item on single click and collapse others
+        categoryTreeView.setOnMouseClicked(event -> handleMouseClick(event, rootItem));
     }
 
-    private void handleMouseClick(MouseEvent event) {
-        TreeItem<String> selectedItem = categoryTreeView.getSelectionModel().getSelectedItem();
-        if (selectedItem != null && event.getClickCount() == 1) {
-            TreeItem<String> clickedItem = getTreeItem(event);
-            if (clickedItem != null && !clickedItem.isLeaf()) {
-                boolean isExpanded = clickedItem.isExpanded();
-                collapseOtherItems(clickedItem); // Collapse other items first
-                clickedItem.setExpanded(!isExpanded); // Toggle expand/collapse
-                categoryTreeView.getSelectionModel().select(clickedItem); // Ensure the item is selected
+    private void handleMouseClick(MouseEvent event, TreeItem<String> rootItem) {
+        if (event.getClickCount() == 1) {
+            TreeItem<String> selectedItem = categoryTreeView.getSelectionModel().getSelectedItem();
+            if (selectedItem != null) {
+                if (!selectedItem.getValue().equals("Favoriter") && !selectedItem.isLeaf()) {
+                    boolean isExpanded = selectedItem.isExpanded();
+                    collapseOtherItems(selectedItem); // Collapse other items first
+                    selectedItem.setExpanded(!isExpanded); // Toggle expand/collapse
+                    categoryTreeView.getSelectionModel().select(selectedItem); // Ensure the item is selected
+                } else if (selectedItem.getValue().equals("Favoriter")) {
+                    collapseAll(rootItem);
+                }
                 event.consume(); // Consume the event to prevent further propagation
             }
         }
     }
 
-    private TreeItem<String> getTreeItem(MouseEvent event) {
-        TreeItem<String> item = categoryTreeView.getSelectionModel().getSelectedItem();
-        if (item != null && categoryTreeView.getRow(item) == categoryTreeView.getSelectionModel().getSelectedIndex()) {
-            return item;
-        }
-        return null;
-    }
-
-    private TreeItem<String> createTreeItem(String name) {
-        TreeItem<String> item = new TreeItem<>(name);
-        item.expandedProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue) {
-                collapseOtherItems(item);
+    private void collapseAll(TreeItem<String> rootItem) {
+        for (TreeItem<String> item : rootItem.getChildren()) {
+            if (item.isExpanded()) {
+                item.setExpanded(false);
+                collapseAllChildren(item);
             }
-        });
-        return item;
+        }
     }
 
-    private void collapseOtherItems(TreeItem<String> item) {
-        TreeItem<String> parent = item.getParent();
+    private void collapseAllChildren(TreeItem<String> item) {
+        for (TreeItem<String> child : item.getChildren()) {
+            if (child.isExpanded()) {
+                child.setExpanded(false);
+                collapseAllChildren(child);
+            }
+        }
+    }
+
+    private void collapseOtherItems(TreeItem<String> selectedItem) {
+        TreeItem<String> parent = selectedItem.getParent();
         if (parent != null) {
             for (TreeItem<String> sibling : parent.getChildren()) {
-                if (sibling != item) {
+                if (sibling != selectedItem) {
                     sibling.setExpanded(false);
+                    collapseAllChildren(sibling);
                 }
             }
         }

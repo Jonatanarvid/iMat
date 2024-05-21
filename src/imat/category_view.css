@@ -10,9 +10,7 @@
     -fx-background-color: lightgrey;
 }
 
-.tree-cell:focused {
-    -fx-background-color: lightgreen;
-}
+
 
 .tree-cell:selected {
     -fx-background-color: lightgreen;
