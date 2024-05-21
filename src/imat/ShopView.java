@@ -76,7 +76,7 @@ public class ShopView extends VBox implements ProductCardObserver {
                 break;
         }
         controller.setSortOrder(sortOrder);
-        
+
         controller.newSearch(new Search("", controller.getSortOrder()));
 
     }
