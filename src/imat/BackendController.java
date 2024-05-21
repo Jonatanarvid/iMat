@@ -29,9 +29,10 @@ public class BackendController implements ProductCardObservable, FavouriteObserv
 
     public void start(ProductCardObserver productCardObserver) {
         for(Product product : dataHandler.getProducts()) {
-            ProductCard productCard = new ProductCard(product, dataHandler.getFXImage(product));ShoppingItem shoppingItem = new ShoppingItem(product, 0);
+            ProductCard productCard = new ProductCard(product, dataHandler.getFXImage(product));
             productCard.addFavouriteObserver(this);
             productCard.addShoppingItemObserver(this);
+            shoppingCart.addShoppingCartListener(productCard);
             productCards.put(product, productCard);
         }
         addProductCardObserver(productCardObserver);
@@ -124,8 +125,13 @@ public class BackendController implements ProductCardObservable, FavouriteObserv
     }
 
     @Override
-    public void updateShoppingItemObserver(Product product) {
-        shoppingCart.addProduct(product, true);
+    public void updateShoppingItemObserver(Product product, boolean isAdd) {
+        System.out.println("Backend Notified!");
+        if(isAdd) {
+            shoppingCart.addItem(new ShoppingItem(product, 1), true);
+        } else {
+            shoppingCart.addItem(new ShoppingItem(product, -1), true);
+        }
     }
 
     @Override

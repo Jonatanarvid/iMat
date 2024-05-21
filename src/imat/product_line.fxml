@@ -26,24 +26,7 @@
             <Font name="System Italic" size="20.0" />
          </font>
       </Label>
-      <StackPane layoutX="197.0" layoutY="6.0" prefHeight="48.0" prefWidth="133.0">
-         <children>
-            <ImageView fitHeight="35.0" fitWidth="160.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@resources/imat/egnabilder/Item-amount-spinner/Item-amount-spinner/Variant32.jpg" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="35.0" fitWidth="121.0" layoutX="23.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@resources/imat/egnabilder/Item-amount-spinner/Variant32.jpg" />
-               </image>
-            </ImageView>
-            <Label fx:id="amountLabel" alignment="CENTER" prefHeight="85.0" prefWidth="57.0" text="1" textFill="WHITE">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
-         </children>
+      <StackPane fx:id="amountSpinnerStackPane" layoutX="197.0" layoutY="6.0" prefHeight="48.0" prefWidth="133.0">
       </StackPane>
    </children>
 </fx:root>
