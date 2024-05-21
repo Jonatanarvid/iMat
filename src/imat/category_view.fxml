@@ -4,9 +4,9 @@
 <?import javafx.scene.control.TreeView?>
 <?import javafx.scene.layout.VBox?>
 
-<fx:root type="javafx.scene.layout.VBox" prefHeight="865.0" prefWidth="315.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root prefHeight="865.0" prefWidth="315.0" type="javafx.scene.layout.VBox" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label alignment="CENTER" prefHeight="104.0" prefWidth="225.0" styleClass="text-header" text="Kategorier" />
-      <TreeView prefHeight="773.0" prefWidth="315.0" />
+      <TreeView fx:id="categoryTreeView" prefHeight="773.0" prefWidth="315.0" />
    </children>
 </fx:root>
