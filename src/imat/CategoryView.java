@@ -121,7 +121,7 @@ public class CategoryView extends VBox implements SearchObservable {
             }
         }
     }
-
+// WEEEEEEEEEEE
     @Override
     public void addSearchObserver(SearchObserver observer) {
         searchObservers.add(observer);
