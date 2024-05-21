@@ -19,10 +19,6 @@
                 <ComboBox layoutX="784.0" layoutY="43.0" prefHeight="40.0" prefWidth="235.0" fx:id="sortComboBox" onAction="#handleSortOrderChange">
                     <items>
                         <FXCollections fx:factory="observableArrayList">
-                            <String fx:value="Alphabetical" />
-                            <String fx:value="Reverse Alphabetical" />
-                            <String fx:value="Price: Low to High" />
-                            <String fx:value="Price: High to Low" />
                         </FXCollections>
                     </items>
                 </ComboBox>
