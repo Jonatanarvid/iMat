@@ -13,9 +13,11 @@ public class BackendController implements ProductCardObservable, FavouriteObserv
     private List<Product> products;
     private final HashMap<Product, ProductCard> productCards = new HashMap<Product, ProductCard>();
     private SortOrder sortOrder;
+    private MainViewController mainViewController;
 
-    public BackendController(IMatDataHandler dataHandler) {
+    public BackendController(IMatDataHandler dataHandler, MainViewController viewController) {
         this.dataHandler = dataHandler;
+        this.mainViewController = viewController;
         shoppingCart = dataHandler.getShoppingCart();
     }
 
@@ -29,7 +31,7 @@ public class BackendController implements ProductCardObservable, FavouriteObserv
 
     public void start(ProductCardObserver productCardObserver) {
         for(Product product : dataHandler.getProducts()) {
-            ProductCard productCard = new ProductCard(product, dataHandler.getFXImage(product));
+            ProductCard productCard = new ProductCard(product, dataHandler.getFXImage(product), mainViewController);
             productCard.addFavouriteObserver(this);
             productCard.addShoppingItemObserver(this);
             shoppingCart.addShoppingCartListener(productCard);

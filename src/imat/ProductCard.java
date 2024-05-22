@@ -1,5 +1,6 @@
 package imat;
 
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -48,11 +49,12 @@ public class ProductCard extends AnchorPane implements FavouriteObservable, Shop
     private List<FavouriteObserver> favouriteObservers = new ArrayList<FavouriteObserver>();
     private List<ShoppingItemObserver> shoppingItemObservers = new ArrayList<ShoppingItemObserver>();
     private final Spinner spinner;
+    private MainViewController mainViewController;
 
     Image notFavouriteImage = new Image((getClass().getResourceAsStream("resources/imat/egnabilder/unfilled_star.png")));
     Image isFavouriteImage = new Image((getClass().getResourceAsStream("resources/imat/egnabilder/filled_star.png")));
 
-    public ProductCard(Product product, Image image) {
+    public ProductCard(Product product, Image image, MainViewController viewController) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("product_card.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -72,6 +74,7 @@ public class ProductCard extends AnchorPane implements FavouriteObservable, Shop
         this.spinnerStackPane.getChildren().clear();
         this.spinnerStackPane.getChildren().add(spinner);
         this.withSuffix.setText(String.valueOf(product.getPrice())+product.getUnit());
+        this.mainViewController = viewController;
         initialize();
 
         // Apply scaling transformation to the loaded AnchorPane
@@ -136,10 +139,15 @@ public class ProductCard extends AnchorPane implements FavouriteObservable, Shop
     }
     @FXML
     public void cardEntered(){
-        cardFeedback.setVisible(true);
+        //cardFeedback.setVisible(true);
     }
     @FXML
     public void cardExited(){
-        cardFeedback.setVisible(false);
+        //cardFeedback.setVisible(false);
+    }
+    @FXML
+    protected void onClick(Event event){
+        System.out.println("smth happen");
+        mainViewController.openDetailView(product);
     }
 }

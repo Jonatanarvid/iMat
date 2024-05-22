@@ -46,3 +46,15 @@
     -fx-border-width: 0 ; /* Set the border width to 0 */
 }
 
+.vbox {
+    -fx-spacing: 10px;
+    -fx-padding: 10px;
+}
+
+.text-area {
+    -fx-padding: 10px;
+    -fx-background-color: transparent;
+    -fx-wrap-text: true;
+    -fx-font-size: 24px;
+}
+
