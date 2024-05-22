@@ -71,7 +71,7 @@ public class ProductCard extends AnchorPane implements FavouriteObservable, Shop
         this.spinner = new Spinner(this.product, false);
         this.spinnerStackPane.getChildren().clear();
         this.spinnerStackPane.getChildren().add(spinner);
-        this.withSuffix.setText(String.valueOf(product.getPrice()+product.getUnit()));
+        this.withSuffix.setText(String.valueOf(product.getPrice())+product.getUnit());
         initialize();
 
         // Apply scaling transformation to the loaded AnchorPane

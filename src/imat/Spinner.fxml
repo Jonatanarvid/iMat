@@ -39,7 +39,7 @@
                      </font>
                   </Label>
                   <Button fx:id="buttonCardMinus" layoutX="16.0" layoutY="8.0" mnemonicParsing="false" onMouseClicked="#subtractProduct" prefHeight="82.0" prefWidth="87.0" styleClass="transparent-button" />
-                  <Button fx:id="buttonCardPlus" layoutX="232.0" layoutY="7.0" mnemonicParsing="false" onMouseClicked="#subtractProduct" prefHeight="82.0" prefWidth="87.0" styleClass="transparent-button" />
+                  <Button fx:id="buttonCardPlus" layoutX="232.0" layoutY="7.0" mnemonicParsing="false" onMouseClicked="#addProduct" prefHeight="82.0" prefWidth="87.0" styleClass="transparent-button" />
                </children>
             </AnchorPane>
          </children>
