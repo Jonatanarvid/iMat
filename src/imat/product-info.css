@@ -24,3 +24,11 @@
     -fx-padding: 0;
     -fx-text-fill: black; /* Set text color to black */
 }
+
+.anchor-pane {
+    -fx-background-color: transparent;
+}
+
+.stack-pane {
+    -fx-background-color: transparent;
+}
