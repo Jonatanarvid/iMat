@@ -49,21 +49,23 @@ public class ShoppingCartView extends VBox implements ShoppingCartListener {
 
     @Override
     public void shoppingCartChanged(CartEvent cartEvent) {
-        Product product = cartEvent.getShoppingItem().getProduct();
-        double amount = cartEvent.getShoppingItem().getAmount();
-        double total = cartEvent.getShoppingItem().getTotal();
-        if(!cartEvent.isAddEvent()) {
-            productLines.remove(product);
-        } else {
-            if(productLines.containsKey(product)) {
-                productLines.get(product).updateProducts(cartEvent);
+        if(cartEvent.getShoppingItem() != null) {
+            Product product = cartEvent.getShoppingItem().getProduct();
+            double amount = cartEvent.getShoppingItem().getAmount();
+            double total = cartEvent.getShoppingItem().getTotal();
+            if (!cartEvent.isAddEvent()) {
+                productLines.remove(product);
+                updateShoppingViewScrollPaneVBox();
+            } else {
+                if (productLines.containsKey(product)) {
+                    productLines.get(product).updateProducts(cartEvent);
+                } else {
+                    ProductLine productLine = new ProductLine(product, dataHandler.getFXImage(product), 1);
+                    productLine.addShoppingItemObserver(backendController);
+                    productLines.put(product, productLine);
+                }
             }
-            else {
-                ProductLine productLine = new ProductLine(product, dataHandler.getFXImage(product), 1);
-                productLine.addShoppingItemObserver(backendController);
-                productLines.put(product, productLine);
-            }
+            updateShoppingViewScrollPaneVBox();
         }
-        updateShoppingViewScrollPaneVBox();
     }
 }

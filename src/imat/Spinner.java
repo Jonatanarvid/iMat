@@ -71,7 +71,7 @@ public class Spinner extends AnchorPane implements ShoppingItemObservable{
     }
 
     private void updateAmount(int amount) {
-        this.amount = amount;
+        this.amount = max(amount, 0);
         this.buyCounter.setText(String.valueOf(this.amount));
         this.moreThan0Product.toFront();
     }
@@ -79,31 +79,30 @@ public class Spinner extends AnchorPane implements ShoppingItemObservable{
     @FXML
     public void buyLabelClicked(Event event) {
         System.out.println("buyLabelClicked");
-        notifyShoppingItemObservers(true);
+        notifyShoppingItemObservers(true, false);
         event.consume();
     }
 
     public void addProduct(Event event) {
         System.out.println("addProduct");
-        notifyShoppingItemObservers(true);
+        notifyShoppingItemObservers(true, false);
         event.consume();
     }
 
     public void subtractProduct(Event event) {
-        System.out.println("subtractProduct");
-        if(amount > 0) {
-            notifyShoppingItemObservers(false);
+        if(amount > 1) {
+            notifyShoppingItemObservers(false, false);
+        } else {
+            notifyShoppingItemObservers(false, true);
+            buy.toFront();
         }
         event.consume();
     }
 
     public void update(CartEvent event) {
-        System.out.println("Spinner Updated!");
         if(event.getShoppingItem().getProduct().equals(this.product)) {
-            System.out.println("Match");
             for(ShoppingItem item: dataHandler.getShoppingCart().getItems()) {
                 if(item.getProduct().equals(this.product)) {
-                    System.out.println("Found product in cart");
                     System.out.println(item.getAmount() == amount);
                     updateAmount((int) item.getAmount());
                     break;
@@ -129,9 +128,9 @@ public class Spinner extends AnchorPane implements ShoppingItemObservable{
     }
 
     @Override
-    public void notifyShoppingItemObservers(boolean isAdd) {
+    public void notifyShoppingItemObservers(boolean isAdd, boolean isDelete) {
         for (ShoppingItemObserver observer : shoppingItemObservers) {
-            observer.updateShoppingItemObserver(this.product, isAdd);
+            observer.updateShoppingItemObserver(this.product, isAdd, isDelete);
         }
     }
 }
