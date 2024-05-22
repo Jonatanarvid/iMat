@@ -112,6 +112,8 @@ public class CategoryView extends VBox implements SearchObservable {
         // Get the selection model of the TreeView
         SelectionModel<TreeItem<String>> selectionModel = categoryTreeView.getSelectionModel();
         selectionModel.clearSelection();
+        collapseAll(rootItem);
+
 
     }
 
