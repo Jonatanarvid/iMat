@@ -36,10 +36,6 @@ public class ShopView extends VBox implements ProductCardObserver {
                 "Price: Low to High",
                 "Price: High to Low"
         );
-
-
-
-
     }
 
     private void setSortButtonDefault() {
@@ -79,10 +75,7 @@ public class ShopView extends VBox implements ProductCardObserver {
 
             productGrid.add(productCard, currentColumn, currentRow);
         }
-
-
     }
-
 
     @FXML
     private void handleSortOrderChange() {
@@ -109,7 +102,6 @@ public class ShopView extends VBox implements ProductCardObserver {
         controller.setSortOrder(sortOrder);
 
         controller.newSearch(new Search("", controller.getSortOrder()));
-
     }
 
     @Override

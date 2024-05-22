@@ -32,7 +32,7 @@ public class ProductLine extends AnchorPane {
         this.product = product;
         this.nameLabel.setText(product.getName());
         this.productImageView.setImage(image);
-        this.priceLabel.setText(String.valueOf(product.getPrice()));
+        this.priceLabel.setText(String.valueOf(product.getPrice() * amount));
 
         amountSpinner = new Spinner(this.product, true);
         amountSpinnerStackPane.getChildren().add(amountSpinner);
