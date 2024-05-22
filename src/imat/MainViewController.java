@@ -57,6 +57,11 @@ public class MainViewController implements Initializable {
         detailPane.toFront();
 
     }
+    public void closeDetailView(){
+        detailPane.setVisible(false);
+        detailPane.toBack();
+
+    }
     public void populateRecipeDetailView(Product product){
         ProductDetail productDetail= dataHandler.getDetail(product);
         marke.setText("Märke: "+ productDetail.getBrand());

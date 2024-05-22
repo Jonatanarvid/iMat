@@ -1,0 +1,11 @@
+.text-name {
+    -fx-font-size: 50.625px; /* 33.75px * 1.5 */
+}
+
+.text-comp-price {
+    -fx-font-size: 45.0px; /* 30.0px * 1.5 */
+}
+
+.transparent-button {
+    -fx-background-color: transparent;
+}
