@@ -1,8 +1,10 @@
 package imat;
 
+import com.sun.tools.javac.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
@@ -13,8 +15,11 @@ public class ShopView extends VBox implements ProductCardObserver {
     @FXML private GridPane productGrid;
     private BackendController controller;
 
+    private MainViewController mainViewController;
     @FXML
     private ComboBox<String> sortComboBox;
+
+
 
 
 
@@ -54,6 +59,11 @@ public class ShopView extends VBox implements ProductCardObserver {
     public void setBackendController(BackendController controller) {
         this.controller = controller;
         setSortButtonDefault();
+    }
+
+    public void setMainViewController(MainViewController controller) {
+        this.mainViewController = controller;
+
     }
 
     private void clearProductGrid() {
@@ -101,8 +111,18 @@ public class ShopView extends VBox implements ProductCardObserver {
         }
         controller.setSortOrder(sortOrder);
 
-        controller.newSearch(new Search("", controller.getSortOrder()));
+        String searchText = mainViewController.getSearchText();
+        if (searchText.equals("")) { // Om det inte är en sökning (om sökrutan ej är tom) som sort ska ändras för utan inom en kategori
+            mainViewController.refreshSortedCategorySearch();
+        } else {
+            controller.newSearch(new Search(mainViewController.getSearchText(), controller.getSortOrder()));
+        }
+
+
+        //controller.newSearch(new Search(mainViewController.getSearchText(), controller.getSortOrder())); //searchField text here so you can sort when you're doing a textsearch too
+
     }
+
 
     @Override
     public void update(List<ProductCard> productCards) {

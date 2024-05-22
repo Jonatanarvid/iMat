@@ -14,11 +14,12 @@
 <fx:root onMouseClicked="#onClick" prefHeight="381.0" prefWidth="291.0" stylesheets="@product-info.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <Rectangle arcHeight="18.75" arcWidth="18.75" fill="WHITE" height="381.0" layoutX="-0.75" onMouseEntered="#cardEntered" onMouseExited="#cardExited" stroke="#d9d9d9" strokeType="INSIDE" strokeWidth="3.0" width="291.75" />
-      <Rectangle fx:id="cardFeedback" arcHeight="18.75" arcWidth="18.75" fill="#979797" height="381.0" layoutX="-1.0" onMouseEntered="#cardEntered" onMouseExited="#cardExited" stroke="#d9d9d9" strokeType="INSIDE" strokeWidth="3.0" visible="false" width="291.75" />
+        <Rectangle fx:id="cardFeedback" arcHeight="18.75" arcWidth="18.75" fill="#979797" height="381.0" layoutX="-1.0" onMouseEntered="#cardEntered" onMouseExited="#cardExited" stroke="#d9d9d9" strokeType="INSIDE" strokeWidth="3.0" visible="false" width="291.75" />
         <ImageView fx:id="productImageView" fitHeight="157.5" fitWidth="212.25" layoutX="38.25" layoutY="41.25" onMouseClicked="#onClick" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@resources/imat/images/product_5.jpg" />
-            </image></ImageView>
+            </image>
+        </ImageView>
         <Label fx:id="nameLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="1.5" layoutY="201.75" prefHeight="49.5" prefWidth="288.75" styleClass="text-name" text="Kycklingklubbor" textAlignment="CENTER">
             <font>
                 <Font name="System Bold" size="33.75" />
@@ -30,7 +31,8 @@
                 <Label fx:id="priceLabel" alignment="CENTER" prefHeight="49.5" prefWidth="72.75" styleClass="text-comp-price" text="4.90">
                     <font>
                         <Font size="30.0" />
-                    </font></Label>
+                    </font>
+                </Label>
             </children>
         </StackPane>
         <StackPane layoutX="217.5" layoutY="8.25" prefHeight="63.75" prefWidth="61.5">
@@ -49,7 +51,7 @@
                 <Button fx:id="favouriteButton" mnemonicParsing="false" onMouseClicked="#favouriteButtonSelected" prefHeight="46.5" prefWidth="40.5" styleClass="transparent-button" />
             </children>
         </StackPane>
-        <StackPane fx:id="spinnerStackPane" alignment="TOP_LEFT" layoutX="4.5" layoutY="284.25" prefHeight="87.75" prefWidth="280.5">
+        <StackPane fx:id="spinnerStackPane" layoutX="4.5" layoutY="284.25" prefHeight="87.75" prefWidth="280.5" alignment="CENTER"> <!-- Set alignment to center -->
         </StackPane>
         <Label fx:id="withSuffix" alignment="CENTER" layoutX="18.0" layoutY="247.5" prefHeight="37.5" prefWidth="248.25" styleClass="text-comp-price" text="4.90 kr/kg" textFill="#838383">
             <font>

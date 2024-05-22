@@ -7,12 +7,14 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TextField;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ProductDetail;
@@ -34,6 +36,11 @@ public class MainViewController implements Initializable {
     @FXML
     AnchorPane detailPane;
 
+    @FXML
+    private BorderPane detailViewPane;
+    @FXML
+    private TextField searchField;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         mainBorderPane.setCenter(shopView);
@@ -43,13 +50,16 @@ public class MainViewController implements Initializable {
         mainBorderPane.setRight(shoppingCartView);
         mainBorderPane.setLeft(categoryView);
         categoryView.addSearchObserver(controller);
+        categoryView.setMainController(this);
         controller.start(shopView);
 
         shopView.setBackendController(controller);
+        shopView.setMainViewController(this);
         String iMatDirectory = controller.getIMatDirectory();
         detailPane.setVisible(false);
 
-
+        // Set an event handler for the search field
+        searchField.setOnKeyPressed(event -> handleSearchFieldKeyPressed(event));
     }
     public void openDetailView(Product product){
         populateRecipeDetailView(product);
@@ -69,5 +79,34 @@ public class MainViewController implements Initializable {
         beskrivning.setText("Beskrivning: " + productDetail.getDescription());
         innehall.setText("Innehåll: " + productDetail.getDescription());
 
+
+
+    }
+
+    private void handleSearchFieldKeyPressed(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER) {
+            performSearch();
+        }
+    }
+
+    private void performSearch() {
+        String searchText = getSearchText();
+        if (searchText.equals("")) { // Om det inte är en sökning som sort ska ändras för utan inom en kategori
+            refreshSortedCategorySearch();
+        } else {
+            categoryView.clearSelection(); // Unselecta categories om det görs en textsökning
+            controller.newSearch(new Search(searchText, controller.getSortOrder()));
+        }
+    }
+
+    public void refreshSortedCategorySearch() {
+        categoryView.updateViewByCategories(categoryView.getCurrentValue());
+    }
+
+    public String getSearchText() {
+        return searchField.getText();
+    }
+    public void clearSearchText() {
+        searchField.setText("");
     }
 }

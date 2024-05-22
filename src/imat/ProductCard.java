@@ -10,7 +10,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.transform.Scale;
+import javafx.geometry.Pos;  // Importing Pos
 import se.chalmers.cse.dat216.project.CartEvent;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
@@ -43,7 +43,6 @@ public class ProductCard extends AnchorPane implements FavouriteObservable, Shop
     @FXML
     private Rectangle cardFeedback;
 
-
     private final Product product;
     private boolean isFavourite;
     private List<FavouriteObserver> favouriteObservers = new ArrayList<FavouriteObserver>();
@@ -73,17 +72,10 @@ public class ProductCard extends AnchorPane implements FavouriteObservable, Shop
         this.spinner = new Spinner(this.product, false);
         this.spinnerStackPane.getChildren().clear();
         this.spinnerStackPane.getChildren().add(spinner);
-        this.withSuffix.setText(String.valueOf(product.getPrice())+product.getUnit());
+        StackPane.setAlignment(spinner, Pos.CENTER);  // Center the spinner within the StackPane
+        this.withSuffix.setText(String.valueOf(product.getPrice()) + product.getUnit());
         this.mainViewController = viewController;
         initialize();
-
-        // Apply scaling transformation to the loaded AnchorPane
-        //Scale scale = new Scale();
-        //scale.setX(0.85); // Scale X axis by 0.75 (make it smaller)
-        //scale.setY(0.85); // Scale Y axis by 0.75 (make it smaller)
-
-        // Apply the Scale transformation to the root element of the loaded FXML
-        //this.getTransforms().add(scale);
     }
 
     private void initialize() {
@@ -94,7 +86,6 @@ public class ProductCard extends AnchorPane implements FavouriteObservable, Shop
             this.favouriteImageView.setImage(notFavouriteImage);
         }
     }
-
 
     @FXML
     private void favouriteButtonSelected() {
@@ -125,24 +116,27 @@ public class ProductCard extends AnchorPane implements FavouriteObservable, Shop
             observer.updateFavouriteObserver(this.product, this.isFavourite);
         }
     }
+
     public void addShoppingItemObserver(ShoppingItemObserver observer) {
         spinner.addShoppingItemObserver(observer);
     }
 
     @Override
     public void shoppingCartChanged(CartEvent cartEvent) {
-        if(cartEvent.getShoppingItem() != null) {
+        if (cartEvent.getShoppingItem() != null) {
             if (cartEvent.getShoppingItem().getProduct().equals(this.product)) {
                 spinner.update(cartEvent);
             }
         }
     }
+
     @FXML
-    public void cardEntered(){
+    public void cardEntered() {
         //cardFeedback.setVisible(true);
     }
+
     @FXML
-    public void cardExited(){
+    public void cardExited() {
         //cardFeedback.setVisible(false);
     }
     @FXML

@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface SearchObserver {
 
-    void updateSearchObserver(List<ProductCategory> categories);
+    void updateListSearchObserver(List<ProductCategory> categories);
 }

@@ -29,6 +29,8 @@ public class BackendController implements ProductCardObservable, FavouriteObserv
         return sortOrder;
     }
 
+
+
     public void start(ProductCardObserver productCardObserver) {
         for(Product product : dataHandler.getProducts()) {
             ProductCard productCard = new ProductCard(product, dataHandler.getFXImage(product), mainViewController);
@@ -142,7 +144,7 @@ public class BackendController implements ProductCardObservable, FavouriteObserv
     }
 
     @Override
-    public void updateSearchObserver(List<ProductCategory> products) {
+    public void updateListSearchObserver(List<ProductCategory> products) {
         if(products.isEmpty()) {
             this.products = getSortedProducts(dataHandler.favorites(), getSortOrder()); // Or any default sort order
             notifyProductCardObservers();
