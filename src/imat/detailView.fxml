@@ -8,142 +8,148 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="detailViewAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Rectangle fill="#575757" height="1000.0" opacity="0.8" stroke="BLACK" strokeType="INSIDE" width="1800.0" />
-      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#cff2d4" height="763.0" layoutX="169.0" layoutY="116.0" opacity="0.8" stroke="#d9d9d9" strokeType="INSIDE" strokeWidth="4.0" width="1431.0" />
-      <AnchorPane layoutX="175.0" layoutY="116.0" prefHeight="508.0" prefWidth="388.0" stylesheets="@product-info.css">
+      <AnchorPane fx:id="detailViewAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1800.0" stylesheets="@product-info.css">
          <children>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="WHITE" height="762.0" layoutX="-5.0" stroke="#d9d9d9" strokeType="INSIDE" strokeWidth="4.0" width="583.5" />
-            <ImageView fx:id="productImageView" fitHeight="315.0" fitWidth="424.5" layoutX="80.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@resources/imat/images/product_5.jpg" />
-               </image>
-            </ImageView>
-            <Label fx:id="nameLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="3.0" layoutY="396.0" prefHeight="84.0" prefWidth="578.0" styleClass="text-all" text="Kycklingklubbor" textAlignment="CENTER">
-               <font>
-                  <Font name="System Bold" size="67.5" />
-               </font>
-            </Label>
-            <StackPane layoutX="15.0" layoutY="13.0" prefHeight="120.0" prefWidth="163.5">
+            <Rectangle fill="#575757" height="1000.0" opacity="0.8" stroke="BLACK" strokeType="INSIDE" width="1800.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#cff2d4" height="763.0" layoutX="169.0" layoutY="116.0" opacity="0.8" stroke="#d9d9d9" strokeType="INSIDE" strokeWidth="4.0" width="1431.0" />
+            <AnchorPane layoutX="175.0" layoutY="116.0" prefHeight="508.0" prefWidth="388.0" stylesheets="@product-info.css">
                <children>
-                  <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#ededed" height="111.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="157.5" />
-                  <Label fx:id="priceLabel" alignment="CENTER" prefHeight="80.0" prefWidth="185.0" text="4.90">
+                  <Rectangle arcHeight="25.0" arcWidth="25.0" fill="WHITE" height="762.0" layoutX="-5.0" stroke="#d9d9d9" strokeType="INSIDE" strokeWidth="4.0" width="583.5" />
+                  <ImageView fx:id="productImageView" fitHeight="315.0" fitWidth="424.5" layoutX="80.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/imat/images/product_5.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="nameLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="3.0" layoutY="396.0" prefHeight="84.0" prefWidth="578.0" styleClass="text-all" text="Kycklingklubbor" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="67.5" />
+                     </font>
+                  </Label>
+                  <StackPane layoutX="15.0" layoutY="13.0" prefHeight="120.0" prefWidth="163.5">
+                     <children>
+                        <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#ededed" height="111.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="157.5" />
+                        <Label fx:id="priceLabel" alignment="CENTER" prefHeight="80.0" prefWidth="185.0" text="4.90">
+                           <font>
+                              <Font size="60.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane layoutX="435.0" layoutY="15.0" prefHeight="127.5" prefWidth="123.0">
+                     <children>
+                        <Rectangle arcHeight="25.0" arcWidth="25.0" fill="WHITE" height="111.0" stroke="BLACK" strokeType="INSIDE" width="111.0" />
+                        <ImageView fx:id="favouriteImageVeiw" fitHeight="88.5" fitWidth="79.5" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/imat/egnabilder/unfilled_star.png" />
+                           </image>
+                        </ImageView>
+                        <Button fx:id="favouriteButton" mnemonicParsing="false" prefHeight="93.0" prefWidth="81.0" styleClass="transparent-button" />
+                     </children>
+                  </StackPane>
+                  <StackPane layoutX="10.0" layoutY="572.0" prefHeight="175.5" prefWidth="561.0">
+                     <children>
+                        <ImageView fitHeight="142.5" fitWidth="519.0" layoutX="52.5" layoutY="31.5" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/imat/egnabilder/Item-amount-spinner/Variant42.jpg" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="142.5" fitWidth="519.0" layoutX="35.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/imat/egnabilder/Item-amount-spinner/Variant32.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="CENTER" prefHeight="127.5" prefWidth="178.5" text="Köp" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="45.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <Label alignment="CENTER" layoutX="44.0" layoutY="490.0" prefHeight="75.0" prefWidth="496.5" text="4.90 kr/kg" textFill="#838383">
                      <font>
                         <Font size="60.0" />
                      </font>
                   </Label>
                </children>
-            </StackPane>
-            <StackPane layoutX="435.0" layoutY="15.0" prefHeight="127.5" prefWidth="123.0">
+               <cursor>
+                  <Cursor fx:constant="CROSSHAIR" />
+               </cursor>
+            </AnchorPane>
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="WHITE" height="377.0" layoutX="795.0" layoutY="193.0" stroke="#d9d9d9" strokeType="INSIDE" strokeWidth="4.0" width="713.0" />
+            <AnchorPane layoutX="793.0" layoutY="609.0" prefHeight="209.0" prefWidth="351.0">
                <children>
-                  <Rectangle arcHeight="25.0" arcWidth="25.0" fill="WHITE" height="111.0" stroke="BLACK" strokeType="INSIDE" width="111.0" />
-                  <ImageView fx:id="favouriteImageVeiw" fitHeight="88.5" fitWidth="79.5" pickOnBounds="true" preserveRatio="true">
+                  <Rectangle arcHeight="25.0" arcWidth="25.0" fill="WHITE" height="203.0" stroke="#d9d9d9" strokeType="INSIDE" strokeWidth="4.0" width="347.0" />
+                  <Label layoutX="24.0" layoutY="26.0" prefHeight="65.0" prefWidth="138.0" text="Lägg till i " wrapText="true">
+                     <font>
+                        <Font size="35.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="20.0" layoutY="84.0" prefHeight="98.0" prefWidth="163.0" text="favoriter" wrapText="true">
+                     <font>
+                        <Font size="35.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="124.0" fitWidth="122.0" layoutX="206.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@resources/imat/egnabilder/unfilled_star.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="favouriteButton" mnemonicParsing="false" prefHeight="93.0" prefWidth="81.0" styleClass="transparent-button" />
                </children>
-            </StackPane>
-            <StackPane layoutX="10.0" layoutY="572.0" prefHeight="175.5" prefWidth="561.0">
+            </AnchorPane>
+            <AnchorPane layoutX="1150.0" layoutY="608.0" prefHeight="209.0" prefWidth="351.0">
                <children>
-                  <ImageView fitHeight="142.5" fitWidth="519.0" layoutX="52.5" layoutY="31.5" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@resources/imat/egnabilder/Item-amount-spinner/Variant42.jpg" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="142.5" fitWidth="519.0" layoutX="35.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@resources/imat/egnabilder/Item-amount-spinner/Variant32.jpg" />
-                     </image>
-                  </ImageView>
-                  <Label alignment="CENTER" prefHeight="127.5" prefWidth="178.5" text="Köp" textFill="WHITE">
+                  <Rectangle arcHeight="25.0" arcWidth="25.0" fill="WHITE" height="203.0" stroke="#d9d9d9" strokeType="INSIDE" strokeWidth="4.0" width="347.0" />
+                  <Label layoutX="24.0" layoutY="26.0" prefHeight="65.0" prefWidth="138.0" text="Lägg till i " wrapText="true">
                      <font>
-                        <Font name="System Bold" size="45.0" />
+                        <Font size="35.0" />
                      </font>
                   </Label>
+                  <Label layoutX="20.0" layoutY="84.0" prefHeight="98.0" prefWidth="163.0" text="inköpslista" wrapText="true">
+                     <font>
+                        <Font size="35.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="124.0" fitWidth="122.0" layoutX="203.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/imat/egnabilder/filled_star.png" />
+                     </image>
+                  </ImageView>
                </children>
-            </StackPane>
-            <Label alignment="CENTER" layoutX="44.0" layoutY="490.0" prefHeight="75.0" prefWidth="496.5" text="4.90 kr/kg" textFill="#838383">
-               <font>
-                  <Font size="60.0" />
-               </font>
-            </Label>
-         </children>
-         <cursor>
-            <Cursor fx:constant="CROSSHAIR" />
-         </cursor>
-      </AnchorPane>
-      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="WHITE" height="377.0" layoutX="795.0" layoutY="193.0" stroke="#d9d9d9" strokeType="INSIDE" strokeWidth="4.0" width="713.0" />
-      <AnchorPane layoutX="793.0" layoutY="609.0" prefHeight="209.0" prefWidth="351.0">
-         <children>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="WHITE" height="203.0" stroke="#d9d9d9" strokeType="INSIDE" strokeWidth="4.0" width="347.0" />
-            <Label layoutX="24.0" layoutY="26.0" prefHeight="65.0" prefWidth="138.0" text="Lägg till i " wrapText="true">
-               <font>
-                  <Font size="35.0" />
-               </font>
-            </Label>
-            <Label layoutX="20.0" layoutY="84.0" prefHeight="98.0" prefWidth="163.0" text="favoriter" wrapText="true">
-               <font>
-                  <Font size="35.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="124.0" fitWidth="122.0" layoutX="206.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+            </AnchorPane>
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#ee6d6d" height="102.0" layoutX="1533.0" layoutY="83.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="4.0" width="102.0" />
+            <ImageView fitHeight="84.0" fitWidth="79.0" layoutX="1545.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@resources/imat/egnabilder/unfilled_star.png" />
+                  <Image url="@resources/imat/egnabilder/x.png" />
                </image>
             </ImageView>
+            <TextArea fx:id="beskrivning" layoutX="815.0" layoutY="321.0" prefHeight="138.0" prefWidth="670.0" text="Beskrivning: En kolsyrad läskedryck med smak av apelsin. Finns i flera olika förpackningar &amp; passar perfekt för att släcka törsten till mellanmålet, snacksen eller till maten&#10;" wrapText="true">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </TextArea>
+            <TextArea fx:id="marke" layoutX="815.0" layoutY="218.0" prefHeight="21.0" prefWidth="670.0" text="Märke: Fanta" wrapText="true">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </TextArea>
+            <TextArea fx:id="ursprung" layoutX="815.0" layoutY="265.0" prefHeight="21.0" prefWidth="670.0" text="Ursprung: Finland" wrapText="true">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </TextArea>
+            <TextArea fx:id="innehall" layoutX="815.0" layoutY="441.0" prefHeight="104.0" prefWidth="670.0" text="Innehåll: Kolsyrat vatten, sackaros, apelsinjuice (5%), syror (E 330, E 296), naturlig apelsinarom, andra naturliga aromer, sötningsmedel (acesulfam K, aspartam), stabiliseringsmedel" wrapText="true">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </TextArea>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="1150.0" layoutY="608.0" prefHeight="209.0" prefWidth="351.0">
-         <children>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="WHITE" height="203.0" stroke="#d9d9d9" strokeType="INSIDE" strokeWidth="4.0" width="347.0" />
-            <Label layoutX="24.0" layoutY="26.0" prefHeight="65.0" prefWidth="138.0" text="Lägg till i " wrapText="true">
-               <font>
-                  <Font size="35.0" />
-               </font>
-            </Label>
-            <Label layoutX="20.0" layoutY="84.0" prefHeight="98.0" prefWidth="163.0" text="inköpslista" wrapText="true">
-               <font>
-                  <Font size="35.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="124.0" fitWidth="122.0" layoutX="203.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@resources/imat/egnabilder/Rectangle%2042.png" />
-               </image>
-            </ImageView>
-         </children>
-      </AnchorPane>
-      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#ee6d6d" height="102.0" layoutX="1533.0" layoutY="83.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="4.0" width="102.0" />
-      <ImageView fitHeight="84.0" fitWidth="79.0" layoutX="1545.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@resources/imat/egnabilder/x.png" />
-         </image>
-      </ImageView>
-      <TextArea layoutX="815.0" layoutY="338.0" prefHeight="102.0" prefWidth="670.0" text="Beskrivning: En kolsyrad läskedryck med smak av apelsin. Finns i flera olika förpackningar &amp; passar perfekt för att släcka törsten till mellanmålet, snacksen eller till maten" wrapText="true">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </TextArea>
-      <TextArea layoutX="814.0" layoutY="208.0" prefHeight="21.0" prefWidth="670.0" text="Märke: Fanta" wrapText="true">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </TextArea>
-      <TextArea layoutX="813.0" layoutY="271.0" prefHeight="21.0" prefWidth="670.0" text="Ursprung: Finland" wrapText="true">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </TextArea>
-      <TextArea layoutX="811.0" layoutY="453.0" prefHeight="105.0" prefWidth="670.0" text="Innehåll: Kolsyrat vatten, sackaros, apelsinjuice (5%), syror (E 330, E 296), naturlig apelsinarom, andra naturliga aromer, sötningsmedel (acesulfam K, aspartam), stabiliseringsmedel" wrapText="true">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </TextArea>
    </children>
-</AnchorPane>
+</VBox>

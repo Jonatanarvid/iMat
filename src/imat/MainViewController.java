@@ -19,9 +19,11 @@ public class MainViewController implements Initializable {
     private ShopView shopView = new ShopView();
     private CategoryView categoryView;
     private ShoppingCartView shoppingCartView;
+    private DetailView detailView;
+
+
     @FXML BorderPane mainBorderPane;
-    @FXML
-    private AnchorPane detailViewAnchorPane;
+    @FXML BorderPane detailViewPane;
 
 
     @Override

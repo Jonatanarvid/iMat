@@ -8,6 +8,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.transform.Scale;
 import se.chalmers.cse.dat216.project.CartEvent;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
@@ -32,9 +33,15 @@ public class ProductCard extends AnchorPane implements FavouriteObservable, Shop
     @FXML
     private Label buyLabel;
     @FXML
+    private Label withSuffix;
+    @FXML
     private AnchorPane mainPainProductCard;
+
     @FXML
     private StackPane spinnerStackPane;
+    @FXML
+    private Rectangle cardFeedback;
+
 
     private final Product product;
     private boolean isFavourite;
@@ -64,6 +71,7 @@ public class ProductCard extends AnchorPane implements FavouriteObservable, Shop
         this.spinner = new Spinner(this.product, false);
         this.spinnerStackPane.getChildren().clear();
         this.spinnerStackPane.getChildren().add(spinner);
+        this.withSuffix.setText(String.valueOf(product.getPrice()+product.getUnit()));
         initialize();
 
         // Apply scaling transformation to the loaded AnchorPane
@@ -123,5 +131,13 @@ public class ProductCard extends AnchorPane implements FavouriteObservable, Shop
         if(cartEvent.getShoppingItem().getProduct().equals(this.product)) {
             spinner.update(cartEvent);
         }
+    }
+    @FXML
+    public void cardEntered(){
+        cardFeedback.setVisible(true);
+    }
+    @FXML
+    public void cardExited(){
+        cardFeedback.setVisible(false);
     }
 }
