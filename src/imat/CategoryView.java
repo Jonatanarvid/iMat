@@ -18,9 +18,11 @@ import java.util.List;
 public class CategoryView extends VBox implements SearchObservable {
     @FXML
     private TreeView<String> categoryTreeView;
+    private MainViewController mainViewController;
     private List<SearchObserver> searchObservers = new ArrayList<>();
     private HashMap<String, List<ProductCategory>> categoryHashMap = new HashMap<>();
-
+    TreeItem<String> rootItem = new TreeItem<>("Kategorier");
+    TreeItem<String> currentValue;
     public CategoryView(IMatDataHandler dataHandler) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("category_view.fxml"));
         fxmlLoader.setRoot(this);
@@ -32,7 +34,8 @@ public class CategoryView extends VBox implements SearchObservable {
             throw new RuntimeException(exception);
         }
 
-        TreeItem<String> rootItem = new TreeItem<>("Kategorier");
+
+
         rootItem.setExpanded(true);
         TreeItem<String> favoritesItem = new TreeItem<>("Favoriter");
         rootItem.getChildren().add(favoritesItem);
@@ -60,22 +63,35 @@ public class CategoryView extends VBox implements SearchObservable {
 
 
 
+
         // Handle selections
         categoryTreeView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
-                TreeItem<String> selectedItem = newValue;
-                System.out.println("Selected item: " + selectedItem.getValue());
-                if (!selectedItem.getValue().equals("Favoriter")) {
-                    notifySearchObservers(categoryHashMap.get(selectedItem.getValue()));
-                } else {
-                    notifySearchObservers(new ArrayList<>());
-                    collapseAll(rootItem);
-                }
+                updateViewByCategories(newValue);
+                currentValue = newValue;
+
             }
         });
         selectFirstChildOfRoot();
         // Expand selected item on single click and collapse others
         categoryTreeView.setOnMouseClicked(event -> handleMouseClick(event, rootItem));
+    }
+
+    public void setMainController(MainViewController controller) {
+        this.mainViewController = controller;
+    }
+    public TreeItem<String> getCurrentValue() {
+        return currentValue;
+    }
+    public void updateViewByCategories(TreeItem<String> value) {
+        TreeItem<String> selectedItem = value;
+        System.out.println("Selected item: " + selectedItem.getValue());
+        if (!selectedItem.getValue().equals("Favoriter")) {
+            notifySearchObservers(categoryHashMap.get(selectedItem.getValue()));
+        } else {
+            notifySearchObservers(new ArrayList<>());
+            collapseAll(rootItem);
+        }
     }
 
     private void selectFirstChildOfRoot() {
@@ -92,10 +108,18 @@ public class CategoryView extends VBox implements SearchObservable {
         }
     };
 
+    public void clearSelection() {
+        // Get the selection model of the TreeView
+        SelectionModel<TreeItem<String>> selectionModel = categoryTreeView.getSelectionModel();
+        selectionModel.clearSelection();
+
+    }
+
     private void handleMouseClick(MouseEvent event, TreeItem<String> rootItem) {
         if (event.getClickCount() == 1) {
             TreeItem<String> selectedItem = categoryTreeView.getSelectionModel().getSelectedItem();
             if (selectedItem != null) {
+                mainViewController.clearSearchText();
                 if (!selectedItem.getValue().equals("Favoriter") && !selectedItem.isLeaf()) {
                     boolean isExpanded = selectedItem.isExpanded();
                     collapseOtherItems(selectedItem); // Collapse other items first
@@ -152,7 +176,7 @@ public class CategoryView extends VBox implements SearchObservable {
     @Override
     public void notifySearchObservers(List<ProductCategory> categories) {
         for (SearchObserver observer : searchObservers) {
-            observer.updateSearchObserver(categories);
+            observer.updateListSearchObserver(categories);
         }
     }
 }
