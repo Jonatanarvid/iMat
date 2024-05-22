@@ -150,7 +150,7 @@
                   </Label>
                   <ImageView fitHeight="124.0" fitWidth="122.0" layoutX="203.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@resources/imat/egnabilder/filled_star.png" />
+                        <Image url="@resources/imat/egnabilder/Rectangle%2042.png" />
                      </image>
                   </ImageView>
                </children>
