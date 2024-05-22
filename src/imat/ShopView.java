@@ -16,6 +16,8 @@ public class ShopView extends VBox implements ProductCardObserver {
     @FXML
     private ComboBox<String> sortComboBox;
 
+
+
     public ShopView() {
         FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("product_grid.fxml"));
         fxmlLoader.setRoot(this);
@@ -26,10 +28,36 @@ public class ShopView extends VBox implements ProductCardObserver {
         } catch (IOException var5) {
             throw new RuntimeException(var5);
         }
+
+        // Add items to the ComboBox
+        sortComboBox.getItems().addAll(
+                "Alphabetical",
+                "Reverse Alphabetical",
+                "Price: Low to High",
+                "Price: High to Low"
+        );
+
+
+
+
+    }
+
+    private void setSortButtonDefault() {
+        SortOrder sortOrder = controller.getSortOrder();
+        String sortOrderString = switch (sortOrder) {
+            case ALPHA -> "Alphabetical";
+            case REVERSEALPHA -> "Reverse Alphabetical";
+            case PRICELOWHIGH -> "Price: Low to High";
+            case PRICEHIGHLOW -> "Price: High to Low";
+
+        };
+        // Set default value for ComboBox
+        sortComboBox.setValue(sortOrderString);
     }
 
     public void setBackendController(BackendController controller) {
         this.controller = controller;
+        setSortButtonDefault();
     }
 
     private void clearProductGrid() {
@@ -51,7 +79,10 @@ public class ShopView extends VBox implements ProductCardObserver {
 
             productGrid.add(productCard, currentColumn, currentRow);
         }
+
+
     }
+
 
     @FXML
     private void handleSortOrderChange() {
@@ -76,7 +107,7 @@ public class ShopView extends VBox implements ProductCardObserver {
                 break;
         }
         controller.setSortOrder(sortOrder);
-        
+
         controller.newSearch(new Search("", controller.getSortOrder()));
 
     }

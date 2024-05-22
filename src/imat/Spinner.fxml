@@ -8,42 +8,41 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="124.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.Spinner">
+<fx:root prefHeight="124.0" prefWidth="350.0" stylesheets="@product-info.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <StackPane layoutX="3.0" layoutY="7.0" prefHeight="117.0" prefWidth="374.0">
+      <StackPane prefHeight="124.0" prefWidth="377.0">
          <children>
-            <AnchorPane fx:id="MoreThan0Product" prefHeight="200.0" prefWidth="200.0">
+            <AnchorPane fx:id="buy" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <ImageView fitHeight="95.0" fitWidth="346.0" layoutX="25.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@resources/imat/egnabilder/Item-amount-spinner/Variant42.jpg" />
-                     </image>
-                  </ImageView>
-                  <Label fx:id="BuyCounter" alignment="CENTER" layoutX="127.0" layoutY="16.0" onMouseClicked="#buyLabelClicked" prefHeight="85.0" prefWidth="119.0" text="1" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="45.0" />
-                     </font>
-                  </Label>
-                  <Button fx:id="ButtonCardMinus" layoutX="45.0" layoutY="26.0" mnemonicParsing="false" onMouseClicked="#favouriteButtonSelected" prefHeight="67.0" prefWidth="79.0" styleClass="transparent-button" />
-                  <Button fx:id="ButtonCardPlus" layoutX="257.0" layoutY="27.0" mnemonicParsing="false" onMouseClicked="#favouriteButtonSelected" prefHeight="67.0" prefWidth="79.0" styleClass="transparent-button" />
-               </children>
-            </AnchorPane>
-            <AnchorPane fx:id="Buy" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0">
-               <children>
-                  <ImageView fitHeight="95.0" fitWidth="346.0" layoutX="25.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="95.0" fitWidth="346.0" layoutX="26.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@resources/imat/egnabilder/Item-amount-spinner/Variant32.jpg" />
                      </image>
                   </ImageView>
-                  <Label fx:id="buyLabel11" alignment="CENTER" layoutX="127.0" layoutY="16.0" onMouseClicked="#buyLabelClicked" prefHeight="85.0" prefWidth="119.0" text="Köp" textFill="WHITE">
+                  <Label fx:id="buyLabel" alignment="CENTER" layoutX="128.0" layoutY="20.0" onMouseClicked="#buyLabelClicked" prefHeight="85.0" prefWidth="119.0" text="Köp" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="45.0" />
                      </font>
                   </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="moreThan0Product" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="95.0" fitWidth="346.0" layoutX="26.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/imat/egnabilder/Item-amount-spinner/Variant42.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="buyCounter" alignment="CENTER" layoutX="128.0" layoutY="20.0" prefHeight="85.0" prefWidth="119.0" text="1" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="45.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="buttonCardPlus" layoutX="257.0" layoutY="27.0" mnemonicParsing="false" onMouseClicked="#addProduct" prefHeight="67.0" prefWidth="79.0" styleClass="transparent-button" />
+                  <Button fx:id="buttonCardMinus" layoutX="45.0" layoutY="26.0" mnemonicParsing="false" onMouseClicked="#subtractProduct" prefHeight="67.0" prefWidth="79.0" styleClass="transparent-button" />
                </children>
             </AnchorPane>
          </children>
       </StackPane>
    </children>
-</AnchorPane>
+</fx:root>

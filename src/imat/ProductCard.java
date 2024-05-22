@@ -1,7 +1,5 @@
 package imat;
 
-import com.sun.tools.javac.Main;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -9,14 +7,18 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.Label;
+import javafx.scene.layout.StackPane;
 import javafx.scene.transform.Scale;
+import se.chalmers.cse.dat216.project.CartEvent;
+import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
+import se.chalmers.cse.dat216.project.ShoppingCartListener;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductCard extends AnchorPane implements FavouriteObservable, ShoppingItemObservable {
+public class ProductCard extends AnchorPane implements FavouriteObservable, ShoppingCartListener {
     @FXML
     private ImageView productImageView;
     @FXML
@@ -31,12 +33,14 @@ public class ProductCard extends AnchorPane implements FavouriteObservable, Shop
     private Label buyLabel;
     @FXML
     private AnchorPane mainPainProductCard;
+    @FXML
+    private StackPane spinnerStackPane;
 
     private final Product product;
     private boolean isFavourite;
     private List<FavouriteObserver> favouriteObservers = new ArrayList<FavouriteObserver>();
     private List<ShoppingItemObserver> shoppingItemObservers = new ArrayList<ShoppingItemObserver>();
-    private MainViewController mainViewController;
+    private final Spinner spinner;
 
     Image notFavouriteImage = new Image((getClass().getResourceAsStream("resources/imat/egnabilder/unfilled_star.png")));
     Image isFavouriteImage = new Image((getClass().getResourceAsStream("resources/imat/egnabilder/filled_star.png")));
@@ -57,6 +61,9 @@ public class ProductCard extends AnchorPane implements FavouriteObservable, Shop
         this.productImageView.setImage(image);
         this.product = product;
         this.productImageView.setImage(image);
+        this.spinner = new Spinner(this.product, false);
+        this.spinnerStackPane.getChildren().clear();
+        this.spinnerStackPane.getChildren().add(spinner);
         initialize();
 
         // Apply scaling transformation to the loaded AnchorPane
@@ -68,27 +75,25 @@ public class ProductCard extends AnchorPane implements FavouriteObservable, Shop
         //this.getTransforms().add(scale);
     }
 
-    private void initialize(){
-        favouriteImageView.setImage(notFavouriteImage);
-        isFavourite = false; // This should not exist, buttonImages should always reflect the state that is kept in backend
-        //Fine for temporary visual implementation I guess though
+    private void initialize() {
+        isFavourite = IMatDataHandler.getInstance().favorites().contains(this.product);
+        if (isFavourite) {
+            this.favouriteImageView.setImage(isFavouriteImage);
+        } else {
+            this.favouriteImageView.setImage(notFavouriteImage);
+        }
     }
 
 
     @FXML
-    private void favouriteButtonSelected(){
+    private void favouriteButtonSelected() {
         isFavourite = !isFavourite;
-        if(isFavourite){
+        if (isFavourite) {
             favouriteImageView.setImage(isFavouriteImage);
-        }
-        else{
+        } else {
             favouriteImageView.setImage(notFavouriteImage);
         }
         notifyFavouriteObservers();
-    }
-
-    public void buyLabelClicked() {
-        notifyShoppingItemObservers();
     }
 
     @Override
@@ -98,36 +103,25 @@ public class ProductCard extends AnchorPane implements FavouriteObservable, Shop
 
     @Override
     public void removeFavouriteObserver(FavouriteObserver observer) {
-        if(favouriteObservers.contains(observer)) {
+        if (favouriteObservers.contains(observer)) {
             favouriteObservers.remove(observer);
         }
     }
 
     @Override
     public void notifyFavouriteObservers() {
-        for(FavouriteObserver observer : favouriteObservers) {
+        for (FavouriteObserver observer : favouriteObservers) {
             observer.updateFavouriteObserver(this.product, this.isFavourite);
         }
     }
-
-    @Override
-    public void addShoppingItemObserver(ShoppingItemObserver shoppingItemObserver) {
-        shoppingItemObservers.add(shoppingItemObserver);
+    public void addShoppingItemObserver(ShoppingItemObserver observer) {
+        spinner.addShoppingItemObserver(observer);
     }
 
     @Override
-    public void removeShoppingItemObserver(ShoppingItemObserver shoppingItemObserver) {
-        if(shoppingItemObservers.contains(shoppingItemObserver)) {
-            shoppingItemObservers.remove(shoppingItemObserver);
+    public void shoppingCartChanged(CartEvent cartEvent) {
+        if(cartEvent.getShoppingItem().getProduct().equals(this.product)) {
+            spinner.update(cartEvent);
         }
     }
-
-    @Override
-    public void notifyShoppingItemObservers() {
-        for(ShoppingItemObserver shoppingItemObserver : shoppingItemObservers) {
-            shoppingItemObserver.updateShoppingItemObserver(this.product);
-        }
-    }
-
-
 }

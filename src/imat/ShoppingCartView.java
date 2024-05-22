@@ -16,9 +16,10 @@ public class ShoppingCartView extends VBox implements ShoppingCartListener {
     private VBox shoppingViewScrollPaneVBox;
     private List<ShoppingItem> items;
     private HashMap<Product, ProductLine> productLines = new HashMap<Product, ProductLine>();
-    private IMatDataHandler dataHandler;
+    private IMatDataHandler dataHandler = IMatDataHandler.getInstance();
+    private BackendController backendController;
 
-    public ShoppingCartView(IMatDataHandler dataHandler) {
+    public ShoppingCartView(BackendController backendController) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("shopping_cart_view.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -29,10 +30,12 @@ public class ShoppingCartView extends VBox implements ShoppingCartListener {
             throw new RuntimeException(exception);
         }
 
-        this.dataHandler = dataHandler;
+        this.backendController = backendController;
         dataHandler.getShoppingCart().addShoppingCartListener(this);
         for(ShoppingItem item : dataHandler.getShoppingCart().getItems()) {
-            productLines.put(item.getProduct(), new ProductLine(item.getProduct(), dataHandler.getFXImage(item.getProduct()), item.getAmount(), item.getTotal()));
+            ProductLine productLine = new ProductLine(item.getProduct(), dataHandler.getFXImage(item.getProduct()), (int) item.getAmount());
+            productLine.addShoppingItemObserver(backendController);
+            productLines.put(item.getProduct(), productLine);
         }
         updateShoppingViewScrollPaneVBox();
     }
@@ -53,10 +56,12 @@ public class ShoppingCartView extends VBox implements ShoppingCartListener {
             productLines.remove(product);
         } else {
             if(productLines.containsKey(product)) {
-                productLines.put(product, productLines.get(product).updateLabels(amount, total));
+                productLines.get(product).updateProducts(cartEvent);
             }
             else {
-                productLines.put(product, new ProductLine(product, dataHandler.getFXImage(product), amount, total));
+                ProductLine productLine = new ProductLine(product, dataHandler.getFXImage(product), 1);
+                productLine.addShoppingItemObserver(backendController);
+                productLines.put(product, productLine);
             }
         }
         updateShoppingViewScrollPaneVBox();

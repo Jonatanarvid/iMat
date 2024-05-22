@@ -2,6 +2,7 @@ package imat;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.SelectionModel;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.input.MouseEvent;
@@ -57,6 +58,8 @@ public class CategoryView extends VBox implements SearchObservable {
         // Hide the root item
         categoryTreeView.setShowRoot(false);
 
+
+
         // Handle selections
         categoryTreeView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
@@ -70,10 +73,24 @@ public class CategoryView extends VBox implements SearchObservable {
                 }
             }
         });
-
+        selectFirstChildOfRoot();
         // Expand selected item on single click and collapse others
         categoryTreeView.setOnMouseClicked(event -> handleMouseClick(event, rootItem));
     }
+
+    private void selectFirstChildOfRoot() {
+        // Check if the root item has children
+        if (!categoryTreeView.getRoot().getChildren().isEmpty()) {
+            // Get the first child of the root item
+            TreeItem<String> firstChild = categoryTreeView.getRoot().getChildren().get(0);
+
+            // Get the selection model of the TreeView
+            SelectionModel<TreeItem<String>> selectionModel = categoryTreeView.getSelectionModel();
+
+            // Select the first child of the root item
+            selectionModel.select(firstChild);
+        }
+    };
 
     private void handleMouseClick(MouseEvent event, TreeItem<String> rootItem) {
         if (event.getClickCount() == 1) {
