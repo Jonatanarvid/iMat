@@ -101,12 +101,17 @@ public class Spinner extends AnchorPane implements ShoppingItemObservable{
 
     public void update(CartEvent event) {
         if(event.getShoppingItem().getProduct().equals(this.product)) {
-            for(ShoppingItem item: dataHandler.getShoppingCart().getItems()) {
-                if(item.getProduct().equals(this.product)) {
-                    System.out.println(item.getAmount() == amount);
-                    updateAmount((int) item.getAmount());
-                    break;
+            if(event.isAddEvent()) {
+                for (ShoppingItem item : dataHandler.getShoppingCart().getItems()) {
+                    if (item.getProduct().equals(this.product)) {
+                        System.out.println(item.getAmount() == amount);
+                        updateAmount((int) item.getAmount());
+                        break;
+                    }
                 }
+            } else {
+                this.amount = 0;
+                buy.toFront();
             }
         }
     }

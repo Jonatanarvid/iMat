@@ -128,7 +128,7 @@ public class ProductCard extends AnchorPane implements FavouriteObservable, Shop
 
     @Override
     public void shoppingCartChanged(CartEvent cartEvent) {
-        if(cartEvent.getShoppingItem() != null && cartEvent.isAddEvent()) {
+        if(cartEvent.getShoppingItem() != null) {
             if (cartEvent.getShoppingItem().getProduct().equals(this.product)) {
                 spinner.update(cartEvent);
             }
