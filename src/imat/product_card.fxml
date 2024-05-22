@@ -48,7 +48,7 @@
                 <Button fx:id="favouriteButton" mnemonicParsing="false" onMouseClicked="#favouriteButtonSelected" prefHeight="46.5" prefWidth="40.5" styleClass="transparent-button" />
             </children>
         </StackPane>
-        <StackPane fx:id="spinnerStackPane" layoutX="4.5" layoutY="284.25" prefHeight="87.75" prefWidth="280.5">
+        <StackPane fx:id="spinnerStackPane" alignment="TOP_LEFT" layoutX="4.5" layoutY="284.25" prefHeight="87.75" prefWidth="280.5">
         </StackPane>
         <Label alignment="CENTER" layoutX="18.0" layoutY="247.5" prefHeight="37.5" prefWidth="248.25" styleClass="text-comp-price" text="4.90 kr/kg" textFill="#838383">
             <font>
