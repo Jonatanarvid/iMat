@@ -37,7 +37,8 @@ public class BackendController implements ProductCardObservable, FavouriteObserv
         }
         addProductCardObserver(productCardObserver);
         setSortOrder(SortOrder.PRICELOWHIGH);
-        newSearch(new Search("", getSortOrder()));
+        this.products = dataHandler.favorites();
+        notifyProductCardObservers();
     }
 
 
