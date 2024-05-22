@@ -92,7 +92,9 @@ public class MainViewController implements Initializable {
     private void performSearch() {
         String searchText = getSearchText();
         if (searchText.equals("")) { // Om det inte är en sökning som sort ska ändras för utan inom en kategori
+
             refreshSortedCategorySearch();
+            categoryView.selectNode(categoryView.getCurrentValue());
         } else {
             categoryView.clearSelection(); // Unselecta categories om det görs en textsökning
             controller.newSearch(new Search(searchText, controller.getSortOrder()));
