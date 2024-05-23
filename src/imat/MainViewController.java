@@ -62,7 +62,12 @@ public class MainViewController implements Initializable {
         searchField.setOnKeyPressed(event -> handleSearchFieldKeyPressed(event));
     }
     public void openDetailView(Product product){
-        populateRecipeDetailView(product);
+        ProductCard productCard = new ProductCard(product, dataHandler.getFXImage(product), this);
+        productCard.addShoppingItemObserver(controller);
+        dataHandler.getShoppingCart().addShoppingCartListener(productCard);
+        detailView = new DetailView(productCard, this);
+        detailPane.getChildren().clear();
+        detailPane.getChildren().add(detailView);
         detailPane.setVisible(true);
         detailPane.toFront();
 
@@ -78,9 +83,6 @@ public class MainViewController implements Initializable {
         ursprung.setText("Ursprung: " + productDetail.getOrigin());
         beskrivning.setText("Beskrivning: " + productDetail.getDescription());
         innehall.setText("Innehåll: " + productDetail.getDescription());
-
-
-
     }
 
     private void handleSearchFieldKeyPressed(KeyEvent event) {

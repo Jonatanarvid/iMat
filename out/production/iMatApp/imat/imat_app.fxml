@@ -30,7 +30,7 @@
                               <Image url="@resources/imat/egnabilder/search-bar.png" />
                            </image>
                         </ImageView>
-                        <TextField fx:id="searchField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="725.0" promptText="Sök i vårat sortiment!" styleClass="text-medium">
+                        <TextField fx:id="searchField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="725.0" promptText="Sök i vårt sortiment!" styleClass="text-medium">
                            <StackPane.margin>
                               <Insets left="55.0" />
                            </StackPane.margin>
@@ -152,7 +152,7 @@
                   </Label>
                   <ImageView fitHeight="124.0" fitWidth="122.0" layoutX="203.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@resources/imat/egnabilder/Rectangle%2042.png" />
+                        <Image url="@resources/imat/egnabilder/Rectangle 42.png" />
                      </image>
                   </ImageView>
                </children>

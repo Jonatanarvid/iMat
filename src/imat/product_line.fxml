@@ -26,7 +26,7 @@
             <Font name="System Italic" size="20.0" />
          </font>
       </Label>
-      <StackPane fx:id="amountSpinnerStackPane" alignment="BOTTOM_LEFT" layoutX="197.0" layoutY="-1.0" prefHeight="55.0" prefWidth="133.0">
+      <StackPane fx:id="amountSpinnerStackPane" alignment="CENTER" layoutX="197.0" layoutY="-1.0" prefHeight="55.0" prefWidth="133.0">
       </StackPane>
    </children>
 </fx:root>

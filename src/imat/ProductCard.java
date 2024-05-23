@@ -88,7 +88,7 @@ public class ProductCard extends AnchorPane implements FavouriteObservable, Shop
     }
 
     @FXML
-    private void favouriteButtonSelected() {
+    public void favouriteButtonSelected() {
         isFavourite = !isFavourite;
         if (isFavourite) {
             favouriteImageView.setImage(isFavouriteImage);
@@ -96,6 +96,14 @@ public class ProductCard extends AnchorPane implements FavouriteObservable, Shop
             favouriteImageView.setImage(notFavouriteImage);
         }
         notifyFavouriteObservers();
+    }
+
+    public Product getProduct() {
+        return this.product;
+    }
+
+    public Image getFavouriteImage() {
+        return this.favouriteImageView.getImage();
     }
 
     @Override

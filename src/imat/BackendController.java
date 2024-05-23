@@ -11,7 +11,7 @@ public class BackendController implements ProductCardObservable, FavouriteObserv
     private final ShoppingCart shoppingCart;
     private final List<ProductCardObserver> productCardObservers = new ArrayList<ProductCardObserver>();
     private List<Product> products;
-    private final HashMap<Product, ProductCard> productCards = new HashMap<Product, ProductCard>();
+    public final HashMap<Product, ProductCard> productCards = new HashMap<Product, ProductCard>();
     private SortOrder sortOrder;
     private MainViewController mainViewController;
 
