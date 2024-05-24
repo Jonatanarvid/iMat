@@ -7,20 +7,16 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.control.ScrollPane;
-import se.chalmers.cse.dat216.project.CartEvent;
-import se.chalmers.cse.dat216.project.Customer;
-import se.chalmers.cse.dat216.project.ShoppingCartListener;
-import se.chalmers.cse.dat216.project.IMatDataHandler;
+import se.chalmers.cse.dat216.project.*;
+
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class PaymentScreen extends StackPane implements ShoppingCartListener {
     @FXML private BorderPane chosenProductsBorderPane;
-    @FXML private BorderPane deliveryBorderPane;
     @FXML private ScrollPane chosenProductsScrollPane;
     @FXML private Label totalPriceLabel;
 
+    @FXML private BorderPane deliveryBorderPane;
     @FXML private TextField firstNameTextField;
     @FXML private TextField lastNameTextField;
     @FXML private TextField emailTextField;
@@ -28,6 +24,15 @@ public class PaymentScreen extends StackPane implements ShoppingCartListener {
     @FXML private TextField addressTextField;
     @FXML private TextField postAddressTextField;
     @FXML private TextField postCodeTextField;
+
+    @FXML private BorderPane cardInfoBorderPane;
+    @FXML private TextField firstNameCardTextField;
+    @FXML private TextField lastNameCardTextField;
+    @FXML private TextField cardNumberTextField;
+    @FXML private TextField cardTypeTextField;
+    @FXML private TextField validMonthTextField;
+    @FXML private TextField validYearTextField;
+    @FXML private TextField securityCodeTextField;
 
     private MainViewController mainViewController;
     private ShoppingCartView shoppingCartView;
@@ -77,8 +82,24 @@ public class PaymentScreen extends StackPane implements ShoppingCartListener {
         deliveryBorderPane.setVisible(true);
     }
 
+    public void toCardInfo() {
+        hideBorderPanes();
+        cardInfoBorderPane.toFront();
+        CreditCard creditCard = IMatDataHandler.getInstance().getCreditCard();
+        String[] name = creditCard.getHoldersName().split("<");
+        try {
+            firstNameCardTextField.setText(name[0]);
+            lastNameCardTextField.setText(name[1]);
+        } catch (Exception ignored) {}
+        cardNumberTextField.setText(creditCard.getCardNumber());
+        cardTypeTextField.setText(creditCard.getCardType());
+        validMonthTextField.setText(String.valueOf(creditCard.getValidMonth()));
+        validYearTextField.setText(String.valueOf(creditCard.getValidYear()));
+        securityCodeTextField.setText(String.valueOf(creditCard.getVerificationCode()));
+        cardInfoBorderPane.setVisible(true);
+    }
+
      public void saveCustomer() {
-        System.out.println("Customer saved!");
         Customer customer = IMatDataHandler.getInstance().getCustomer();
         customer.setFirstName(firstNameTextField.getText());
         customer.setLastName(lastNameTextField.getText());
@@ -89,9 +110,38 @@ public class PaymentScreen extends StackPane implements ShoppingCartListener {
         customer.setPostCode(postCodeTextField.getText());
     }
 
+    public void saveCard() {
+        CreditCard creditCard = IMatDataHandler.getInstance().getCreditCard();
+        String name = firstNameCardTextField.getText() + "<" + lastNameCardTextField.getText();
+        creditCard.setHoldersName(name);
+        creditCard.setCardNumber(cardNumberTextField.getText());
+        creditCard.setCardType(cardTypeTextField.getText());
+        Integer validMonth = null;
+        Integer validYear = null;
+        Integer securityCode = null;
+        try {
+            validMonth = new Integer(validMonthTextField.getText());
+            validYear = new Integer(validYearTextField.getText());
+            securityCode = new Integer(securityCodeTextField.getText());
+        } catch (Exception ignored) {}
+
+        if (validMonth != null) {
+            creditCard.setValidMonth(validMonth);
+        }
+        if (validYear != null) {
+            creditCard.setValidYear(validYear);
+        }
+        if (securityCode != null) {
+            creditCard.setVerificationCode(securityCode);
+        }
+
+        deliveryBorderPane.setVisible(true);
+    }
+
     private void hideBorderPanes() {
         this.chosenProductsBorderPane.setVisible(false);
         this.deliveryBorderPane.setVisible(false);
+        this.cardInfoBorderPane.setVisible(false);
     }
 
     @Override
