@@ -7,6 +7,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.transform.Scale;
 import se.chalmers.cse.dat216.project.*;
 
 import java.io.IOException;
@@ -57,7 +58,6 @@ public class PaymentScreen extends StackPane implements ShoppingCartListener {
 
     public void toChosenProducts() {
         this.chosenProductsScrollPane.setContent(shoppingCartView.shoppingViewScrollPaneVBox);
-        hideBorderPanes();
         chosenProductsBorderPane.setVisible(true);
         chosenProductsBorderPane.toFront();
     }
