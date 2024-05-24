@@ -15,6 +15,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.StackPane;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ProductDetail;
@@ -22,10 +23,11 @@ import se.chalmers.cse.dat216.project.ProductDetail;
 public class MainViewController implements Initializable {
     private IMatDataHandler dataHandler = IMatDataHandler.getInstance();
     private BackendController controller;
-    private ShopView shopView = new ShopView();
+    private final ShopView shopView = new ShopView();
     private CategoryView categoryView;
     private ShoppingCartView shoppingCartView;
     private DetailView detailView;
+    private PaymentScreen paymentScreen;
 
     @FXML TextArea marke;
     @FXML TextArea ursprung;
@@ -35,6 +37,8 @@ public class MainViewController implements Initializable {
     BorderPane mainBorderPane;
     @FXML
     AnchorPane detailPane;
+    @FXML
+    StackPane rootStackPane;
 
     @FXML
     private BorderPane detailViewPane;
@@ -45,7 +49,7 @@ public class MainViewController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         mainBorderPane.setCenter(shopView);
         controller = new BackendController(dataHandler, this);
-        shoppingCartView = new ShoppingCartView(controller);
+        shoppingCartView = new ShoppingCartView(controller, this);
         categoryView = new CategoryView(dataHandler);
         mainBorderPane.setRight(shoppingCartView);
         mainBorderPane.setLeft(categoryView);
@@ -60,6 +64,9 @@ public class MainViewController implements Initializable {
 
         // Set an event handler for the search field
         searchField.setOnKeyPressed(event -> handleSearchFieldKeyPressed(event));
+        this.paymentScreen = new PaymentScreen(this, new ShoppingCartView(controller, this));
+        this.rootStackPane.getChildren().add(paymentScreen);
+        paymentScreen.toBack();
     }
     public void openDetailView(Product product){
         ProductCard productCard = new ProductCard(product, dataHandler.getFXImage(product), this);
@@ -101,6 +108,17 @@ public class MainViewController implements Initializable {
             categoryView.clearSelection(); // Unselecta categories om det görs en textsökning
             controller.newSearch(new Search(searchText, controller.getSortOrder()));
         }
+    }
+
+    public void toPayment(ShoppingCartView shoppingCartView) {
+        this.paymentScreen.toFront();
+        this.mainBorderPane.setVisible(false);
+        this.paymentScreen.toChosenProducts();
+    }
+
+    public void backToShop() {
+        this.paymentScreen.toBack();
+        this.mainBorderPane.setVisible(true);
     }
 
     public void refreshSortedCategorySearch() {

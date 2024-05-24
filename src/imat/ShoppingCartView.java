@@ -2,6 +2,7 @@ package imat;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 import se.chalmers.cse.dat216.project.*;
@@ -13,13 +14,16 @@ import java.util.List;
 
 public class ShoppingCartView extends VBox implements ShoppingCartListener {
     @FXML
-    private VBox shoppingViewScrollPaneVBox;
+    VBox shoppingViewScrollPaneVBox;
+    @FXML
+    private Label totalPriceLabel;
     private List<ShoppingItem> items;
     private HashMap<Product, ProductLine> productLines = new HashMap<Product, ProductLine>();
     private IMatDataHandler dataHandler = IMatDataHandler.getInstance();
     private BackendController backendController;
+    private MainViewController mainViewController;
 
-    public ShoppingCartView(BackendController backendController) {
+    public ShoppingCartView(BackendController backendController, MainViewController mainViewController) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("shopping_cart_view.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -38,9 +42,11 @@ public class ShoppingCartView extends VBox implements ShoppingCartListener {
             productLines.put(item.getProduct(), productLine);
         }
         updateShoppingViewScrollPaneVBox();
+        this.mainViewController = mainViewController;
     }
 
     private void updateShoppingViewScrollPaneVBox() {
+        this.totalPriceLabel.setText(String.valueOf(dataHandler.getShoppingCart().getTotal()) + " kr");
         shoppingViewScrollPaneVBox.getChildren().clear();
         for(Product product : productLines.keySet()) {
             shoppingViewScrollPaneVBox.getChildren().add(productLines.get(product));
@@ -49,6 +55,7 @@ public class ShoppingCartView extends VBox implements ShoppingCartListener {
 
     @Override
     public void shoppingCartChanged(CartEvent cartEvent) {
+        this.totalPriceLabel.setText(String.valueOf(dataHandler.getShoppingCart().getTotal()) + " kr");
         if(cartEvent.getShoppingItem() != null) {
             Product product = cartEvent.getShoppingItem().getProduct();
             double amount = cartEvent.getShoppingItem().getAmount();
@@ -67,5 +74,9 @@ public class ShoppingCartView extends VBox implements ShoppingCartListener {
             }
             updateShoppingViewScrollPaneVBox();
         }
+    }
+
+    public void toPayment() {
+        mainViewController.toPayment(this);
     }
 }
