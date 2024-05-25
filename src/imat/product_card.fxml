@@ -51,7 +51,7 @@
                 <Button fx:id="favouriteButton" mnemonicParsing="false" onMouseClicked="#favouriteButtonSelected" prefHeight="46.5" prefWidth="40.5" styleClass="transparent-button" />
             </children>
         </StackPane>
-        <StackPane fx:id="spinnerStackPane" alignment="CENTER" layoutX="15.0" layoutY="286.0" prefHeight="77.0" prefWidth="260.0"> <!-- Set alignment to center -->
+        <StackPane fx:id="spinnerStackPane" layoutX="4.5" layoutY="284.25" prefHeight="87.75" prefWidth="280.5" alignment="CENTER"> <!-- Set alignment to center -->
         </StackPane>
         <Label fx:id="withSuffix" alignment="CENTER" layoutX="18.0" layoutY="247.5" prefHeight="37.5" prefWidth="248.25" styleClass="text-comp-price" text="4.90 kr/kg" textFill="#838383">
             <font>
