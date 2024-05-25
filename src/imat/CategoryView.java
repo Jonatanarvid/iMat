@@ -72,7 +72,7 @@ public class CategoryView extends VBox implements SearchObservable {
 
             }
         });
-        selectFirstChildOfRoot();
+        //selectFirstChildOfRoot();
         // Expand selected item on single click and collapse others
         categoryTreeView.setOnMouseClicked(event -> handleMouseClick(event, rootItem));
     }
