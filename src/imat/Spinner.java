@@ -53,8 +53,8 @@ public class Spinner extends AnchorPane implements ShoppingItemObservable{
             // Apply the Scale transformation to the root element of the loaded FXML
             moreThan0Product.toFront();
         } else {
-            scale.setX(0.8);
-            scale.setY(0.8);
+            scale.setX(0.75);
+            scale.setY(0.75);
         }
         this.getTransforms().add(scale);
         initAmount();
