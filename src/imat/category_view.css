@@ -11,7 +11,7 @@
 }
 
 .tree-cell:selected {
-    -fx-background-color: lightgreen;
+    -fx-background-color: #CFF2D4;
     -fx-text-fill: black;
 }
 
@@ -43,7 +43,7 @@
 
 /* Custom styles for parent and child nodes */
 .tree-cell.parent-selected {
-    -fx-background-color: lightgreen; /* Parent node of selected leaf */
+    -fx-background-color: #CFF2D4; /* Parent node of selected leaf */
 }
 
 .tree-cell.child-unselected {

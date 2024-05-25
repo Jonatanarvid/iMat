@@ -36,6 +36,7 @@ public class iMatApp extends Application {
         IMatDataHandler.getInstance().shutDown();
         IMatDataHandler.getInstance().reset();
     }
+
     /**
      * @param args the command line arguments
      */

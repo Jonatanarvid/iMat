@@ -39,7 +39,8 @@ public class MainViewController implements Initializable {
     AnchorPane detailPane;
     @FXML
     StackPane rootStackPane;
-
+    @FXML
+    AnchorPane tidigkoppane;
     @FXML
     private BorderPane detailViewPane;
     @FXML
@@ -121,6 +122,10 @@ public class MainViewController implements Initializable {
         this.mainBorderPane.setVisible(true);
     }
 
+    public void toStartPage(){
+
+    }
+
     public void refreshSortedCategorySearch() {
         categoryView.updateViewByCategories(categoryView.getCurrentValue());
     }
@@ -130,5 +135,10 @@ public class MainViewController implements Initializable {
     }
     public void clearSearchText() {
         searchField.setText("");
+    }
+
+    public void openTidigareKop(){
+        tidigkoppane.toFront();
+        tidigkoppane.setVisible(true);
     }
 }

@@ -70,7 +70,7 @@
 
 .combo-box {
     -fx-font-size: 20px; /* Increased text size */
-    -fx-background-color: lightgreen;
+    -fx-background-color: #CFF2D4;
     -fx-background-radius: 15px;
     -fx-border-radius: 15px;
     -fx-padding: 10px;
@@ -112,7 +112,7 @@
 
 .combo-box .list-cell:filled:hover,
 .combo-box .list-cell:filled:selected {
-    -fx-background-color: lightgreen;
+    -fx-background-color: #CFF2D4;
     -fx-text-fill: black;
 }
 
