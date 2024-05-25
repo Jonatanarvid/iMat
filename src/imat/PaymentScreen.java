@@ -7,7 +7,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.transform.Scale;
+import javafx.scene.layout.VBox;
 import se.chalmers.cse.dat216.project.*;
 
 import java.io.IOException;
@@ -38,6 +38,7 @@ public class PaymentScreen extends StackPane implements ShoppingCartListener {
     private MainViewController mainViewController;
     private ShoppingCartView shoppingCartView;
 
+
     public PaymentScreen(MainViewController mainViewController, ShoppingCartView shoppingCartView) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("payment_screen.fxml"));
         fxmlLoader.setRoot(this);
@@ -57,7 +58,11 @@ public class PaymentScreen extends StackPane implements ShoppingCartListener {
     }
 
     public void toChosenProducts() {
-        this.chosenProductsScrollPane.setContent(shoppingCartView.shoppingViewScrollPaneVBox);
+        VBox newVBox = new VBox();
+        newVBox.getChildren().addAll(shoppingCartView.shoppingViewScrollPaneVBox.getChildren());
+        newVBox.setFillWidth(true); // Ensure the VBox fills the width
+        this.chosenProductsScrollPane.setContent(newVBox);
+        chosenProductsScrollPane.setFitToWidth(true);
         chosenProductsBorderPane.setVisible(true);
         chosenProductsBorderPane.toFront();
     }
@@ -99,7 +104,7 @@ public class PaymentScreen extends StackPane implements ShoppingCartListener {
         cardInfoBorderPane.setVisible(true);
     }
 
-     public void saveCustomer() {
+    public void saveCustomer() {
         Customer customer = IMatDataHandler.getInstance().getCustomer();
         customer.setFirstName(firstNameTextField.getText());
         customer.setLastName(lastNameTextField.getText());

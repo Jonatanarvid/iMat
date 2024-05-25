@@ -8,9 +8,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Rectangle;
-import javafx.geometry.Pos;  // Importing Pos
+import javafx.geometry.Pos;
 import se.chalmers.cse.dat216.project.CartEvent;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
@@ -45,8 +46,8 @@ public class ProductCard extends AnchorPane implements FavouriteObservable, Shop
 
     private final Product product;
     private boolean isFavourite;
-    private List<FavouriteObserver> favouriteObservers = new ArrayList<FavouriteObserver>();
-    private List<ShoppingItemObserver> shoppingItemObservers = new ArrayList<ShoppingItemObserver>();
+    private List<FavouriteObserver> favouriteObservers = new ArrayList<>();
+    private List<ShoppingItemObserver> shoppingItemObservers = new ArrayList<>();
     private final Spinner spinner;
     private MainViewController mainViewController;
 
@@ -54,12 +55,15 @@ public class ProductCard extends AnchorPane implements FavouriteObservable, Shop
     Image isFavouriteImage = new Image((getClass().getResourceAsStream("resources/imat/egnabilder/filled_star.png")));
 
     public ProductCard(Product product, Image image, MainViewController viewController) {
+        this.product = product;
+        this.mainViewController = viewController;
+
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("product_card.fxml"));
-        fxmlLoader.setRoot(this);
-        fxmlLoader.setController(this);
+        fxmlLoader.setController(this);  // Set this object as the controller
 
         try {
-            fxmlLoader.load();
+            AnchorPane root = fxmlLoader.load();  // Load and automatically sets root as specified in FXML
+            this.getChildren().add(root);  // Add the loaded root to this ProductCard's children
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
@@ -67,14 +71,15 @@ public class ProductCard extends AnchorPane implements FavouriteObservable, Shop
         this.nameLabel.setText(product.getName());
         this.priceLabel.setText(String.valueOf(product.getPrice()));
         this.productImageView.setImage(image);
-        this.product = product;
-        this.productImageView.setImage(image);
+        this.withSuffix.setText(String.valueOf(product.getPrice()) + product.getUnit());
+
         this.spinner = new Spinner(this.product, false);
         this.spinnerStackPane.getChildren().clear();
-        this.spinnerStackPane.getChildren().add(spinner);
-        StackPane.setAlignment(spinner, Pos.CENTER);  // Center the spinner within the StackPane
-        this.withSuffix.setText(String.valueOf(product.getPrice()) + product.getUnit());
-        this.mainViewController = viewController;
+        HBox hbox = new HBox(spinner); // Create an HBox to hold the spinner
+        hbox.setAlignment(Pos.CENTER); // Center the spinner horizontally
+        this.spinnerStackPane.getChildren().add(hbox); // Add HBox to the spinnerStackPane
+        StackPane.setAlignment(spinner, Pos.CENTER);
+
         initialize();
     }
 
@@ -147,8 +152,9 @@ public class ProductCard extends AnchorPane implements FavouriteObservable, Shop
     public void cardExited() {
         //cardFeedback.setVisible(false);
     }
+
     @FXML
-    protected void onClick(Event event){
+    protected void onClick(Event event) {
         System.out.println("smth happen");
         mainViewController.openDetailView(product);
     }

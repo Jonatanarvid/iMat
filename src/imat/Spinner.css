@@ -1,0 +1,32 @@
+.custom-button {
+    -fx-background-color: #4CAF50; /* Dark green background */
+    -fx-border-color: lightgray; /* Light gray border */
+    -fx-border-width: 2px; /* Border width */
+    -fx-border-radius: 30px; /* Rounded corners */
+    -fx-background-radius: 30px; /* Rounded corners */
+    -fx-alignment: center; /* Center alignment */
+}
+
+.button-content {
+    -fx-background-color: transparent; /* Transparent background */
+    -fx-text-fill: white; /* White text */
+    -fx-font-size: 28px; /* Font size for the text */
+    -fx-border-radius: 30px; /* Rounded corners */
+    -fx-background-radius: 30px; /* Rounded corners */
+    -fx-font-family: "Roboto Light";
+}
+
+.spinner-sub-button {
+    -fx-background-color: transparent; /* Transparent background */
+    -fx-text-fill: white; /* White text */
+    -fx-border-color: transparent; /* Transparent border */
+    -fx-font-size: 28px; /* Font size for the text */
+    -fx-font-family: "Roboto Light";
+}
+
+.counter-label {
+    -fx-font-size: 28px; /* Font size for counter */
+    -fx-font-weight: bold; /* Bold text */
+    -fx-font-family: "Roboto Light";
+    -fx-text-fill: white; /* White text */
+}
