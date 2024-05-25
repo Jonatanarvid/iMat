@@ -10,6 +10,16 @@
     -fx-font-family: "Roboto Light";
 }
 
+.text-button_tihii{
+    -fx-font-size : 35px;
+    -fx-font-family: "Roboto Light";
+}
+
+.transparent-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    }
+
 
 .text-header{
      -fx-font-size: 45px;
@@ -115,3 +125,18 @@
     -fx-padding: 5px;
 }
 
+.scroll-pane-special {
+    -fx-background: #D8D6D6; /* Background color of the ScrollPane */
+    -fx-padding: 10px; /* Padding inside the ScrollPane */
+    -fx-background-insets: 0;
+    -fx-background-radius: 10px;
+}
+
+.grid-pane {
+    -fx-alignment: center; /* Center the GridPane content */
+}
+
+.grid-pane .grid-cell {
+    -fx-alignment: center; /* Center the content within each cell */
+    -fx-padding: 10px; /* Optional: Add some padding to each cell */
+}

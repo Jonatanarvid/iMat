@@ -18,38 +18,7 @@
 
 <StackPane fx:id="rootStackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1800.0" stylesheets="@imat_app.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.MainViewController">
    <children>
-      <BorderPane fx:id="mainBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1800.0" stylesheets="@imat_app.css">
-         <top>
-            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="124.0" prefWidth="1802.0" BorderPane.alignment="CENTER">
-               <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cff2d4" height="126.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1802.0" />
-                  <StackPane layoutX="337.0" layoutY="23.0" prefHeight="82.0" prefWidth="818.0">
-                     <children>
-                        <ImageView fitHeight="147.0" fitWidth="801.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@resources/imat/egnabilder/search-bar.png" />
-                           </image>
-                        </ImageView>
-                        <TextField fx:id="searchField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="725.0" promptText="Sök i vårt sortiment!" styleClass="text-medium">
-                           <StackPane.margin>
-                              <Insets left="55.0" />
-                           </StackPane.margin>
-                        </TextField>
-                     </children>
-                  </StackPane>
-                  <Label layoutX="26.0" layoutY="11.0" prefHeight="101.0" prefWidth="189.0" text="iMat" textFill="#30b043">
-                     <font>
-                        <Font name="System Bold Italic" size="83.0" />
-                     </font>
-                     <effect>
-                        <Blend />
-                     </effect>
-                  </Label>
-               </children>
-            </AnchorPane>
-         </top>
-      </BorderPane>
-      <AnchorPane fx:id="detailPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1800.0" stylesheets="@product-info.css">
+      <AnchorPane fx:id="detailPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1800.0" stylesheets="@product-info.css" visible="false">
          <children>
             <Rectangle fill="#575757" height="1000.0" opacity="0.8" stroke="BLACK" strokeType="INSIDE" width="1800.0" />
             <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#cff2d4" height="763.0" layoutX="169.0" layoutY="116.0" stroke="#d9d9d9" strokeType="INSIDE" strokeWidth="4.0" width="1431.0" />
@@ -173,5 +142,65 @@
             </VBox>
          </children>
       </AnchorPane>
+      <BorderPane fx:id="mainBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1800.0" stylesheets="@imat_app.css">
+         <top>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="124.0" prefWidth="1802.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cff2d4" height="126.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1802.0" />
+                  <StackPane layoutX="337.0" layoutY="23.0" prefHeight="82.0" prefWidth="818.0">
+                     <children>
+                        <ImageView fitHeight="147.0" fitWidth="801.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/imat/egnabilder/search-bar.png" />
+                           </image>
+                        </ImageView>
+                        <TextField fx:id="searchField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="725.0" promptText="Sök i vårt sortiment!" styleClass="text-medium">
+                           <StackPane.margin>
+                              <Insets left="55.0" />
+                           </StackPane.margin>
+                        </TextField>
+                     </children>
+                  </StackPane>
+                  <Label layoutX="26.0" layoutY="11.0" prefHeight="101.0" prefWidth="189.0" text="iMat" textFill="#30b043">
+                     <font>
+                        <Font name="System Bold Italic" size="83.0" />
+                     </font>
+                     <effect>
+                        <Blend />
+                     </effect>
+                  </Label>
+                  <AnchorPane layoutX="-2.0" layoutY="-3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="124.0" prefWidth="1802.0">
+                     <children>
+                        <ImageView fitHeight="83.0" fitWidth="273.0" layoutX="1511.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/imat/egnabilder/inkop_knapp.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="75.0" fitWidth="273.0" layoutX="1505.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/imat/egnabilder/tidigare_knapp.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="72.0" fitWidth="210.0" layoutX="1312.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/imat/egnabilder/help_knapp.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="72.0" fitWidth="210.0" layoutX="1312.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/imat/egnabilder/prof_knapp.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="1337.0" layoutY="13.0" styleClass="text-button_tihii" text="Profil" />
+                        <Label layoutX="1337.0" layoutY="68.0" prefHeight="50.0" prefWidth="97.0" styleClass="text-button_tihii" text="Hjälp" />
+                        <Label layoutX="1534.0" layoutY="9.0" prefHeight="50.0" prefWidth="179.0" styleClass="text-button_tihii" text="Inköpslista" />
+                        <Label layoutX="1528.0" layoutY="68.0" prefHeight="50.0" prefWidth="250.0" styleClass="text-button_tihii" text="Tidigare köp" />
+                        <Button layoutX="1525.0" layoutY="70.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="244.0" styleClass="transparent-button" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </top>
+      </BorderPane>
    </children>
 </StackPane>
