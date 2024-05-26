@@ -2,6 +2,7 @@ package imat;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -16,10 +17,10 @@ import java.io.IOException;
 public class DetailView extends AnchorPane{
     @FXML private AnchorPane productCardAnchorPane;
     @FXML private ImageView favouriteImageView;
-    @FXML private TextArea brand;
-    @FXML private TextArea origin;
-    @FXML private TextArea description;
-    @FXML private TextArea ingredients;
+    @FXML private Label brand;
+    @FXML private Label origin;
+    @FXML private Label description;
+    @FXML private Label ingredients;
     private ProductCard productCard;
     private MainViewController mainViewController;
 
@@ -48,8 +49,8 @@ public class DetailView extends AnchorPane{
         ProductDetail details = IMatDataHandler.getInstance().getDetail(productCard.getProduct());
         this.brand.setText("Märke: " + details.getBrand());
         this.origin.setText("Ursprung: " + details.getOrigin());
-        this.origin.setText("Beskrivning: " + details.getDescription());
-        this.origin.setText("Innehåll: " + details.getContents());
+        this.description.setText("Beskrivning: " + details.getDescription());
+        this.ingredients.setText("Innehåll: " + details.getContents());
     }
 
     public void favouriteButtonSelected() {
