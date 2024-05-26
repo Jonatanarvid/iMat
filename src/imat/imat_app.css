@@ -26,11 +26,6 @@
      -fx-font-family: "Roboto Light";
 }
 
-.text-big-button{
-     -fx-font-size: 54px;
-     -fx-font-weight: bold;
-     -fx-font-family: "Roboto Light";
-}
 
 .text-button-large{
      -fx-font-size: 45px;
@@ -149,8 +144,3 @@
     -fx-font-size: 30px;
     -fx-font-family: "Robot Light";
 }
-.vbox-white {
-    -fx-background-color: white; /* Sets the background color to white */
-    -fx-border-color: lightgrey;
-}
-
