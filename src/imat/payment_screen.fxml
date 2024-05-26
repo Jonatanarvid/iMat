@@ -261,7 +261,7 @@
             <AnchorPane prefHeight="677.0" prefWidth="854.0" BorderPane.alignment="CENTER">
                <children>
                   <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#cff2d4" height="712.0" layoutX="1.0" layoutY="89.0" stroke="#d9d9d9" strokeType="INSIDE" strokeWidth="4.0" width="853.0" />
-                  <StackPane layoutX="209.0" layoutY="657.0" prefHeight="136.0" prefWidth="437.0">
+                  <StackPane layoutX="209.0" layoutY="657.0" onMouseClicked="#backToShop" prefHeight="136.0" prefWidth="437.0">
                      <children>
                         <ImageView fx:id="backToShopImageView" fitHeight="136.0" fitWidth="362.0" onMouseClicked="#backToShop" pickOnBounds="true" preserveRatio="true">
                            <image>
