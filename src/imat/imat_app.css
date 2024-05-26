@@ -30,12 +30,24 @@
     -fx-font-family: "Roboto Light";
     -fx-font-weight: bold;
 }
+.text-big-button {
+    -fx-font-size: 45px;
+    -fx-font-family: "Roboto Light";
+    -fx-font-weight: bold;
+}
 
-.text-search {
+
+.text-fornamn {
+    -fx-font-size: 26px;
+    -fx-font-family: "Roboto Light";
+    -fx-font-weight: normal;
+}
+
+text-search {
     -fx-font-size: 45px;
     -fx-font-family: "Robot Light";
     -fx-text-fill: #979797;
-}
+}.
 
 .text-iMat {
     -fx-font-size: 60px;
