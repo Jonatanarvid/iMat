@@ -13,6 +13,7 @@ import javafx.scene.transform.Scale;
 import se.chalmers.cse.dat216.project.*;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
 
 public class PaymentScreen extends StackPane implements ShoppingCartListener {
     @FXML private BorderPane chosenProductsBorderPane;
@@ -59,7 +60,8 @@ public class PaymentScreen extends StackPane implements ShoppingCartListener {
         this.mainViewController = mainViewController;
         this.chosenProductsBorderPane.toFront();
         IMatDataHandler.getInstance().getShoppingCart().addShoppingCartListener(this);
-        this.totalPriceLabel.setText(String.valueOf(IMatDataHandler.getInstance().getShoppingCart().getTotal()) + " kr");
+        DecimalFormat numberFormat = new DecimalFormat("#.00");
+        this.totalPriceLabel.setText(numberFormat.format(IMatDataHandler.getInstance().getShoppingCart().getTotal()) + " kr");
         this.shoppingCartView = shoppingCartView;
     }
 
@@ -83,11 +85,13 @@ public class PaymentScreen extends StackPane implements ShoppingCartListener {
             chosenProductsVBox.getChildren().add(productLine);
         }
         this.chosenProductsScrollPane.setContent(chosenProductsVBox);
-        this.totalPriceLabel.setText(String.valueOf(IMatDataHandler.getInstance().getShoppingCart().getTotal()) + " kr");
+        DecimalFormat numberFormat = new DecimalFormat("#.00");
+        this.totalPriceLabel.setText(numberFormat.format(IMatDataHandler.getInstance().getShoppingCart().getTotal()) + " kr");
     }
 
     public void backToShop() {
         hideBorderPanes();
+        shoppingCartView.updateShoppingViewScrollPaneVBox();
         mainViewController.backToShop();
     }
 
@@ -178,7 +182,8 @@ public class PaymentScreen extends StackPane implements ShoppingCartListener {
 
     @Override
     public void shoppingCartChanged(CartEvent cartEvent) {
-        this.totalPriceLabel.setText(String.valueOf(IMatDataHandler.getInstance().getShoppingCart().getTotal()) + " kr");
+        DecimalFormat numberFormat = new DecimalFormat("#.00");
+        this.totalPriceLabel.setText(numberFormat.format(IMatDataHandler.getInstance().getShoppingCart().getTotal()) + " kr");
         updateChosenProducts();
     }
 }
