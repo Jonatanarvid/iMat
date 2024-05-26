@@ -138,6 +138,12 @@ public class CategoryView extends VBox implements SearchObservable {
         }
     }
 
+    public void selectFirstChildNode() {
+        if (rootItem.getChildren() != null && !rootItem.getChildren().isEmpty()) {
+            selectNode(rootItem.getChildren().get(0));
+        }
+    }
+
     public void updateViewByCategories(TreeItem<String> value) {
         TreeItem<String> selectedItem = value;
         System.out.println("Selected item: " + selectedItem.getValue());

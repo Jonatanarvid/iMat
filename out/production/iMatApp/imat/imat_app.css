@@ -140,3 +140,7 @@
     -fx-alignment: center; /* Center the content within each cell */
     -fx-padding: 10px; /* Optional: Add some padding to each cell */
 }
+.text-Knapp{
+    -fx-font-size: 30px;
+    -fx-font-family: "Robot Light";
+}

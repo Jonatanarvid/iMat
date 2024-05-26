@@ -11,9 +11,9 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainPainProductCard" onMouseClicked="#onClick" prefHeight="381.0" prefWidth="291.0" stylesheets="@product-info.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" >
+<AnchorPane fx:id="mainPainProductCard" onMouseClicked="#onClick" prefHeight="381.0" prefWidth="291.0" stylesheets="@product-info.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <Rectangle arcHeight="18.75" arcWidth="18.75" fill="WHITE" height="381.0" layoutX="-0.75" onMouseEntered="#cardEntered" onMouseExited="#cardExited" stroke="#d9d9d9" strokeType="INSIDE" strokeWidth="3.0" width="291.75" />
+        <Rectangle arcHeight="18.75" arcWidth="18.75" fill="WHITE" height="381.0" layoutX="-0.75" onMouseEntered="#cardEntered" onMouseExited="#cardExited" stroke="#d9d9d9" strokeType="INSIDE" strokeWidth="3.0" styleClass="rectangle-product" width="291.75" />
         <Rectangle fx:id="cardFeedback" arcHeight="18.75" arcWidth="18.75" fill="#979797" height="381.0" layoutX="-1.0" onMouseEntered="#cardEntered" onMouseExited="#cardExited" stroke="#d9d9d9" strokeType="INSIDE" strokeWidth="3.0" visible="false" width="291.75" />
         <ImageView fx:id="productImageView" fitHeight="157.5" fitWidth="212.25" layoutX="38.25" layoutY="41.25" onMouseClicked="#onClick" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -51,7 +51,7 @@
                 <Button fx:id="favouriteButton" mnemonicParsing="false" onMouseClicked="#favouriteButtonSelected" prefHeight="46.5" prefWidth="40.5" styleClass="transparent-button" />
             </children>
         </StackPane>
-        <StackPane fx:id="spinnerStackPane" layoutX="4.5" layoutY="284.25" prefHeight="87.75" prefWidth="280.5" alignment="CENTER">
+        <StackPane fx:id="spinnerStackPane" alignment="CENTER" layoutX="4.5" layoutY="284.25" prefHeight="87.75" prefWidth="280.5">
             <!-- Spinner will be added programmatically -->
         </StackPane>
         <Label fx:id="withSuffix" alignment="CENTER" layoutX="18.0" layoutY="247.5" prefHeight="37.5" prefWidth="248.25" styleClass="text-comp-price" text="4.90 kr/kg" textFill="#838383">

@@ -31,13 +31,13 @@ public class MainViewController implements Initializable {
     private PreviousOrdersView previousOrdersView;
 
     @FXML
-    TextArea marke;
+    Label marke;
     @FXML
-    TextArea ursprung;
+    Label ursprung;
     @FXML
-    TextArea beskrivning;
+    Label beskrivning;
     @FXML
-    TextArea innehall;
+    Label innehall;
     @FXML
     BorderPane mainBorderPane;
     @FXML
@@ -79,6 +79,9 @@ public class MainViewController implements Initializable {
         this.paymentScreen = new PaymentScreen(this, new ShoppingCartView(controller, this));
         this.rootStackPane.getChildren().add(paymentScreen);
         paymentScreen.toBack();
+
+        // Select the "All products" category by default
+        categoryView.selectFirstChildNode();
     }
 
     public void openDetailView(Product product) {
@@ -92,13 +95,11 @@ public class MainViewController implements Initializable {
         detailPane.getChildren().add(detailView);
         detailPane.setVisible(true);
         detailPane.toFront();
-
     }
 
     public void closeDetailView() {
         detailPane.setVisible(false);
         detailPane.toBack();
-
     }
 
     public void populateRecipeDetailView(Product product) {
@@ -115,10 +116,9 @@ public class MainViewController implements Initializable {
         }
     }
 
-    private void performSearch() {
+    public void performSearch() {
         String searchText = getSearchText();
         if (searchText.equals("")) { // Om det inte är en sökning som sort ska ändras för utan inom en kategori
-
             refreshSortedCategorySearch();
             categoryView.selectNode(categoryView.getCurrentValue());
         } else {
@@ -163,4 +163,6 @@ public class MainViewController implements Initializable {
         previousOrdersPane.toFront();
         previousOrdersPane.setVisible(true);
     }
+
+    public void shopping_done(){};
 }
