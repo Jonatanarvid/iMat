@@ -8,6 +8,7 @@ import javafx.scene.layout.VBox;
 import se.chalmers.cse.dat216.project.*;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -47,8 +48,9 @@ public class ShoppingCartView extends VBox implements ShoppingCartListener {
         this.mainViewController = mainViewController;
     }
 
-    private void updateShoppingViewScrollPaneVBox() {
-        this.totalPriceLabel.setText(String.valueOf(dataHandler.getShoppingCart().getTotal()) + " kr");
+    public void updateShoppingViewScrollPaneVBox() {
+        DecimalFormat numberFormat = new DecimalFormat("#.00");
+        this.totalPriceLabel.setText(numberFormat.format(dataHandler.getShoppingCart().getTotal()) + " kr");
         shoppingViewScrollPaneVBox.getChildren().clear();
         for(Product product : productLines.keySet()) {
             shoppingViewScrollPaneVBox.getChildren().add(productLines.get(product));

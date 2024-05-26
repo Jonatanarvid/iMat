@@ -12,6 +12,7 @@ import javafx.scene.transform.Scale;
 import se.chalmers.cse.dat216.project.*;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
 
 public class ProductLine extends AnchorPane {
     @FXML private ImageView productImageView;
@@ -36,7 +37,8 @@ public class ProductLine extends AnchorPane {
         this.product = product;
         this.nameLabel.setText(product.getName());
         this.productImageView.setImage(image);
-        this.priceLabel.setText(String.valueOf(product.getPrice() * amount));
+        DecimalFormat numberFormat = new DecimalFormat("#.00");
+        this.priceLabel.setText(numberFormat.format(product.getPrice() * amount) + " kr");
         Scale scale = new Scale();
         scale.setX(0.5);
         scale.setY(0.5);
@@ -56,7 +58,8 @@ public class ProductLine extends AnchorPane {
 
     public void updateProducts(CartEvent event) {
         amountSpinner.update(event);
-        this.priceLabel.setText(String.valueOf(this.product.getPrice() * amountSpinner.getAmount()));
+        DecimalFormat numberFormat = new DecimalFormat("#.00");
+        this.priceLabel.setText(numberFormat.format(this.product.getPrice() * amountSpinner.getAmount()) + " kr");
     }
 
     public void hideSpinner(int amount) {

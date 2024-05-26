@@ -22,7 +22,7 @@
             <Image url="@resources/imat/images/product_2.jpg" />
          </image>
       </ImageView>
-      <Label fx:id="priceLabel" contentDisplay="CENTER" layoutX="321.0" layoutY="10.0" prefHeight="35.0" prefWidth="73.0" styleClass="text-all" text="4.90" textAlignment="CENTER">
+      <Label fx:id="priceLabel" contentDisplay="CENTER" layoutX="321.0" layoutY="10.0" prefHeight="35.0" prefWidth="92.0" styleClass="text-all" text="4.90" textAlignment="CENTER">
          <font>
             <Font name="System Italic" size="20.0" />
          </font>
