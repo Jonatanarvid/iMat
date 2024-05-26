@@ -63,7 +63,7 @@ public class MainViewController implements Initializable {
         categoryView.setMainController(this);
         controller.start(shopView);
 
-        previousOrdersView = new PreviousOrdersView(this);
+        previousOrdersView = new PreviousOrdersView(this, this.shoppingCartView);
         previousOrdersPane.getChildren().clear();
         previousOrdersPane.getChildren().add(this.previousOrdersView);
         previousOrdersPane.setVisible(false);

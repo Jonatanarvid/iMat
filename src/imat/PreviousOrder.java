@@ -8,11 +8,12 @@ import se.chalmers.cse.dat216.project.Order;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.io.IOException;
+import java.util.Date;
 
 public class PreviousOrder extends AnchorPane {
     @FXML private Label dateLabel;
     @FXML private Label totalLabel;
-    private Order order;
+     Order order;
     private PreviousOrdersView previousOrdersView;
     private double totalCost = 0;
 
@@ -28,8 +29,12 @@ public class PreviousOrder extends AnchorPane {
             throw new RuntimeException(exception);
         }
 
+        this.previousOrdersView = previousOrdersView;
         this.order = order;
-        this.dateLabel.setText(String.valueOf(order.getDate()));
+        String date = "";
+        Date orderDate = order.getDate();
+        date += orderDate.getDate() + "/" + (orderDate.getMonth() + 1) + " " + (orderDate.getYear() + 1900);
+        this.dateLabel.setText(date);
         for(ShoppingItem item : order.getItems()) {
             this.totalCost += item.getTotal();
         }
