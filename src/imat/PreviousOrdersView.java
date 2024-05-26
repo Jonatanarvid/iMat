@@ -33,6 +33,7 @@ public class PreviousOrdersView extends AnchorPane {
         update();
         this.mainViewController = mainViewController;
         this.shoppingCartView = shoppingCartView;
+        this.totalDetailPriceLabel.setVisible(false);
     }
 
     public void previousOrderClicked(PreviousOrder order) {
@@ -52,6 +53,8 @@ public class PreviousOrdersView extends AnchorPane {
             price += item.getTotal();
             orderDetailScrollPaneVBox.getChildren().add(productLine);
         }
+
+        this.totalDetailPriceLabel.setVisible(true);
         this.totalDetailPriceLabel.setText(String.valueOf(price) + " kr");
 
         highlightSelectedOrder(order);
