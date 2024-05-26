@@ -22,7 +22,7 @@ import se.chalmers.cse.dat216.project.ProductDetail;
 
 public class MainViewController implements Initializable {
     private IMatDataHandler dataHandler = IMatDataHandler.getInstance();
-    private BackendController controller;
+    BackendController controller;
     private final ShopView shopView = new ShopView();
     private CategoryView categoryView;
     private ShoppingCartView shoppingCartView;

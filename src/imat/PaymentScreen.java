@@ -4,10 +4,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.transform.Scale;
 import se.chalmers.cse.dat216.project.*;
 
 import java.io.IOException;
@@ -70,11 +72,18 @@ public class PaymentScreen extends StackPane implements ShoppingCartListener {
 
     private void updateChosenProducts() {
         chosenProductsVBox.getChildren().clear();
-        chosenProductsVBox.setSpacing(-20);
-        for(ProductLine productLine : shoppingCartView.productLines.values()) {
+        chosenProductsVBox.setSpacing(10);
+        for(ShoppingItem item: IMatDataHandler.getInstance().getShoppingCart().getItems()) {
+            ProductLine productLine = new ProductLine(item.getProduct(), IMatDataHandler.getInstance().getFXImage(item.getProduct()), (int) item.getAmount());
+            Scale scale = new Scale();
+            scale.setY(1.68);
+            scale.setX(1.68);
+            productLine.getTransforms().add(scale);
+            productLine.addShoppingItemObserver(mainViewController.controller);
             chosenProductsVBox.getChildren().add(productLine);
         }
         this.chosenProductsScrollPane.setContent(chosenProductsVBox);
+        this.totalPriceLabel.setText(String.valueOf(IMatDataHandler.getInstance().getShoppingCart().getTotal()) + " kr");
     }
 
     public void backToShop() {
