@@ -33,8 +33,8 @@ public class iMatApp extends Application {
 
     @Override
     public void stop() {
-        IMatDataHandler.getInstance().shutDown();
         IMatDataHandler.getInstance().reset();
+        IMatDataHandler.getInstance().shutDown();
     }
 
     /**
