@@ -28,11 +28,16 @@ public class MainViewController implements Initializable {
     private ShoppingCartView shoppingCartView;
     private DetailView detailView;
     private PaymentScreen paymentScreen;
+    private PreviousOrdersView previousOrdersView;
 
-    @FXML TextArea marke;
-    @FXML TextArea ursprung;
-    @FXML TextArea beskrivning;
-    @FXML TextArea innehall;
+    @FXML
+    TextArea marke;
+    @FXML
+    TextArea ursprung;
+    @FXML
+    TextArea beskrivning;
+    @FXML
+    TextArea innehall;
     @FXML
     BorderPane mainBorderPane;
     @FXML
@@ -40,7 +45,7 @@ public class MainViewController implements Initializable {
     @FXML
     StackPane rootStackPane;
     @FXML
-    AnchorPane tidigkoppane;
+    AnchorPane previousOrdersPane;
     @FXML
     private BorderPane detailViewPane;
     @FXML
@@ -58,6 +63,12 @@ public class MainViewController implements Initializable {
         categoryView.setMainController(this);
         controller.start(shopView);
 
+        previousOrdersView = new PreviousOrdersView(this);
+        previousOrdersPane.getChildren().clear();
+        previousOrdersPane.getChildren().add(this.previousOrdersView);
+        previousOrdersPane.setVisible(false);
+        previousOrdersPane.toBack();
+
         shopView.setBackendController(controller);
         shopView.setMainViewController(this);
         String iMatDirectory = controller.getIMatDirectory();
@@ -69,7 +80,8 @@ public class MainViewController implements Initializable {
         this.rootStackPane.getChildren().add(paymentScreen);
         paymentScreen.toBack();
     }
-    public void openDetailView(Product product){
+
+    public void openDetailView(Product product) {
         ProductCard productCard = new ProductCard(product, dataHandler.getFXImage(product), this);
         productCard.addShoppingItemObserver(controller);
         dataHandler.getShoppingCart().addShoppingCartListener(productCard);
@@ -80,14 +92,16 @@ public class MainViewController implements Initializable {
         detailPane.toFront();
 
     }
-    public void closeDetailView(){
+
+    public void closeDetailView() {
         detailPane.setVisible(false);
         detailPane.toBack();
 
     }
-    public void populateRecipeDetailView(Product product){
-        ProductDetail productDetail= dataHandler.getDetail(product);
-        marke.setText("Märke: "+ productDetail.getBrand());
+
+    public void populateRecipeDetailView(Product product) {
+        ProductDetail productDetail = dataHandler.getDetail(product);
+        marke.setText("Märke: " + productDetail.getBrand());
         ursprung.setText("Ursprung: " + productDetail.getOrigin());
         beskrivning.setText("Beskrivning: " + productDetail.getDescription());
         innehall.setText("Innehåll: " + productDetail.getDescription());
@@ -119,10 +133,12 @@ public class MainViewController implements Initializable {
 
     public void backToShop() {
         this.paymentScreen.toBack();
+        this.previousOrdersPane.toBack();
+        this.previousOrdersPane.setVisible(false);
         this.mainBorderPane.setVisible(true);
     }
 
-    public void toStartPage(){
+    public void toStartPage() {
 
     }
 
@@ -133,12 +149,14 @@ public class MainViewController implements Initializable {
     public String getSearchText() {
         return searchField.getText();
     }
+
     public void clearSearchText() {
         searchField.setText("");
     }
 
-    public void openTidigareKop(){
-        tidigkoppane.toFront();
-        tidigkoppane.setVisible(true);
+    public void openPreviousOrdersPane() {
+        previousOrdersView.update();
+        previousOrdersPane.toFront();
+        previousOrdersPane.setVisible(true);
     }
 }

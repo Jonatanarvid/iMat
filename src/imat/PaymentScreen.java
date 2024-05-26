@@ -35,8 +35,12 @@ public class PaymentScreen extends StackPane implements ShoppingCartListener {
     @FXML private TextField validYearTextField;
     @FXML private TextField securityCodeTextField;
 
+    @FXML private BorderPane paymentDonePane;
+
     private MainViewController mainViewController;
     private ShoppingCartView shoppingCartView;
+    private VBox chosenProductsVBox = new VBox();
+    private boolean isChosenInited = false;
 
 
     public PaymentScreen(MainViewController mainViewController, ShoppingCartView shoppingCartView) {
@@ -58,14 +62,19 @@ public class PaymentScreen extends StackPane implements ShoppingCartListener {
     }
 
     public void toChosenProducts() {
-        VBox newVBox = new VBox();
-        newVBox.getChildren().addAll(shoppingCartView.shoppingViewScrollPaneVBox.getChildren());
-        newVBox.setSpacing(-20);
-        newVBox.setFillWidth(true); // Ensure the VBox fills the width
-        this.chosenProductsScrollPane.setContent(newVBox);
+        updateChosenProducts();
         chosenProductsScrollPane.setFitToWidth(true);
         chosenProductsBorderPane.setVisible(true);
         chosenProductsBorderPane.toFront();
+    }
+
+    private void updateChosenProducts() {
+        chosenProductsVBox.getChildren().clear();
+        chosenProductsVBox.setSpacing(-20);
+        for(ProductLine productLine : shoppingCartView.productLines.values()) {
+            chosenProductsVBox.getChildren().add(productLine);
+        }
+        this.chosenProductsScrollPane.setContent(chosenProductsVBox);
     }
 
     public void backToShop() {
@@ -144,14 +153,23 @@ public class PaymentScreen extends StackPane implements ShoppingCartListener {
         deliveryBorderPane.setVisible(true);
     }
 
+    public void toPaymentDone() {
+        IMatDataHandler.getInstance().placeOrder();
+        hideBorderPanes();
+        this.paymentDonePane.setVisible(true);
+        this.paymentDonePane.toFront();
+    }
+
     private void hideBorderPanes() {
         this.chosenProductsBorderPane.setVisible(false);
         this.deliveryBorderPane.setVisible(false);
         this.cardInfoBorderPane.setVisible(false);
+        this.paymentDonePane.setVisible(false);
     }
 
     @Override
     public void shoppingCartChanged(CartEvent cartEvent) {
         this.totalPriceLabel.setText(String.valueOf(IMatDataHandler.getInstance().getShoppingCart().getTotal()) + " kr");
+        updateChosenProducts();
     }
 }

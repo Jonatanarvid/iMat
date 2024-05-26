@@ -118,12 +118,12 @@
                   </StackPane>
                   <StackPane layoutX="397.0" layoutY="658.0" prefHeight="136.0" prefWidth="437.0">
                      <children>
-                        <ImageView fitHeight="136.0" fitWidth="362.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="136.0" fitWidth="362.0" onMouseClicked="#toPaymentDone" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@resources/imat/egnabilder/Knapp.png" />
                            </image>
                         </ImageView>
-                        <Label prefHeight="52.0" prefWidth="185.0" styleClass="text-Knapp" text="Nästa" />
+                        <Label onKeyPressed="#toPaymentDone" prefHeight="52.0" prefWidth="185.0" styleClass="text-Knapp" text="Nästa" />
                      </children>
                   </StackPane>
                   <Label layoutX="3.0" layoutY="18.0" styleClass="text-header" text="Kortuppgifter" />
@@ -213,7 +213,7 @@
             <AnchorPane prefHeight="677.0" prefWidth="854.0" BorderPane.alignment="CENTER">
                <children>
                   <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#cff2d4" height="712.0" layoutX="1.0" layoutY="89.0" stroke="#d9d9d9" strokeType="INSIDE" strokeWidth="4.0" width="853.0" />
-                  <ScrollPane fx:id="chosenProductsScrollPane" layoutX="75.0" layoutY="120.0" prefHeight="452.0" prefWidth="717.0" />
+                  <ScrollPane fx:id="chosenProductsScrollPane" hbarPolicy="NEVER" layoutX="75.0" layoutY="120.0" prefHeight="440.0" prefWidth="717.0" />
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="86.0" layoutX="75.0" layoutY="558.0" stroke="#d9d9d9" strokeType="INSIDE" strokeWidth="4.0" width="717.0" />
                   <StackPane layoutX="35.0" layoutY="659.0" prefHeight="135.0" prefWidth="437.0">
                      <children>
@@ -255,6 +255,50 @@
          <left>
             <AnchorPane prefHeight="780.0" prefWidth="482.0" BorderPane.alignment="CENTER" />
          </left>
+      </BorderPane>
+      <BorderPane fx:id="paymentDonePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1800.0" stylesheets="@imat_app.css" visible="false">
+         <center>
+            <AnchorPane prefHeight="677.0" prefWidth="854.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#cff2d4" height="712.0" layoutX="1.0" layoutY="89.0" stroke="#d9d9d9" strokeType="INSIDE" strokeWidth="4.0" width="853.0" />
+                  <StackPane layoutX="209.0" layoutY="657.0" prefHeight="136.0" prefWidth="437.0">
+                     <children>
+                        <ImageView fx:id="backToShopImageView" fitHeight="136.0" fitWidth="362.0" onMouseClicked="#backToShop" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/imat/egnabilder/Knapp.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="backToShopLabel" onMouseClicked="#backToShop" prefHeight="52.0" prefWidth="185.0" styleClass="text-Knapp" text="Tillbaka till butiken" />
+                     </children>
+                  </StackPane>
+                  <Label layoutX="250.0" layoutY="369.0" styleClass="text-header" text="Tack för ditt köp!" />
+               </children>
+            </AnchorPane>
+         </center>
+         <right>
+            <AnchorPane prefHeight="780.0" prefWidth="482.0" BorderPane.alignment="CENTER" />
+         </right>
+         <bottom>
+            <AnchorPane prefHeight="90.0" prefWidth="1800.0" BorderPane.alignment="CENTER" />
+         </bottom>
+         <left>
+            <AnchorPane prefHeight="780.0" prefWidth="482.0" BorderPane.alignment="CENTER" />
+         </left>
+         <top>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="163.0" prefWidth="1802.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cff2d4" height="126.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1802.0" />
+                  <Label layoutX="26.0" layoutY="11.0" prefHeight="101.0" prefWidth="189.0" text="iMat" textFill="#30b043">
+                     <font>
+                        <Font name="System Bold Italic" size="83.0" />
+                     </font>
+                     <effect>
+                        <Blend />
+                     </effect>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </top>
       </BorderPane>
    </children>
 </fx:root>

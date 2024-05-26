@@ -18,7 +18,7 @@ public class ShoppingCartView extends VBox implements ShoppingCartListener {
     @FXML
     private Label totalPriceLabel;
     private List<ShoppingItem> items;
-    private HashMap<Product, ProductLine> productLines = new HashMap<Product, ProductLine>();
+     HashMap<Product, ProductLine> productLines = new HashMap<Product, ProductLine>();
     private IMatDataHandler dataHandler = IMatDataHandler.getInstance();
     private BackendController backendController;
     private MainViewController mainViewController;
