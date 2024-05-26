@@ -69,7 +69,7 @@ public class Spinner extends AnchorPane implements ShoppingItemObservable {
         this.buyCounter.setText(String.valueOf(this.amount));
     }
 
-    private void updateAmount(int amount) {
+    public void updateAmount(int amount) {
         this.amount = max(amount, 0);
         this.buyCounter.setText(String.valueOf(this.amount));
         if (this.amount > 0) {

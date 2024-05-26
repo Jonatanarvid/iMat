@@ -52,6 +52,7 @@ public class ShoppingCartView extends VBox implements ShoppingCartListener {
         DecimalFormat numberFormat = new DecimalFormat("#.00");
         this.totalPriceLabel.setText(numberFormat.format(dataHandler.getShoppingCart().getTotal()) + " kr");
         shoppingViewScrollPaneVBox.getChildren().clear();
+        System.out.println(productLines.size());
         for(Product product : productLines.keySet()) {
             shoppingViewScrollPaneVBox.getChildren().add(productLines.get(product));
         }

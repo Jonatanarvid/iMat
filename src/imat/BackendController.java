@@ -154,4 +154,10 @@ public class BackendController implements ProductCardObservable, FavouriteObserv
             newSearch(new Search(products, getSortOrder())); // Or pass the desired sort order
         }
     }
+
+    public void resetCards() {
+        for(ProductCard card : productCards.values()) {
+            card.spinner.updateAmount(0);
+        }
+    }
 }

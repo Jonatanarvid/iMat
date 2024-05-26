@@ -48,7 +48,7 @@ public class ProductCard extends AnchorPane implements FavouriteObservable, Shop
     private boolean isFavourite;
     private List<FavouriteObserver> favouriteObservers = new ArrayList<>();
     private List<ShoppingItemObserver> shoppingItemObservers = new ArrayList<>();
-    private final Spinner spinner;
+    final Spinner spinner;
     private MainViewController mainViewController;
 
     Image notFavouriteImage = new Image((getClass().getResourceAsStream("resources/imat/egnabilder/unfilled_star.png")));

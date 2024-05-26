@@ -138,8 +138,12 @@ public class MainViewController implements Initializable {
         this.previousOrdersPane.toBack();
         this.previousOrdersPane.setVisible(false);
         this.mainBorderPane.setVisible(true);
-        shoppingCartView.productLines.clear();
-        shoppingCartView.updateShoppingViewScrollPaneVBox();
+        if(dataHandler.getShoppingCart().getItems().isEmpty()) {
+            shoppingCartView.productLines.clear();
+            shoppingCartView.updateShoppingViewScrollPaneVBox();
+            controller.notifyProductCardObservers();
+            controller.resetCards();
+        }
     }
 
     public void toStartPage() {
