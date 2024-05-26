@@ -16,7 +16,7 @@
     <children>
         <AnchorPane prefHeight="371.0" prefWidth="1063.0">
             <children>
-                <ComboBox fx:id="sortComboBox" layoutX="784.0" layoutY="43.0" onAction="#handleSortOrderChange" prefHeight="40.0" prefWidth="235.0" promptText="A-Ö">
+                <ComboBox fx:id="sortComboBox" layoutX="784.0" layoutY="43.0" onAction="#handleSortOrderChange" prefHeight="40.0" prefWidth="235.0" promptText="Sortera">
                     <items>
                         <FXCollections fx:factory="observableArrayList">
                         </FXCollections>

@@ -174,7 +174,7 @@
                   </Label>
                   <AnchorPane layoutX="-2.0" layoutY="-3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="124.0" prefWidth="1802.0">
                      <children>
-                        <ImageView fitHeight="83.0" fitWidth="273.0" layoutX="1511.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="83.0" fitWidth="273.0" layoutX="1505.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@resources/imat/egnabilder/inkop_knapp.png" />
                            </image>

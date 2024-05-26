@@ -161,4 +161,6 @@ public class MainViewController implements Initializable {
         previousOrdersPane.toFront();
         previousOrdersPane.setVisible(true);
     }
+
+    public void shopping_done(){};
 }

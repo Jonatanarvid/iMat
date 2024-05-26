@@ -12,11 +12,20 @@
          <children>
             <AnchorPane prefHeight="61.2" prefWidth="208.8" styleClass="custom-button">
                <children>
-                  <Button fx:id="buyButton" text="Köp" layoutX="0.0" layoutY="0.0" prefHeight="61.2" prefWidth="208.8" styleClass="button-content" onAction="#buyLabelClicked"/>
-                  <HBox fx:id="spinnerBox" alignment="CENTER" layoutX="0.0" layoutY="0.0" spacing="10" prefHeight="61.2" prefWidth="208.8" styleClass="button-content" visible="false">
-                     <Button fx:id="buttonCardMinus" text="-" styleClass="spinner-sub-button" onAction="#subtractProduct"/>
-                     <Label fx:id="buyCounter" text="1" styleClass="counter-label"/>
-                     <Button fx:id="buttonCardPlus" text="+" styleClass="spinner-sub-button" onAction="#addProduct"/>
+                  <Button fx:id="buyButton" layoutX="0.0" layoutY="0.0" onAction="#buyLabelClicked" prefHeight="61.2" prefWidth="208.8" styleClass="button-content">
+                     <graphic>
+                        <Label fx:id="buyCounter1" styleClass="counter-label" text="Köp" />
+                     </graphic></Button>
+                  <HBox fx:id="spinnerBox" alignment="CENTER" layoutX="0.0" layoutY="0.0" prefHeight="61.2" prefWidth="208.8" spacing="10" styleClass="button-content">
+                     <Button fx:id="buttonCardMinus" onAction="#subtractProduct" prefHeight="64.0" prefWidth="95.0" styleClass="spinner-sub-button">
+                        <graphic>
+                           <Label fx:id="buyCounter2" prefHeight="43.0" prefWidth="49.0" styleClass="counter-label" text="-" />
+                        </graphic></Button>
+                     <Label fx:id="buyCounter" prefHeight="43.0" prefWidth="29.0" styleClass="counter-label" text="1" />
+                     <Button fx:id="buttonCardPlus" onAction="#addProduct" prefHeight="64.0" prefWidth="55.0" styleClass="spinner-sub-button" text="+">
+                        <graphic>
+                           <Label fx:id="buyCounter3" alignment="CENTER_RIGHT" prefHeight="43.0" prefWidth="50.0" styleClass="counter-label" text="+" />
+                        </graphic></Button>
                   </HBox>
                </children>
             </AnchorPane>
