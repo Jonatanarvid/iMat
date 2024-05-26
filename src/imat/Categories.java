@@ -3,6 +3,7 @@ package imat;
 import se.chalmers.cse.dat216.project.ProductCategory;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public enum Categories {
@@ -12,12 +13,15 @@ public enum Categories {
     FRUIT,
     VEG,
     BAKERY,
-    SHELF
-    ;
+    SHELF,
+    ALL_PRODUCTS;  // New category
 
     public List<ProductCategory> convertToListOfProductCategory() {
         ArrayList<ProductCategory> productCategories = new ArrayList<ProductCategory>();
         switch (this) {
+            case ALL_PRODUCTS -> {
+                productCategories.addAll(Arrays.asList(ProductCategory.values()));
+            }
             case MEAT_AND_FISH -> {
                 productCategories.add(ProductCategory.MEAT);
                 productCategories.add(ProductCategory.FISH);
@@ -36,7 +40,6 @@ public enum Categories {
                 productCategories.add(ProductCategory.MELONS);
                 //productCategories.add(ProductCategory.FRUIT);
             }
-
             case VEG -> {
                 productCategories.add(ProductCategory.POD);
                 productCategories.add(ProductCategory.CITRUS_FRUIT);
@@ -55,8 +58,8 @@ public enum Categories {
                 productCategories.add(ProductCategory.NUTS_AND_SEEDS);
                 productCategories.add(ProductCategory.FLOUR_SUGAR_SALT);
             }
+
         }
         return productCategories;
     }
 }
-
