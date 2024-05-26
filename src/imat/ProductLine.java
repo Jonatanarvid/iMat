@@ -2,11 +2,13 @@ package imat;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.transform.Scale;
 import se.chalmers.cse.dat216.project.*;
 
 import java.io.IOException;
@@ -33,8 +35,17 @@ public class ProductLine extends AnchorPane {
         this.nameLabel.setText(product.getName());
         this.productImageView.setImage(image);
         this.priceLabel.setText(String.valueOf(product.getPrice() * amount));
+        Scale scale = new Scale();
+        scale.setX(0.5);
+        scale.setY(0.5);
+
 
         amountSpinner = new Spinner(this.product, true);
+        amountSpinner.getTransforms().add(scale);
+        amountSpinnerStackPane.setStyle("-fx-alignment: center;");
+        amountSpinner.setTranslateY(5);
+
+        amountSpinnerStackPane.setAlignment(Pos.BOTTOM_CENTER);
         amountSpinnerStackPane.getChildren().add(amountSpinner);
     }
 

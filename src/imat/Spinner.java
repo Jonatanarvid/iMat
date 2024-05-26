@@ -32,7 +32,7 @@ public class Spinner extends AnchorPane implements ShoppingItemObservable {
     private final IMatDataHandler dataHandler = IMatDataHandler.getInstance();
     private List<ShoppingItemObserver> shoppingItemObservers = new ArrayList<>();
 
-    public Spinner(Product product, boolean isProductLine) {
+    public Spinner(Product product, boolean small) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Spinner.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -42,8 +42,21 @@ public class Spinner extends AnchorPane implements ShoppingItemObservable {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
+
         this.product = product;
+
+        // Apply the appropriate style based on whether the spinner is small or not
+        applyStyles(small);
         initAmount();
+    }
+
+    private void applyStyles(boolean small) {
+        /*if (small) {
+            this.getStyleClass().addAll("custom-button-small", "button-content-small");
+            buttonCardMinus.getStyleClass().addAll("spinner-sub-button-small");
+            buttonCardPlus.getStyleClass().addAll("spinner-sub-button-small");
+            buyCounter.getStyleClass().add("counter-label-small");
+        }*/
     }
 
     public void initAmount() {

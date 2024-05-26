@@ -10,7 +10,7 @@
 
 <fx:root prefHeight="55.0" type="AnchorPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Rectangle fill="WHITE" height="55.0" stroke="BLACK" strokeType="INSIDE" width="426.0" />
+      <Rectangle fill="WHITE" height="55.0" stroke="GREY" strokeType="INSIDE" width="426.0" />
       <Label fx:id="nameLabel" contentDisplay="CENTER" layoutX="59.0" layoutY="11.0" prefHeight="35.0" prefWidth="141.0" styleClass="text-all" text="Kycklingklubbor" textAlignment="CENTER">
          <font>
             <Font name="System Italic" size="20.0" />

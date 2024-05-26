@@ -30,3 +30,38 @@
     -fx-font-family: "Roboto Light";
     -fx-text-fill: white; /* White text */
 }
+
+
+/* Small size styles */
+.custom-button-small {
+    -fx-background-color: #4CAF50; /* Dark green background */
+    -fx-border-color: lightgray; /* Light gray border */
+    -fx-border-width: 1px; /* Smaller border width */
+    -fx-border-radius: 15px; /* Smaller rounded corners */
+    -fx-background-radius: 15px; /* Smaller rounded corners */
+    -fx-alignment: center; /* Center alignment */
+}
+
+.button-content-small {
+    -fx-background-color: transparent; /* Transparent background */
+    -fx-text-fill: white; /* White text */
+    -fx-font-size: 14px; /* Smaller font size */
+    -fx-border-radius: 15px; /* Smaller rounded corners */
+    -fx-background-radius: 15px; /* Smaller rounded corners */
+    -fx-font-family: "Roboto Light";
+}
+
+.spinner-sub-button-small {
+    -fx-background-color: transparent; /* Transparent background */
+    -fx-text-fill: white; /* White text */
+    -fx-border-color: transparent; /* Transparent border */
+    -fx-font-size: 14px; /* Smaller font size */
+    -fx-font-family: "Roboto Light";
+}
+
+.counter-label-small {
+    -fx-font-size: 14px; /* Smaller font size */
+    -fx-font-weight: bold; /* Bold text */
+    -fx-font-family: "Roboto Light";
+    -fx-text-fill: white; /* White text */
+}
