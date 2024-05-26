@@ -36,20 +36,20 @@ public class ShopView extends VBox implements ProductCardObserver {
 
         // Add items to the ComboBox
         sortComboBox.getItems().addAll(
-                "Alphabetical",
-                "Reverse Alphabetical",
-                "Price: Low to High",
-                "Price: High to Low"
+                "A-Ö",
+                "Ö-A",
+                "Pris: lågt till högt",
+                "Pris: högt till lågt"
         );
     }
 
     private void setSortButtonDefault() {
         SortOrder sortOrder = controller.getSortOrder();
         String sortOrderString = switch (sortOrder) {
-            case ALPHA -> "Alphabetical";
-            case REVERSEALPHA -> "Reverse Alphabetical";
-            case PRICELOWHIGH -> "Price: Low to High";
-            case PRICEHIGHLOW -> "Price: High to Low";
+            case ALPHA -> "A-Ö";
+            case REVERSEALPHA -> "Ö-A";
+            case PRICELOWHIGH -> "Pris: lågt till högt";
+            case PRICEHIGHLOW -> "Pris: högt till lågt";
 
         };
         // Set default value for ComboBox
@@ -93,16 +93,16 @@ public class ShopView extends VBox implements ProductCardObserver {
         SortOrder sortOrder;
 
         switch (selectedSort) {
-            case "Alphabetical":
+            case "A-Ö":
                 sortOrder = SortOrder.ALPHA;
                 break;
-            case "Reverse Alphabetical":
+            case "Ö-A":
                 sortOrder = SortOrder.REVERSEALPHA;
                 break;
-            case "Price: Low to High":
+            case "Pris: lågt till högt":
                 sortOrder = SortOrder.PRICELOWHIGH;
                 break;
-            case "Price: High to Low":
+            case "Pris: högt till lågt":
                 sortOrder = SortOrder.PRICEHIGHLOW;
                 break;
             default:
