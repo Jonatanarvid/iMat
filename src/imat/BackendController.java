@@ -18,6 +18,7 @@ public class BackendController implements ProductCardObservable, FavouriteObserv
     public BackendController(IMatDataHandler dataHandler, MainViewController viewController) {
         this.dataHandler = dataHandler;
         this.mainViewController = viewController;
+        this.sortOrder = SortOrder.ALPHA;
         shoppingCart = dataHandler.getShoppingCart();
     }
 
@@ -40,7 +41,8 @@ public class BackendController implements ProductCardObservable, FavouriteObserv
             productCards.put(product, productCard);
         }
         addProductCardObserver(productCardObserver);
-        setSortOrder(SortOrder.ALPHA);
+        //setSortOrder(SortOrder.ALPHA);
+        //mainViewController.performSearch();
         this.products = dataHandler.getProducts();
         notifyProductCardObservers();
     }
@@ -127,7 +129,6 @@ public class BackendController implements ProductCardObservable, FavouriteObserv
         } else {
             dataHandler.addFavorite(product);
         }
-        productCards.get(product).assertFavourite(isFavourite);
     }
 
     @Override
