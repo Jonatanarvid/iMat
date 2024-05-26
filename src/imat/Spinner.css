@@ -10,18 +10,32 @@
 .button-content {
     -fx-background-color: transparent; /* Transparent background */
     -fx-text-fill: white; /* White text */
-    -fx-font-size: 28px; /* Font size for the text */
+    -fx-font-size: 30px; /* Font size for the text */
     -fx-border-radius: 30px; /* Rounded corners */
     -fx-background-radius: 30px; /* Rounded corners */
     -fx-font-family: "Roboto Light";
+    -fx-font-weight: bold;
+    -fx-padding: 0 2px 0 2px; /* Increased padding to prevent text cut-off */
+    -fx-alignment: center; /* Center alignment */
 }
 
 .spinner-sub-button {
     -fx-background-color: transparent; /* Transparent background */
     -fx-text-fill: white; /* White text */
     -fx-border-color: transparent; /* Transparent border */
-    -fx-font-size: 28px; /* Font size for the text */
+    -fx-font-size: 34px; /* Font size for the text */
     -fx-font-family: "Roboto Light";
+    -fx-font-weight: bolder;
+}
+
+.spinner-sub-button-large {
+    -fx-background-color: transparent; /* Transparent background */
+    -fx-text-fill: white; /* White text */
+    -fx-border-color: transparent; /* Transparent border */
+    -fx-font-size: 34px; /* Font size for the text */
+    -fx-font-family: "Roboto Light";
+    -fx-font-weight: bolder;
+    -fx-pref-width: 50px; /* Increase clickable area width */
 }
 
 .counter-label {
@@ -31,8 +45,6 @@
     -fx-text-fill: white; /* White text */
 }
 
-
-/* Small size styles */
 .custom-button-small {
     -fx-background-color: #4CAF50; /* Dark green background */
     -fx-border-color: lightgray; /* Light gray border */
