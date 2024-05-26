@@ -1,0 +1,49 @@
+/* Base styles for the custom button */
+.custom-button {
+    -fx-background-color: white;
+    -fx-border-color: black;
+    -fx-border-width: 1px;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-padding: 10px;
+    -fx-alignment: center-left;
+}
+
+/* Styles for the button when it is selected */
+.custom-button.selected {
+    -fx-background-color: #cff2d4; /* Light green color */
+    -fx-border-color: black;
+}
+
+/* Styles for the button when it is hovered */
+.button.custom-button:hover {
+    -fx-background-color: #e0e0e0; /* Light gray color for hover */
+}
+
+/* Styles for the button when it is selected and hovered */
+.custom-button.selected:hover {
+    -fx-background-color: #cff2d4; /* Maintain light green color when selected and hovered */
+}
+
+/* Styles for the labels inside the button */
+.custom-button-label {
+    -fx-text-fill: black;
+    -fx-font-size: 24px; /* Adjusted font size */
+    -fx-font-family: "Roboto Light";
+    -fx-font-weight: bold;
+}
+
+.date-label {
+    -fx-text-fill: black;
+    -fx-font-size: 28px; /* Slightly larger font size */
+    -fx-font-family: "Roboto Light";
+    -fx-font-weight: bold;
+}
+
+.total-label {
+    -fx-text-fill: black;
+    -fx-font-size: 28px; /* Slightly larger font size */
+    -fx-font-family: "Roboto Light";
+    -fx-font-weight: bold;
+    -fx-alignment: center-right;
+}

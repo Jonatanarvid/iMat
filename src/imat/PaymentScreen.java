@@ -95,6 +95,12 @@ public class PaymentScreen extends StackPane implements ShoppingCartListener {
         mainViewController.backToShop();
     }
 
+    public void backToShopTwo() {
+        hideBorderPanes();
+        //shoppingCartView.updateShoppingViewScrollPaneVBox();
+        mainViewController.backToShop();
+    }
+
     public void toDelivery() {
         hideBorderPanes();
         deliveryBorderPane.toFront();

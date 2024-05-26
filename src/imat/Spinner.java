@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import se.chalmers.cse.dat216.project.*;
 
@@ -21,7 +22,7 @@ public class Spinner extends AnchorPane implements ShoppingItemObservable {
     @FXML
     private Button buttonCardPlus;
     @FXML
-    private HBox spinnerBox;
+    private BorderPane spinnerBox;
     @FXML
     private Label buyCounter;
     @FXML

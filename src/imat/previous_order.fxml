@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="68.0" prefWidth="358.0" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
-    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cff2d4" height="68.0" onMouseClicked="#previousOrderClicked" stroke="BLACK" strokeType="INSIDE" width="358.0" />
-        <Label fx:id="dateLabel" layoutX="14.0" layoutY="12.0" onMouseClicked="#previousOrderClicked" text="25/5 24">
-        <font>
-            <Font size="32.0" />
-        </font>
-        </Label>
-   <Label fx:id="totalLabel" layoutX="232.0" layoutY="12.0" onMouseClicked="#previousOrderClicked" text="90 kr">
-      <font>
-         <Font size="32.0" />
-      </font>
-   </Label>
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="68.0" prefWidth="358.0" type="javafx.scene.layout.AnchorPane" stylesheets="@previous-order.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+    <Button fx:id="customButton" layoutX="0.0" layoutY="0.0" prefHeight="68.0" prefWidth="358.0" onMouseClicked="#previousOrderClicked" styleClass="custom-button">
+        <graphic>
+            <AnchorPane>
+                <Label fx:id="dateLabel" layoutX="14.0" layoutY="12.0" text="25/5 24" styleClass="date-label"/>
+                <Label fx:id="totalLabel" layoutX="232.0" layoutY="12.0" text="90 kr" styleClass="total-label"/>
+            </AnchorPane>
+        </graphic>
+    </Button>
 </fx:root>

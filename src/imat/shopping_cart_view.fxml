@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<fx:root fx:id="rightVBox" prefHeight="876.0" prefWidth="428.0" stylesheets="@imat_app.css" type="javafx.scene.layout.VBox" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root fx:id="rightVBox" prefHeight="876.0" prefWidth="428.0" styleClass="vbox-white" stylesheets="@imat_app.css" type="javafx.scene.layout.VBox" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <StackPane prefHeight="150.0" prefWidth="200.0">
             <children>
@@ -44,10 +44,10 @@
             <children>
                 <ImageView fitHeight="183.0" fitWidth="371.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@resources/imat/egnabilder/KöpKnapp.png" />
+                        <Image url="@resources/imat/egnabilder/kassaknoopp.png" />
                     </image>
                 </ImageView>
-                <Label prefHeight="95.0" prefWidth="345.0" styleClass="text-header" text="Till Kassa" onMouseClicked="#toPayment">
+                <Label onMouseClicked="#toPayment" prefHeight="95.0" prefWidth="345.0" styleClass="text-big-button" text="Till Kassa" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="13.0" />
                     </font>
