@@ -47,7 +47,10 @@
             <children>
                 <ScrollPane fx:id="orderDetailPane" layoutX="75.0" layoutY="120.0" prefHeight="452.0" prefWidth="717.0">
                <content>
-                  <VBox fx:id="orderDetailScrollPaneVBox" prefHeight="206.0" prefWidth="587.0" />
+                  <VBox fx:id="orderDetailScrollPaneVBox" prefHeight="206.0" prefWidth="587.0">
+                          <children>
+                          </children>
+                  </VBox>
                </content></ScrollPane>
                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="86.0" layoutX="75.0" layoutY="558.0" stroke="#d9d9d9" strokeType="INSIDE" strokeWidth="4.0" width="717.0" />
                 <Label layoutX="103.0" layoutY="574.0" text="Totalt:">
@@ -56,7 +59,7 @@
                         <String fx:value="text-Knapp" />
                     </styleClass>
                 </Label>
-                <Label fx:id="totalPriceLabel1" alignment="CENTER_RIGHT" layoutX="566.0" layoutY="574.0" prefHeight="56.0" prefWidth="200.0" styleClass="text-header" text="90 kr" />
+                <Label fx:id="totalDetailPriceLabel" alignment="CENTER_RIGHT" layoutX="566.0" layoutY="574.0" prefHeight="56.0" prefWidth="200.0" styleClass="text-header" text="90 kr" />
             </children>
         </AnchorPane>
         <ScrollPane fx:id="previousOrdersScrollPane" layoutX="260.0" layoutY="265.0" prefHeight="513.0" prefWidth="360.0">

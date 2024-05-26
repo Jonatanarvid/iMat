@@ -205,9 +205,9 @@
             </AnchorPane>
          </top>
       </BorderPane>
-      <AnchorPane fx:id="previousOrdersPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#backToShop" prefHeight="1000.0" prefWidth="1800.0" visible="false">
+      <AnchorPane fx:id="previousOrdersPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1800.0">
          <children>
-            <Rectangle fill="#575757" height="1000.0" opacity="0.8" stroke="BLACK" strokeType="INSIDE" width="1800.0" />
+            <Rectangle fill="#575757" height="1000.0" onMouseClicked="#backToShop" opacity="0.8" stroke="BLACK" strokeType="INSIDE" width="1800.0" />
             <Rectangle arcHeight="25.0" arcWidth="25.0" fill="WHITE" height="763.0" layoutX="169.0" layoutY="116.0" stroke="#d9d9d9" strokeType="INSIDE" strokeWidth="4.0" width="1431.0" />
             <Label fx:id="nameLabel1" alignment="CENTER" contentDisplay="CENTER" layoutX="133.0" layoutY="137.0" prefHeight="84.0" prefWidth="578.0" styleClass="text-all" text="Tidigare köp" textAlignment="CENTER">
                <font>
@@ -277,7 +277,7 @@
             </Label>
             <AnchorPane layoutX="705.0" layoutY="148.0" prefHeight="786.0" prefWidth="854.0">
                <children>
-                  <ScrollPane fx:id="orderDetailPane1" layoutX="75.0" layoutY="120.0" prefHeight="452.0" prefWidth="717.0" />
+                  <ScrollPane fx:id="orderDetailPane1" layoutX="62.0" layoutY="112.0" prefHeight="452.0" prefWidth="717.0" />
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="86.0" layoutX="75.0" layoutY="558.0" stroke="#d9d9d9" strokeType="INSIDE" strokeWidth="4.0" width="717.0" />
                   <Label layoutX="103.0" layoutY="574.0" text="Totalt:">
                      <styleClass>

@@ -18,6 +18,7 @@ public class ProductLine extends AnchorPane {
     @FXML private Label priceLabel;
     @FXML private Label nameLabel;
     @FXML private StackPane amountSpinnerStackPane;
+    @FXML private Label amountLabel;
     private Product product;
     private final Spinner amountSpinner;
 
@@ -31,6 +32,7 @@ public class ProductLine extends AnchorPane {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
+        this.amountLabel.setVisible(false);
         this.product = product;
         this.nameLabel.setText(product.getName());
         this.productImageView.setImage(image);
@@ -38,7 +40,6 @@ public class ProductLine extends AnchorPane {
         Scale scale = new Scale();
         scale.setX(0.5);
         scale.setY(0.5);
-
 
         amountSpinner = new Spinner(this.product, true);
         amountSpinner.getTransforms().add(scale);
@@ -56,5 +57,12 @@ public class ProductLine extends AnchorPane {
     public void updateProducts(CartEvent event) {
         amountSpinner.update(event);
         this.priceLabel.setText(String.valueOf(this.product.getPrice() * amountSpinner.getAmount()));
+    }
+
+    public void hideSpinner(int amount) {
+        this.amountSpinner.setVisible(false);
+        this.amountLabel.setText(String.valueOf(amount));
+        this.amountLabel.setVisible(true);
+        this.amountLabel.toFront();
     }
 }
