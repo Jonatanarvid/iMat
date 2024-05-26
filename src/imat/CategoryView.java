@@ -144,6 +144,14 @@ public class CategoryView extends VBox implements SearchObservable {
         }
     }
 
+
+
+    public void clearSelection() {
+        SelectionModel<TreeItem<String>> selectionModel = categoryTreeView.getSelectionModel();
+        selectionModel.clearSelection();
+        collapseAll(rootItem);
+    }
+
     public void updateViewByCategories(TreeItem<String> value) {
         TreeItem<String> selectedItem = value;
         System.out.println("Selected item: " + selectedItem.getValue());
@@ -152,7 +160,11 @@ public class CategoryView extends VBox implements SearchObservable {
                 .map(HashMap.Entry::getKey)
                 .findFirst()
                 .orElse(selectedItem.getValue());
-        if (!selectedItem.getValue().equals("Favoriter")) {
+
+        if (selectedKey.equals("ALL_PRODUCTS")) {
+            notifySearchObservers(categoryHashMap.get(selectedKey));
+            collapseAll(rootItem); // Collapse all categories when "ALL_PRODUCTS" is selected
+        } else if (!selectedItem.getValue().equals("Favoriter")) {
             notifySearchObservers(categoryHashMap.get(selectedKey));
         } else {
             notifySearchObservers(new ArrayList<>());
@@ -160,18 +172,20 @@ public class CategoryView extends VBox implements SearchObservable {
         }
     }
 
-    public void clearSelection() {
-        SelectionModel<TreeItem<String>> selectionModel = categoryTreeView.getSelectionModel();
-        selectionModel.clearSelection();
-        collapseAll(rootItem);
-    }
-
     private void handleMouseClick(MouseEvent event, TreeItem<String> rootItem) {
         if (event.getClickCount() == 1) {
             TreeItem<String> selectedItem = categoryTreeView.getSelectionModel().getSelectedItem();
             if (selectedItem != null) {
                 mainViewController.clearSearchText();
-                if (!selectedItem.getValue().equals("Favoriter") && !selectedItem.isLeaf()) {
+                String selectedKey = displayTextMap.entrySet().stream()
+                        .filter(entry -> entry.getValue().equals(selectedItem.getValue()))
+                        .map(HashMap.Entry::getKey)
+                        .findFirst()
+                        .orElse(selectedItem.getValue());
+
+                if (selectedKey.equals("ALL_PRODUCTS")) {
+                    collapseAll(rootItem); // Collapse all when "ALL_PRODUCTS" is selected
+                } else if (!selectedItem.getValue().equals("Favoriter") && !selectedItem.isLeaf()) {
                     boolean isExpanded = selectedItem.isExpanded();
                     collapseOtherItems(selectedItem);
                     selectedItem.setExpanded(!isExpanded);

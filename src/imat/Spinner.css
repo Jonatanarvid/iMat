@@ -1,3 +1,4 @@
+/* Custom button with hover effect */
 .custom-button {
     -fx-background-color: #4CAF50; /* Dark green background */
     -fx-border-color: lightgray; /* Light gray border */
@@ -7,6 +8,11 @@
     -fx-alignment: center; /* Center alignment */
 }
 
+.custom-button:hover {
+    -fx-background-color: #45a049; /* Slightly darker green background on hover */
+}
+
+/* Button content */
 .button-content {
     -fx-background-color: transparent; /* Transparent background */
     -fx-text-fill: white; /* White text */
@@ -19,6 +25,7 @@
     -fx-alignment: center; /* Center alignment */
 }
 
+/* Spinner sub-button */
 .spinner-sub-button {
     -fx-background-color: transparent; /* Transparent background */
     -fx-text-fill: white; /* White text */
@@ -28,6 +35,7 @@
     -fx-font-weight: bolder;
 }
 
+/* Spinner sub-button large */
 .spinner-sub-button-large {
     -fx-background-color: transparent; /* Transparent background */
     -fx-text-fill: white; /* White text */
@@ -38,6 +46,7 @@
     -fx-pref-width: 50px; /* Increase clickable area width */
 }
 
+/* Counter label */
 .counter-label {
     -fx-font-size: 35px; /* Font size for counter */
     -fx-font-weight: bold; /* Bold text */
@@ -45,6 +54,7 @@
     -fx-text-fill: white; /* White text */
 }
 
+/* Custom button small with hover effect */
 .custom-button-small {
     -fx-background-color: #4CAF50; /* Dark green background */
     -fx-border-color: lightgray; /* Light gray border */
@@ -54,6 +64,11 @@
     -fx-alignment: center; /* Center alignment */
 }
 
+.custom-button-small:hover {
+    -fx-background-color: #45a049; /* Slightly darker green background on hover */
+}
+
+/* Button content small */
 .button-content-small {
     -fx-background-color: transparent; /* Transparent background */
     -fx-text-fill: white; /* White text */
@@ -63,6 +78,7 @@
     -fx-font-family: "Roboto Light";
 }
 
+/* Spinner sub-button small */
 .spinner-sub-button-small {
     -fx-background-color: transparent; /* Transparent background */
     -fx-text-fill: white; /* White text */
@@ -71,6 +87,7 @@
     -fx-font-family: "Roboto Light";
 }
 
+/* Counter label small */
 .counter-label-small {
     -fx-font-size: 14px; /* Smaller font size */
     -fx-font-weight: bold; /* Bold text */
