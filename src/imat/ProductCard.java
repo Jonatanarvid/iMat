@@ -95,12 +95,21 @@ public class ProductCard extends AnchorPane implements FavouriteObservable, Shop
     @FXML
     public void favouriteButtonSelected() {
         isFavourite = !isFavourite;
+        updateFavouriteImage();
+        notifyFavouriteObservers();
+    }
+
+    public void assertFavourite(boolean isFavourite) {
+        this.isFavourite = isFavourite;
+        updateFavouriteImage();
+    }
+
+    private void updateFavouriteImage() {
         if (isFavourite) {
             favouriteImageView.setImage(isFavouriteImage);
         } else {
             favouriteImageView.setImage(notFavouriteImage);
         }
-        notifyFavouriteObservers();
     }
 
     public Product getProduct() {
@@ -155,7 +164,6 @@ public class ProductCard extends AnchorPane implements FavouriteObservable, Shop
 
     @FXML
     protected void onClick(Event event) {
-        System.out.println("smth happen");
         mainViewController.openDetailView(product);
     }
 }

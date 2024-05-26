@@ -127,6 +127,7 @@ public class BackendController implements ProductCardObservable, FavouriteObserv
         } else {
             dataHandler.addFavorite(product);
         }
+        productCards.get(product).assertFavourite(isFavourite);
     }
 
     @Override

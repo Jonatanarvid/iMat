@@ -19,10 +19,6 @@ public class ShopView extends VBox implements ProductCardObserver {
     @FXML
     private ComboBox<String> sortComboBox;
 
-
-
-
-
     public ShopView() {
         FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("product_grid.fxml"));
         fxmlLoader.setRoot(this);

@@ -84,8 +84,10 @@ public class MainViewController implements Initializable {
     public void openDetailView(Product product) {
         ProductCard productCard = new ProductCard(product, dataHandler.getFXImage(product), this);
         productCard.addShoppingItemObserver(controller);
+        productCard.addFavouriteObserver(controller);
         dataHandler.getShoppingCart().addShoppingCartListener(productCard);
         detailView = new DetailView(productCard, this);
+        productCard.addFavouriteObserver(detailView);
         detailPane.getChildren().clear();
         detailPane.getChildren().add(detailView);
         detailPane.setVisible(true);

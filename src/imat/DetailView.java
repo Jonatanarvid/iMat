@@ -14,7 +14,7 @@ import se.chalmers.cse.dat216.project.ProductDetail;
 import java.io.IOException;
 
 
-public class DetailView extends AnchorPane{
+public class DetailView extends AnchorPane implements FavouriteObserver{
     @FXML private AnchorPane productCardAnchorPane;
     @FXML private ImageView favouriteImageView;
     @FXML private Label brand;
@@ -59,5 +59,10 @@ public class DetailView extends AnchorPane{
     }
     public void closeDetailView() {
         mainViewController.closeDetailView();
+    }
+
+    @Override
+    public void updateFavouriteObserver(Product product, Boolean isFavourite) {
+        this.favouriteImageView.setImage(this.productCard.getFavouriteImage());
     }
 }
