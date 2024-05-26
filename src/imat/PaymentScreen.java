@@ -60,6 +60,7 @@ public class PaymentScreen extends StackPane implements ShoppingCartListener {
     public void toChosenProducts() {
         VBox newVBox = new VBox();
         newVBox.getChildren().addAll(shoppingCartView.shoppingViewScrollPaneVBox.getChildren());
+        newVBox.setSpacing(-20);
         newVBox.setFillWidth(true); // Ensure the VBox fills the width
         this.chosenProductsScrollPane.setContent(newVBox);
         chosenProductsScrollPane.setFitToWidth(true);

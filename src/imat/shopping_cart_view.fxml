@@ -11,47 +11,48 @@
 
 <fx:root fx:id="rightVBox" prefHeight="876.0" prefWidth="428.0" stylesheets="@imat_app.css" type="javafx.scene.layout.VBox" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-      <StackPane prefHeight="150.0" prefWidth="200.0">
-         <children>
-              <Label prefHeight="99.0" prefWidth="418.0" styleClass="text-header" text="Kundvagn" />
-         </children>
-      </StackPane>
+        <StackPane prefHeight="150.0" prefWidth="200.0">
+            <children>
+                <Label prefHeight="99.0" prefWidth="418.0" styleClass="text-header" text="Kundvagn" />
+            </children>
+        </StackPane>
         <ScrollPane prefHeight="649.0" prefWidth="426.0">
-        <content>
-            <VBox fx:id="shoppingViewScrollPaneVBox" alignment="CENTER">
-            </VBox>
-        </content>
+            <content>
+                <!-- Set VBox spacing to 0 to remove spaces between children -->
+                <VBox fx:id="shoppingViewScrollPaneVBox" alignment="CENTER" spacing="0">
+                </VBox>
+            </content>
         </ScrollPane>
-      <StackPane prefHeight="198.0" prefWidth="428.0">
-         <children>
-            <Label prefHeight="95.0" prefWidth="398.0" styleClass="text-header" text="Totalt:">
-               <font>
-                  <Font name="System Bold" size="13.0" />
-               </font>
-            </Label>
-            <Label fx:id="totalPriceLabel" alignment="TOP_RIGHT" layoutX="52.0" layoutY="20.0" prefHeight="56.0" prefWidth="410.0" styleClass="text-header" text="73824 kr">
-               <font>
-                  <Font name="System Bold" size="13.0" />
-               </font>
-            </Label>
-         </children>
-         <VBox.margin>
-            <Insets />
-         </VBox.margin>
-      </StackPane>
-      <StackPane layoutX="10.0" layoutY="728.0" prefHeight="198.0" prefWidth="428.0">
-         <children>
-            <ImageView fitHeight="183.0" fitWidth="371.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@resources/imat/egnabilder/KöpKnapp.png" />
-               </image>
-            </ImageView>
-            <Label prefHeight="95.0" prefWidth="345.0" styleClass="text-header" text="Till Kassa" onMouseClicked="#toPayment">
-               <font>
-                  <Font name="System Bold" size="13.0" />
-               </font>
-            </Label>
-         </children>
-      </StackPane>
+        <StackPane prefHeight="198.0" prefWidth="428.0">
+            <children>
+                <Label prefHeight="95.0" prefWidth="398.0" styleClass="text-header" text="Totalt:">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <Label fx:id="totalPriceLabel" alignment="TOP_RIGHT" layoutX="52.0" layoutY="20.0" prefHeight="56.0" prefWidth="410.0" styleClass="text-header" text="73824 kr">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+            </children>
+            <VBox.margin>
+                <Insets />
+            </VBox.margin>
+        </StackPane>
+        <StackPane layoutX="10.0" layoutY="728.0" prefHeight="198.0" prefWidth="428.0">
+            <children>
+                <ImageView fitHeight="183.0" fitWidth="371.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@resources/imat/egnabilder/KöpKnapp.png" />
+                    </image>
+                </ImageView>
+                <Label prefHeight="95.0" prefWidth="345.0" styleClass="text-header" text="Till Kassa" onMouseClicked="#toPayment">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+            </children>
+        </StackPane>
     </children>
 </fx:root>
