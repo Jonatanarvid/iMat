@@ -20,6 +20,95 @@
 
 <StackPane fx:id="rootStackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1800.0" stylesheets="@imat_app.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.MainViewController">
    <children>
+      <AnchorPane fx:id="previousOrdersPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1800.0" visible="false">
+         <children>
+            <Rectangle fill="#575757" height="1000.0" onMouseClicked="#backToShop" opacity="0.8" stroke="BLACK" strokeType="INSIDE" width="1800.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="WHITE" height="763.0" layoutX="169.0" layoutY="116.0" stroke="#d9d9d9" strokeType="INSIDE" strokeWidth="4.0" width="1431.0" />
+            <Label fx:id="nameLabel1" alignment="CENTER" contentDisplay="CENTER" layoutX="133.0" layoutY="137.0" prefHeight="84.0" prefWidth="578.0" styleClass="text-all" text="Tidigare köp" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="67.5" />
+               </font>
+            </Label>
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#d8d6d6" height="561.0" layoutX="237.0" layoutY="241.0" stroke="#d9d9d9" strokeType="INSIDE" strokeWidth="4.0" width="407.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#ee6d6d" height="102.0" layoutX="1533.0" layoutY="83.0" onMouseClicked="#closeDetailView" stroke="WHITE" strokeType="INSIDE" strokeWidth="4.0" width="102.0" />
+            <ImageView fitHeight="84.0" fitWidth="79.0" layoutX="1545.0" layoutY="94.0" onMouseClicked="#backToShop" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@resources/imat/egnabilder/x.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#d8d6d6" height="561.0" layoutX="759.0" layoutY="241.0" stroke="#d8d6d6" strokeType="INSIDE" strokeWidth="4.0" width="738.0" />
+            <StackPane layoutX="767.0" layoutY="634.0" prefHeight="198.0" prefWidth="719.0" visible="false">
+               <children>
+                  <Label prefHeight="95.0" prefWidth="398.0" styleClass="text-header" text="Totalt:">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="totalPriceLabel" alignment="TOP_RIGHT" layoutX="52.0" layoutY="20.0" prefHeight="56.0" prefWidth="410.0" styleClass="text-header" text="73824 kr">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </StackPane>
+            <AnchorPane layoutX="695.0" layoutY="138.0" prefHeight="786.0" prefWidth="854.0">
+               <children>
+                  <ScrollPane fx:id="orderDetailPane" layoutX="75.0" layoutY="120.0" prefHeight="452.0" prefWidth="717.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="86.0" layoutX="75.0" layoutY="558.0" stroke="#d9d9d9" strokeType="INSIDE" strokeWidth="4.0" width="717.0" />
+                  <Label layoutX="103.0" layoutY="574.0" text="Totalt:">
+                     <styleClass>
+                        <String fx:value="text-header" />
+                        <String fx:value="text-Knapp" />
+                     </styleClass>
+                  </Label>
+                  <Label fx:id="totalPriceLabel1" alignment="CENTER_RIGHT" layoutX="566.0" layoutY="574.0" prefHeight="56.0" prefWidth="200.0" styleClass="text-header" text="90 kr" />
+               </children>
+            </AnchorPane>
+            <ScrollPane fx:id="previousOrdersScrollPane" layoutX="260.0" layoutY="265.0" prefHeight="513.0" prefWidth="360.0">
+               <content>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="68.0" stroke="BLACK" strokeType="INSIDE" width="358.0" />
+               </content>
+            </ScrollPane>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cff2d4" height="68.0" layoutX="261.0" layoutY="333.0" stroke="BLACK" strokeType="INSIDE" width="358.0" />
+            <Label layoutX="272.0" layoutY="346.0" text="25/5 24">
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </Label>
+            <Label layoutX="272.0" layoutY="279.0" text="25/5 24">
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER_RIGHT" layoutX="469.0" layoutY="345.0" prefHeight="44.0" prefWidth="140.0" text="90 kr">
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER_RIGHT" layoutX="469.0" layoutY="278.0" prefHeight="44.0" prefWidth="140.0" text="89 kr">
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </Label>
+            <AnchorPane layoutX="705.0" layoutY="148.0" prefHeight="786.0" prefWidth="854.0">
+               <children>
+                  <ScrollPane fx:id="orderDetailPane1" layoutX="62.0" layoutY="112.0" prefHeight="452.0" prefWidth="717.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="86.0" layoutX="75.0" layoutY="558.0" stroke="#d9d9d9" strokeType="INSIDE" strokeWidth="4.0" width="717.0" />
+                  <Label layoutX="103.0" layoutY="574.0" text="Totalt:">
+                     <styleClass>
+                        <String fx:value="text-header" />
+                        <String fx:value="text-Knapp" />
+                     </styleClass>
+                  </Label>
+                  <Label fx:id="totalPriceLabel11" alignment="CENTER_RIGHT" layoutX="566.0" layoutY="574.0" prefHeight="56.0" prefWidth="200.0" styleClass="text-header" text="90 kr" />
+               </children>
+            </AnchorPane>
+         </children>
+         <stylesheets>
+            <URL value="@product-info.css" />
+            <URL value="@imat_app.css" />
+         </stylesheets>
+      </AnchorPane>
       <AnchorPane fx:id="detailPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1800.0" stylesheets="@product-info.css" visible="false">
          <children>
             <Rectangle fill="#575757" height="1000.0" opacity="0.8" stroke="BLACK" strokeType="INSIDE" width="1800.0" />
@@ -204,94 +293,5 @@
             </AnchorPane>
          </top>
       </BorderPane>
-      <AnchorPane fx:id="previousOrdersPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1800.0">
-         <children>
-            <Rectangle fill="#575757" height="1000.0" onMouseClicked="#backToShop" opacity="0.8" stroke="BLACK" strokeType="INSIDE" width="1800.0" />
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="WHITE" height="763.0" layoutX="169.0" layoutY="116.0" stroke="#d9d9d9" strokeType="INSIDE" strokeWidth="4.0" width="1431.0" />
-            <Label fx:id="nameLabel1" alignment="CENTER" contentDisplay="CENTER" layoutX="133.0" layoutY="137.0" prefHeight="84.0" prefWidth="578.0" styleClass="text-all" text="Tidigare köp" textAlignment="CENTER">
-               <font>
-                  <Font name="System Bold" size="67.5" />
-               </font>
-            </Label>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#d8d6d6" height="561.0" layoutX="237.0" layoutY="241.0" stroke="#d9d9d9" strokeType="INSIDE" strokeWidth="4.0" width="407.0" />
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#ee6d6d" height="102.0" layoutX="1533.0" layoutY="83.0" onMouseClicked="#closeDetailView" stroke="WHITE" strokeType="INSIDE" strokeWidth="4.0" width="102.0" />
-            <ImageView fitHeight="84.0" fitWidth="79.0" layoutX="1545.0" layoutY="94.0" onMouseClicked="#backToShop" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@resources/imat/egnabilder/x.png" />
-               </image>
-            </ImageView>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#d8d6d6" height="561.0" layoutX="759.0" layoutY="241.0" stroke="#d8d6d6" strokeType="INSIDE" strokeWidth="4.0" width="738.0" />
-            <StackPane layoutX="767.0" layoutY="634.0" prefHeight="198.0" prefWidth="719.0" visible="false">
-               <children>
-                  <Label prefHeight="95.0" prefWidth="398.0" styleClass="text-header" text="Totalt:">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="totalPriceLabel" alignment="TOP_RIGHT" layoutX="52.0" layoutY="20.0" prefHeight="56.0" prefWidth="410.0" styleClass="text-header" text="73824 kr">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                  </Label>
-               </children>
-            </StackPane>
-            <AnchorPane layoutX="695.0" layoutY="138.0" prefHeight="786.0" prefWidth="854.0">
-               <children>
-                  <ScrollPane fx:id="orderDetailPane" layoutX="75.0" layoutY="120.0" prefHeight="452.0" prefWidth="717.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="86.0" layoutX="75.0" layoutY="558.0" stroke="#d9d9d9" strokeType="INSIDE" strokeWidth="4.0" width="717.0" />
-                  <Label layoutX="103.0" layoutY="574.0" text="Totalt:">
-                     <styleClass>
-                        <String fx:value="text-header" />
-                        <String fx:value="text-Knapp" />
-                     </styleClass>
-                  </Label>
-                  <Label fx:id="totalPriceLabel1" alignment="CENTER_RIGHT" layoutX="566.0" layoutY="574.0" prefHeight="56.0" prefWidth="200.0" styleClass="text-header" text="90 kr" />
-               </children>
-            </AnchorPane>
-            <ScrollPane fx:id="previousOrdersScrollPane" layoutX="260.0" layoutY="265.0" prefHeight="513.0" prefWidth="360.0">
-               <content>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="68.0" stroke="BLACK" strokeType="INSIDE" width="358.0" />
-               </content>
-            </ScrollPane>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cff2d4" height="68.0" layoutX="261.0" layoutY="333.0" stroke="BLACK" strokeType="INSIDE" width="358.0" />
-            <Label layoutX="272.0" layoutY="346.0" text="25/5 24">
-               <font>
-                  <Font size="32.0" />
-               </font>
-            </Label>
-            <Label layoutX="272.0" layoutY="279.0" text="25/5 24">
-               <font>
-                  <Font size="32.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER_RIGHT" layoutX="469.0" layoutY="345.0" prefHeight="44.0" prefWidth="140.0" text="90 kr">
-               <font>
-                  <Font size="32.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER_RIGHT" layoutX="469.0" layoutY="278.0" prefHeight="44.0" prefWidth="140.0" text="89 kr">
-               <font>
-                  <Font size="32.0" />
-               </font>
-            </Label>
-            <AnchorPane layoutX="705.0" layoutY="148.0" prefHeight="786.0" prefWidth="854.0">
-               <children>
-                  <ScrollPane fx:id="orderDetailPane1" layoutX="62.0" layoutY="112.0" prefHeight="452.0" prefWidth="717.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="86.0" layoutX="75.0" layoutY="558.0" stroke="#d9d9d9" strokeType="INSIDE" strokeWidth="4.0" width="717.0" />
-                  <Label layoutX="103.0" layoutY="574.0" text="Totalt:">
-                     <styleClass>
-                        <String fx:value="text-header" />
-                        <String fx:value="text-Knapp" />
-                     </styleClass>
-                  </Label>
-                  <Label fx:id="totalPriceLabel11" alignment="CENTER_RIGHT" layoutX="566.0" layoutY="574.0" prefHeight="56.0" prefWidth="200.0" styleClass="text-header" text="90 kr" />
-               </children>
-            </AnchorPane>
-         </children>
-         <stylesheets>
-            <URL value="@product-info.css" />
-            <URL value="@imat_app.css" />
-         </stylesheets>
-      </AnchorPane>
    </children>
 </StackPane>
