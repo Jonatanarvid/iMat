@@ -70,14 +70,13 @@
     -fx-wrap-text: true;
     -fx-font-size: 24px;
 }
-
 .combo-box {
     -fx-font-size: 20px; /* Increased text size */
     -fx-background-color: #CFF2D4;
-    -fx-background-radius: 15px;
-    -fx-border-radius: 15px;
+    -fx-background-radius: 25px;
+    -fx-border-radius: 25px;
     -fx-padding: 10px;
-    -fx-border-color: transparent; /* No border around the ComboBox */
+    -fx-border-color: lightgrey; /* No border around the ComboBox */
 }
 
 .combo-box .arrow-button {
@@ -91,20 +90,12 @@
     -fx-padding: 10px;
 }
 
-.combo-box:hover {
-    -fx-background-color: #90ee90;
-}
-
-.combo-box:focused {
-    -fx-background-color: #90ee90;
-    -fx-border-color: transparent; /* No border on focus */
-}
-
-/* Remove border around text */
+/* Make the background of the text transparent */
 .combo-box .text-field {
     -fx-background-color: transparent;
     -fx-border-color: transparent;
     -fx-padding: 0;
+    -fx-text-fill: black; /* Ensure text color is black */
 }
 
 .combo-box .list-cell {
@@ -118,6 +109,9 @@
     -fx-background-color: #CFF2D4;
     -fx-text-fill: black;
 }
+
+
+
 
 .combo-box-popup {
     -fx-background-color: white;
@@ -148,7 +142,6 @@
     -fx-font-size: 30px;
     -fx-font-family: "Robot Light";
 }
-
 /* General scrollbar styling */
 .scroll-bar:vertical {
     -fx-background-color: transparent;
@@ -171,13 +164,13 @@
 .scroll-bar:horizontal .thumb {
     -fx-background-color: #30b043; /* Light green color for thumb */
     -fx-background-radius: 10px;
-    -fx-padding: 0 10px 0 0; /* Add padding to the right side */
+    -fx-padding: 0 12px 0 0; /* Add padding to the right side */
 }
 
 .scroll-bar:vertical .thumb:hover,
 .scroll-bar:horizontal .thumb:hover {
     -fx-background-color: #268c35; /* Darker green on hover */
-    -fx-padding: 0 10px 0 0; /* Add padding to the right side */
+    -fx-padding: 0 12px 0 0; /* Add padding to the right side */
 }
 
 /* Increment/Decrement button styling */
@@ -190,3 +183,4 @@
 .scroll-bar .decrement-arrow {
     -fx-background-color: transparent;
 }
+

@@ -34,7 +34,7 @@ public class ShoppingCartView extends VBox implements ShoppingCartListener {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
-        shoppingViewScrollPaneVBox.setSpacing(-20);
+        shoppingViewScrollPaneVBox.setSpacing(-30);
 
 
         this.backendController = backendController;

@@ -34,3 +34,31 @@
 }
 
 
+/* product-info.css */
+
+/* product-info.css */
+
+/* product-info.css */
+
+.red-exit-button {
+    -fx-fill: #ee6d6d; /* Default color */
+    -fx-stroke: white;
+    -fx-stroke-width: 4px;
+}
+
+.red-exit-button:hover {
+    -fx-fill: #ff4d4d; /* Hover color */
+}
+
+.red-exit-button:pressed {
+    -fx-fill: #cc0000; /* Click color */
+}
+
+.productCard {
+    -fx-fill: #ffffff; /* Original white background color */
+    transition: background-color 0.3s ease; /* Smooth transition effect */
+}
+
+.productCard:hover {
+    -fx-fill:  #f0f0f0; /* Slightly darker white background color on hover */
+}

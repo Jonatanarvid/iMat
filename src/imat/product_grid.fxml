@@ -22,8 +22,8 @@
                         </FXCollections>
                     </items>
                 </ComboBox>
-                <Label layoutX="18.0" layoutY="24.0" prefHeight="56.0" prefWidth="566.0" styleClass="text-header" text="Visar resultat för: Allt" />
-            <StackPane prefHeight="150.0" prefWidth="200.0" />
+                <Label fx:id="resultInfoLabel" layoutX="18.0" layoutY="24.0" prefHeight="56.0" prefWidth="566.0" styleClass="text-header" text="Visar resultat för: Allt" />
+            <StackPane fx:id="resultInfo" prefHeight="150.0" prefWidth="200.0" />
             </children>
         </AnchorPane>
         <ScrollPane hbarPolicy="NEVER" minWidth="-Infinity" prefHeight="981.0" prefWidth="1016.0" styleClass="light-grey">

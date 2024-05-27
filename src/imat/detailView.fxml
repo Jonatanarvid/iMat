@@ -16,9 +16,9 @@
       <AnchorPane fx:id="productCardAnchorPane" layoutX="169.0" layoutY="116.0" prefHeight="757.0" prefWidth="610.0" stylesheets="@product-info.css">
       </AnchorPane>
       <Rectangle arcHeight="25.0" arcWidth="25.0" fill="WHITE" height="377.0" layoutX="795.0" layoutY="193.0" stroke="#d9d9d9" strokeType="INSIDE" strokeWidth="4.0" width="713.0" />
-      <AnchorPane layoutX="793.0" layoutY="609.0" prefHeight="209.0" prefWidth="351.0">
+      <AnchorPane layoutX="793.0" layoutY="609.0" prefHeight="209.0" prefWidth="351.0" styleClass="anchor-button">
          <children>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="WHITE" height="203.0" onMouseClicked="#favouriteButtonSelected" stroke="#d9d9d9" strokeType="INSIDE" strokeWidth="4.0" styleClass="white-button" width="347.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="WHITE" height="203.0" onMouseClicked="#favouriteButtonSelected" stroke="#d9d9d9" strokeType="INSIDE" strokeWidth="4.0" width="347.0" />
             <Label layoutX="24.0" layoutY="26.0" onMouseClicked="#favouriteButtonSelected" prefHeight="65.0" prefWidth="163.0" text="Lägg till i " wrapText="true">
                <font>
                   <Font size="35.0" />
@@ -36,9 +36,9 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="1150.0" layoutY="608.0" prefHeight="209.0" prefWidth="351.0">
+      <AnchorPane layoutX="1150.0" layoutY="608.0" prefHeight="209.0" prefWidth="351.0" styleClass="anchor-button">
          <children>
-            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="WHITE" height="203.0" stroke="#d9d9d9" strokeType="INSIDE" strokeWidth="4.0" styleClass="white-button" width="347.0" />
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="WHITE" height="203.0" stroke="#d9d9d9" strokeType="INSIDE" strokeWidth="4.0" width="347.0" />
             <Label layoutX="24.0" layoutY="26.0" prefHeight="65.0" prefWidth="163.0" text="Lägg till i " wrapText="true">
                <font>
                   <Font size="35.0" />
@@ -56,12 +56,13 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#ee6d6d" height="102.0" layoutX="1533.0" layoutY="83.0" onMouseClicked="#closeDetailView" stroke="WHITE" strokeType="INSIDE" strokeWidth="4.0" width="102.0" />
-      <ImageView fitHeight="84.0" fitWidth="79.0" layoutX="1545.0" layoutY="94.0" onMouseClicked="#closeDetailView" pickOnBounds="true" preserveRatio="true">
+      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#ee6d6d" height="102.0" layoutX="1533.0" layoutY="83.0" onMouseClicked="#closeDetailView" stroke="WHITE" strokeType="INSIDE" strokeWidth="4.0" width="102.0" styleClass="red-exit-button" />
+      <ImageView fitHeight="84.0" fitWidth="79.0" layoutX="1545.0" layoutY="94.0" onMouseClicked="#closeDetailView" pickOnBounds="true" preserveRatio="true" mouseTransparent="true">
          <image>
             <Image url="@resources/imat/egnabilder/x.png" />
          </image>
       </ImageView>
+
       <VBox layoutX="816.0" layoutY="217.0" prefHeight="330.0" prefWidth="667.0">
          <children>
             <Label fx:id="brand" prefHeight="21.0" prefWidth="670.0" text="Märke: Fanta" wrapText="true">

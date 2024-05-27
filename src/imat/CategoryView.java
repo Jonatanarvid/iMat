@@ -132,6 +132,7 @@ public class CategoryView extends VBox implements SearchObservable {
     public void selectNode(TreeItem<String> node) {
         if (node != null) {
             categoryTreeView.getSelectionModel().select(node);
+            mainViewController.setResultInfoLabel("Visar kategori: " + getCurrentValue().getValue());
             if (!node.getChildren().isEmpty()) {
                 node.setExpanded(true);
             }
@@ -176,6 +177,7 @@ public class CategoryView extends VBox implements SearchObservable {
         if (event.getClickCount() == 1) {
             TreeItem<String> selectedItem = categoryTreeView.getSelectionModel().getSelectedItem();
             if (selectedItem != null) {
+                mainViewController.setResultInfoLabel("Visar kategori: " + selectedItem.getValue());
                 mainViewController.clearSearchText();
                 String selectedKey = displayTextMap.entrySet().stream()
                         .filter(entry -> entry.getValue().equals(selectedItem.getValue()))

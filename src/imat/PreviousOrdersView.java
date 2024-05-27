@@ -38,7 +38,7 @@ public class PreviousOrdersView extends AnchorPane {
 
     public void previousOrderClicked(PreviousOrder order) {
         this.orderDetailScrollPaneVBox.getChildren().clear();
-        this.orderDetailScrollPaneVBox.setSpacing(20);
+        this.orderDetailScrollPaneVBox.setSpacing(10);
         double price = 0;
         for (ShoppingItem item : order.order.getItems()) {
             IMatDataHandler dataHandler = IMatDataHandler.getInstance();

@@ -4,6 +4,7 @@ import com.sun.tools.javac.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
@@ -14,7 +15,7 @@ import java.util.List;
 public class ShopView extends VBox implements ProductCardObserver {
     @FXML private GridPane productGrid;
     private BackendController controller;
-
+    @FXML private Label resultInfoLabel;
     private MainViewController mainViewController;
     @FXML
     private ComboBox<String> sortComboBox;
@@ -50,6 +51,9 @@ public class ShopView extends VBox implements ProductCardObserver {
         };
         // Set default value for ComboBox
         sortComboBox.setValue(sortOrderString);
+    }
+    public void setResultInfoLabel(String string) {
+        resultInfoLabel.setText(string);
     }
 
     public void setBackendController(BackendController controller) {
