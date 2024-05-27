@@ -43,6 +43,12 @@
     -fx-font-weight: normal;
 }
 
+.text-ligma {
+    -fx-font-size: 30px;
+    -fx-font-family: "Roboto Light";
+    -fx-font-weight: normal;
+}
+
 text-search {
     -fx-font-size: 45px;
     -fx-font-family: "Robot Light";
